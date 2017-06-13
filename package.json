@@ -1,0 +1,26 @@
+{
+  "name": "trek-it-out",
+  "version": "1.0.0",
+  "description": "Project 3 for Rutgers Coding Bootcamp",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.10.5",
+    "morgan": "^1.8.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EArbeitman/Trek-It-Out.git"
+  },
+  "author": "Evan Arbeitman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EArbeitman/Trek-It-Out/issues"
+  },
+  "homepage": "https://github.com/EArbeitman/Trek-It-Out#readme"
+}
