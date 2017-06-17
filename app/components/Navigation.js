@@ -18,8 +18,8 @@ var Main = React.createClass({
           <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
             <i className="fa fa-bars"></i>
           </button>
-          <a className="navbar-brand" href="index.html">
-            <h1>Trek It Out!</h1>
+          <a className="navbar-brand" >
+            Trek It Out!
           </a>
         </div>
         <div className ="collapse navbar-collapse navbar-right navbar-main-collapse">
