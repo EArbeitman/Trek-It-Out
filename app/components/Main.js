@@ -3,7 +3,7 @@
 var React = require("react");
 // Including the Link component from React Router to navigate within our application without full page reloads
 var Link = require("react-router").Link;
-
+var Navigation = require("./Navigation");
 // Create the Main component
 var Main = React.createClass({
 
@@ -12,7 +12,9 @@ var Main = React.createClass({
 
     return (
     <div>
-   
+            <Navigation
+            
+          />
 
    
     <div className="row">
