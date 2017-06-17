@@ -9,7 +9,10 @@
     "mongoose": "^4.10.5",
     "morgan": "^1.8.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "css-loader": "^0.28.4",
+    "style-loader": "^0.18.2"
+  },
   "scripts": {
     "test": "node test.js"
   },
