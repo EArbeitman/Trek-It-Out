@@ -10,6 +10,10 @@
   "author": "Ahmed Haque",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.10.7",
+    "morgan": "^1.8.2",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "react-router": "^2.4.1"
