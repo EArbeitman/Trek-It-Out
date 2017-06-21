@@ -12,9 +12,7 @@ var Main = React.createClass({
 
     return (
     <div>
-            <Navigation
-            
-          />
+        <Navigation/>
 
    
     <div className="row">
