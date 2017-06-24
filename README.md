@@ -2,4 +2,8 @@
 # Trek-It-Out
 Project 3 for Rutgers Coding Bootcamp
 
-Test
+New Technologies:
+Travis CI
+Enzyme JS - React Component Testing Framework
+Bcrypt JS - Password Hashing
+...
