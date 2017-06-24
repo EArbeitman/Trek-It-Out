@@ -7,7 +7,7 @@
     "test": "node test/test.js",
     "dev": "webpack -w",
     "build": "webpack -p",
-    "heroku-postbuild": "webpack -p"
+    "heroku-postbuild": "npm install -g webpack; webpack -p"
   },
   "author": "Ahmed Haque",
   "license": "ISC",
