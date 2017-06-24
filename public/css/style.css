@@ -7,7 +7,7 @@ body {
     height: 100%;
     font-family: 'Lato',sans-serif;
 	font-weight: 300;
-    color: #666;
+    color: white;
     background-color: #fff;
 }
 
@@ -40,7 +40,7 @@ p.lead {
 }
 
 a {
-    color: #28c3ab;
+    color: white;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
@@ -73,7 +73,7 @@ a:focus {
 }
 
 .navbar-brand h1{
-	color: #fff;
+	color: white;
   font-size: 20px;
   line-height: 40px;
 }
@@ -313,7 +313,7 @@ hr {
 }
 
 #intro.intro {
-	padding:20% 0 0 0;
+	padding:5% 0 0 0;
 }
 
 .intro .slogan {

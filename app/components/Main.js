@@ -15,20 +15,18 @@ var Main = React.createClass({
     <div>
         <Navigation/>
 
-   </div>
-   <section id="intro" class="intro">
-    <div bsClass="row">
-      <div bsClass="container">
+  </div>
+    <section id="intro">
+      <div className="row">
+        <div className="container">
 
-        {/* Added this.props.children to dump all of the child components into place */}
-        {this.props.children}
+          {/* Added this.props.children to dump all of the child components into place */}
+          {this.props.children}
 
+        </div>
       </div>
-                   <Link to="/tours"><button className="btn btn-default">Info</button></Link>
-    </div>
     </section>
-  
-   </div> 
+  </div> 
 
    
     );
