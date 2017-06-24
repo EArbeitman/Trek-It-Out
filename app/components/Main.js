@@ -22,6 +22,7 @@ var Main = React.createClass({
         {this.props.children}
 
       </div>
+                   <Link to="/tours"><button className="btn btn-default">Info</button></Link>
     </div>
   
    </div> 
