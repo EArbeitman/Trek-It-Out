@@ -5,7 +5,9 @@
   "main": "public/index.html",
   "scripts": {
     "test": "node test/test.js",
-    "build": "webpack -w"
+    "dev": "webpack -w",
+    "build": "webpack -p",
+    "heroku-postbuild": "webpack -p"
   },
   "author": "Ahmed Haque",
   "license": "ISC",
