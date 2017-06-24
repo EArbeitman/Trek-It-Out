@@ -25,6 +25,7 @@ var Search = require("../components/Search");
 var Treks = require("../components/Treks");
 var SavedTreks = require("../components/SavedTreks");
 var Profile = require("../components/Profile");
+var Tours = require("../components/Tours");
 
 
 // Export the Routes
@@ -37,6 +38,7 @@ module.exports = (
       {/* If user selects Info or Chat show the appropriate component */}
       <Route path="login" component={Login} />
       <Route path="search" component={Search} />
+      <Route path="tours" component={Tours} />
       <Route path="treks" component={Treks} />
       <Route path="savedtreks" component={SavedTreks} />
       <Route path="profile" component={Profile} />
