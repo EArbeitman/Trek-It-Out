@@ -4,7 +4,7 @@
   "description": "",
   "main": "public/index.html",
   "scripts": {
-    "test": "node test.js",
+    "test": "node test/test.js",
     "build": "webpack -w"
   },
   "author": "Ahmed Haque",
