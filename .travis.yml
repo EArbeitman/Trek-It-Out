@@ -3,3 +3,4 @@ node_js: 7
 script: 
 - npm install -g webpack
 - webpack -p
+skip_clanup: true
