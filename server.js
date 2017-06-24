@@ -41,7 +41,7 @@ app.use(express.static("./public"));
  // }
 
  //local db
-mongoose.connect('mongodb: //localhost/trekItOutDev');
+mongoose.connect('mongodb://localhost/trekItOutDev');
 
 
 // Show any Mongoose errors
