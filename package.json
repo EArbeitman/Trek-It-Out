@@ -4,23 +4,41 @@
   "description": "",
   "main": "public/index.html",
   "scripts": {
-    "test": "node test.js",
-    "build": "webpack -w"
+    "test": "node test/test.js",
+    "dev": "webpack -w",
+    "build": "webpack -p",
+    "heroku-postbuild": "webpack -p"
   },
   "author": "Ahmed Haque",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
     "bootstrap": "^4.0.0-alpha.6",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "*",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
-    "mongoose": "^4.10.7",
+    "express-handlebars": "^3.0.0",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.3",
+    "express-validator": "^3.2.0",
+    "mongodb": "^2.2.29",
+    "mongoose": "^4.10.8",
     "morgan": "^1.8.2",
     "react": "^0.14.9",
     "react-bootstrap": "^0.31.0",
     "react-dom": "^0.14.9",
     "react-router": "^2.4.1",
     "react-transition-group": "^1.2.0",
-    "reactstrap": "^4.6.2"
+    "reactstrap": "^4.6.2",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0",
+    "passport-local": "^1.0.0",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-router": "^2.4.1"
+
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
