@@ -9,25 +9,29 @@ var Tourmaps = React.createClass({
         zoom:5,
 
         },
-      stavanger: new google.maps.LatLng(58.983991,5.734863),
-      amsterdam: new google.maps.LatLng(52.395715,4.888916),
-      london: new google.maps.LatLng(51.508742,-0.120850),
+      tourPath: [
+       new google.maps.LatLng(58.983991,5.734863),
+       new google.maps.LatLng(52.395715,4.888916),
+       new google.maps.LatLng(51.508742,-0.120850)
+        ]
    
       };
     }, 
 
  componentDidMount: function() {
- 
-   this.setState ({
-        map: new google.maps.Map(document.getElementById("googleMap"), this.state.mapProp)
-      })
-   this.setState({
-          flightPath: new google.maps.Polyline({
-            path: [this.State.london, this.State.amsterdam,],
+   var map = new google.maps.Map(document.getElementById("googleMap"), this.state.mapProp)
+   var newPath = new google.maps.Polyline({
+            path: this.state.tourPath,
             strokeColor: "#0000FF",
             strokeOpacity: 0.8,
             strokeWeight: 2
         })
+   newPath.setMap(map)
+   this.setState ({
+        map: map
+      })
+   this.setState({
+          flightPath: newPath
       })
  
 
