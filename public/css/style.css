@@ -306,6 +306,9 @@ hr {
 	position:relative;
 	
 	background: url(../img/bg1.jpg) center;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
