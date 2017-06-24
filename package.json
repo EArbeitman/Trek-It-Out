@@ -11,12 +11,16 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "bootstrap": "^4.0.0-alpha.6",
     "express": "^4.15.3",
     "mongoose": "^4.10.7",
     "morgan": "^1.8.2",
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3",
-    "react-router": "^2.4.1"
+    "react": "^0.14.9",
+    "react-bootstrap": "^0.31.0",
+    "react-dom": "^0.14.9",
+    "react-router": "^2.4.1",
+    "react-transition-group": "^1.2.0",
+    "reactstrap": "^4.6.2"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
