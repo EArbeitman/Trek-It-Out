@@ -26,6 +26,7 @@ var Navigation = React.createClass({
           <ul className="nav navbar-nav">
             <li className="active"><Link to="/search">Search</Link></li>
             <li><Link to="/login">Login</Link></li>
+            <li><Link to="/register">Register</Link</li>
             <li className="dropdown">
               <a href="#" className="dropdown-toggle" data-toggle="dropdown">Profile <b className="caret"></b></a>
                 <ul className="dropdown-menu">
