@@ -1,11 +1,19 @@
+var express 			= require('express');
+var bodyParser 			= require("body-parser");
+var logger 				= require("morgan");
+var mongoose 			= require('mongoose');
+var path 				= require('path');
+var cookieParser 		= require('cookie-parser');
+var exphbs 				= require('express-handlebars');
+var expressValidator 	= require('express-validator');
+var flash 				= require('connect-flash');
+var session 			= require('express-session');
+var passport 			= require('passport');
+var LocalStrategy 		= require('passport-local').Strategy;
+var mongo 				= require('mongodb');
 
-var express = require('express');
-var bodyParser = require("body-parser");
-var logger = require("morgan");
-var mongoose = require('mongoose');
 
-var User = require('./models/User.js')
-mongoose.Promise = Promise;
+//-------------- Express Configuration ----------------//
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -20,12 +28,20 @@ app.use(express.static("./public"));
 
 //--------------------------- MONGOOSE ---------------------------
 
-// if (process.env.MONGODB_URI) {
-//   mongoose.connect(process.env.MONGODB_URI)
-// } else {
-  mongoose.connect('mongodb://heroku_kqxcxvjb:v013pehj9jabhajnh039cjelc4@ds011734.mlab.com:11734/heroku_kqxcxvjb');
-// }
+ // if (process.env.MONGODB_URI) {
+ //   mongoose.connect(process.env.MONGODB_URI)
+ // } else {
+ //  mongoose.connect('mongodb://heroku_kqxcxvjb:v013pehj9jabhajnh039cjelc4@ds011734.mlab.com:11734/heroku_kqxcxvjb');
+ // }
 
+//local db
+mongoose.connect('mongodb://localhost/trekItOutDev');
+
+// Import User model
+//var User = require('./models/User.js')
+
+// Init mongodb
+mongoose.Promise = Promise;
 var db = mongoose.connection;
 
 // Show any Mongoose errors
@@ -40,14 +56,11 @@ db.once("open", function() {
 
 //--------------------------- ROUTES ---------------------------
 
+var routes = require('./routes/index');
+var users  = require('./routes/users');
 
-
-//route for react HTML page
-app.get('/', function(req,res) {
-    res.sendFile(__dirname + "/public/index.html");
-});
-
-
+app.use('/', routes);
+//app.use('/users', users);
 
 //app listening...
 app.listen(PORT,function() {
