@@ -12,16 +12,9 @@ var passport 			= require('passport');
 var LocalStrategy 		= require('passport-local').Strategy;
 var mongo 				= require('mongodb');
 
-// Import User model
-var User = require('./models/User.js')
-
-// Init mongodb
-mongoose.Promise = Promise;
-var db = mongoose.connection;
-
 
 //-------------- Express Configuration ----------------//
-// Tell express to use routes configuration
+
 var app = express();
 var PORT = process.env.PORT || 3000;
 
@@ -41,9 +34,15 @@ app.use(express.static("./public"));
  //  mongoose.connect('mongodb://heroku_kqxcxvjb:v013pehj9jabhajnh039cjelc4@ds011734.mlab.com:11734/heroku_kqxcxvjb');
  // }
 
- //local db
+//local db
 mongoose.connect('mongodb://localhost/trekItOutDev');
 
+// Import User model
+//var User = require('./models/User.js')
+
+// Init mongodb
+mongoose.Promise = Promise;
+var db = mongoose.connection;
 
 // Show any Mongoose errors
 db.on("error", function(error) {
@@ -57,17 +56,11 @@ db.once("open", function() {
 
 //--------------------------- ROUTES ---------------------------
 
-//route for react HTML page
-// app.get('/', function(req,res) {
-//     res.sendFile(__dirname + "/public/index.html");
-// });
-
 var routes = require('./routes/index');
 var users  = require('./routes/users');
 
 app.use('/', routes);
 //app.use('/users', users);
-
 
 //app listening...
 app.listen(PORT,function() {
