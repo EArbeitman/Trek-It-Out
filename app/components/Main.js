@@ -16,6 +16,7 @@ var Main = React.createClass({
         <Navigation/>
 
    </div>
+   <section id="intro" class="intro">
     <div bsClass="row">
       <div bsClass="container">
 
@@ -25,6 +26,7 @@ var Main = React.createClass({
       </div>
                    <Link to="/tours"><button className="btn btn-default">Info</button></Link>
     </div>
+    </section>
   
    </div> 
 

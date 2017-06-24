@@ -12,23 +12,23 @@ var Navigation = React.createClass({
 
     return (
     
-    <nav bsClass="navbar navbar-custom navbar-fixed-top" role="navigation">
-      <div bsClass="container">
-        <div bsClass="navbar-header page-scroll">
-          <button type="button" bsClass="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-            <i bsClass="fa fa-bars"></i>
+    <nav className="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <div className="container">
+        <div className="navbar-header page-scroll">
+          <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+            <i className="fa fa-bars"></i>
           </button>
-          <a bsClass="navbar-brand" >
+          <a className="navbar-brand" >
             Trek It Out!
           </a>
         </div>
-        <div bsClass ="collapse navbar-collapse navbar-right navbar-main-collapse">
-          <ul bsClass="nav navbar-nav">
-            <li bsClass="active"><Link to="/search">Search</Link></li>
+        <div className ="collapse navbar-collapse navbar-right navbar-main-collapse">
+          <ul className="nav navbar-nav">
+            <li className="active"><Link to="/search">Search</Link></li>
             <li><Link to="/login">Login</Link></li>
-            <li bsClass="dropdown">
-              <a href="#" bsClass="dropdown-toggle" data-toggle="dropdown">Profile <b bsClass="caret"></b></a>
-                <ul bsClass="dropdown-menu">
+            <li className="dropdown">
+              <a href="#" className="dropdown-toggle" data-toggle="dropdown">Profile <b className="caret"></b></a>
+                <ul className="dropdown-menu">
                   <li><Link to="/treks">My Treks</Link></li>
                   <li><Link to="/savedtreks">Saved Treks</Link></li>
                   <li><Link to="/profile">My Profile</Link></li>
