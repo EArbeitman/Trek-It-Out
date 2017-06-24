@@ -14,13 +14,14 @@ var mongo 				= require('mongodb');
 
 // Import User model
 var User = require('./models/User.js')
-mongoose.Promise = Promise;
 
+// Init mongodb
+mongoose.Promise = Promise;
 var db = mongoose.connection;
 
-//var routes = require('./routes/index');
-var users  = require('./routes/users');
 
+//-------------- Express Configuration ----------------//
+// Tell express to use routes configuration
 var app = express();
 var PORT = process.env.PORT || 3000;
 
@@ -57,10 +58,15 @@ db.once("open", function() {
 //--------------------------- ROUTES ---------------------------
 
 //route for react HTML page
-app.get('/', function(req,res) {
-    res.sendFile(__dirname + "/public/index.html");
-});
+// app.get('/', function(req,res) {
+//     res.sendFile(__dirname + "/public/index.html");
+// });
 
+var routes = require('./routes/index');
+var users  = require('./routes/users');
+
+app.use('/', routes);
+//app.use('/users', users);
 
 
 //app listening...
