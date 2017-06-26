@@ -9,7 +9,7 @@ var Tours = React.createClass({
   render: function() {
 
     return (
-
+    <section id="intro">
       <div className="container">
 
         <div className="row">
@@ -35,6 +35,7 @@ var Tours = React.createClass({
         </div>
 
       </div>
+      </section>
 
     );
   }

@@ -1,7 +1,7 @@
 // Include React
 var React = require("react");
 
-var Profile = React.createClass({
+var Login = React.createClass({
 
   // Here we render the component
   render: function() {
@@ -32,4 +32,4 @@ var Profile = React.createClass({
 });
 
 // Export the component back for use in other files
-module.exports = Profile;
+module.exports = Login;

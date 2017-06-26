@@ -51,9 +51,9 @@ var Profile = React.createClass({
                     </div>
                   </div>
                   <div className="form-group">
-                    <label className="col-lg-3 control-label">About:</label>
+                    <label className="col-lg-3 control-label">Bio:</label>
                     <div className="col-lg-8">
-                      <input className="form-control" type="text" value=""></input>
+                      <textarea className="form-control" rows="5" type="text" value=""></textarea>
                     </div>
                   </div>
                   <div className="form-group">
