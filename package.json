@@ -9,7 +9,7 @@
     "build": "webpack -p",
     "heroku-postbuild": "npm install -g webpack; webpack -p"
   },
-  "author": "Ahmed Haque",
+  "author": "Juan Ossa",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",
@@ -32,6 +32,9 @@
     "react": "^0.14.3",
     "react-bootstrap": "^0.31.0",
     "react-dom": "^0.14.3",
+    "react": "^0.14.9",
+    "react-bootstrap": "^0.31.0",
+    "react-dom": "^0.14.9",
     "react-router": "^2.4.1",
     "react-transition-group": "^1.2.0",
     "reactstrap": "^4.6.2"
