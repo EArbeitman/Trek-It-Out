@@ -44,7 +44,7 @@ var Register = React.createClass({
                     */}
                     <input
                       type="text"
-                      value={this.state.firstname}
+                      //value={this.state.firstname}
                       className="form-control"
                       id="firstname"
                       required
@@ -55,7 +55,7 @@ var Register = React.createClass({
                     </h4>
                     <input
                       type="text"
-                      value={this.state.lastname}
+                      //value={this.state.lastname}
                       className="form-control"
                       id="lastname"
                       required
@@ -66,9 +66,9 @@ var Register = React.createClass({
                     </h4>
                     <input
                       type="text"
-                      value={this.state.email}
+                      //value={this.state.email}
                       className="form-control"
-                      id="text"
+                      id="email"
                       required
                     />
                     <h4>
@@ -76,11 +76,14 @@ var Register = React.createClass({
                     </h4>
                     <input
                       type="text"
-                      value={this.state.password}
+                      //value={this.state.password}
                       className="form-control"
-                      id="text"
+                      id="password"
                       required
                     />
+                  </div>
+                  <div>
+                  <input type="submit" value="Create Profile" />
                   </div>
                 </form>
             </div>
@@ -89,6 +92,7 @@ var Register = React.createClass({
 
         </div>
       </div>
+    </div>
     );
   }
 });
