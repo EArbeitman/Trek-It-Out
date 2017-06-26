@@ -9,7 +9,7 @@
     "build": "webpack -p",
     "heroku-postbuild": "webpack -p"
   },
-  "author": "Ahmed Haque",
+  "author": "Juan Ossa",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

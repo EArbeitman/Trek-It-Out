@@ -7,7 +7,7 @@ var Search = React.createClass({
   render: function() {
 
     return (
-      {/*<section id="intro">*/}
+      <section id="intro">
       
         <div className="slogan">
           <h2>WELCOME TO <span className="text_color">Trek It Out</span> </h2>
@@ -37,7 +37,7 @@ var Search = React.createClass({
             <i className="fa fa-angle-double-down animated"></i>
           </a>
         </div>
-        /*</section>*/
+        </section>
     );
   }
 });
