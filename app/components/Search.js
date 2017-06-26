@@ -9,7 +9,7 @@ var Search = React.createClass({
     return (
       <section id="intro">
       
-        <div bsClass="slogan">
+        <div className="slogan">
           <h2>WELCOME TO <span className="text_color">Trek It Out</span> </h2>
           <h4> Choose a City and a Category and we will connect you with a local Tour</h4>
             <div className="form-group">
@@ -31,8 +31,9 @@ var Search = React.createClass({
               </select>
             </div>
             </div>
-        <div bsclass="page-scroll">
-          <a href="#service" className="btn btn-circle">
+
+        <div className="page-scroll">
+          <a href="#/tours" className="btn btn-circle">
             <i className="fa fa-angle-double-down animated"></i>
           </a>
         </div>
