@@ -25,7 +25,14 @@ var Tours = React.createClass({
         ]
    
       };
-  }, 
+  },
+
+     handleChange: function(tourname) {
+     console.log("button clicked ")
+     //console.log(JSON.stringify(tourname));
+     debugger
+     this.setState({ action: tourname });
+  },
                
   // Here we render the component
   render: function() {
@@ -53,6 +60,7 @@ var Tours = React.createClass({
               {name: 'trek2', description: 'This is trek2', places: ['place1', 'place2', 'place3']}
               ]}
               action = {this.state.action}
+              handleChange = {this.handleChange}
                />
               }
            

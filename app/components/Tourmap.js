@@ -36,7 +36,7 @@ var Tourmaps = React.createClass({
           <div className="col-lg-12">
             <h2>Map for tours</h2>
             <div id="googleMap" 
-                 style={{height: "400px",
+                 style={{height: "500px",
                           width: "100%"}} 
                 >
             </div>

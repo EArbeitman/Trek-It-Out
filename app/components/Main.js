@@ -25,6 +25,7 @@ var Main = React.createClass({
 
         </div>
       </div>
+
     </section>
   </div> 
 

@@ -1,19 +1,36 @@
 // Include React
 var React = require("react");
 
-
 var Displaytour = React.createClass({
+
+ 
+
+  getInitialState: function(){
+
+      return{
+
+        handleChange: this.props.handleChange,
+        test: this.props.data.name
+
+      }
+  },
+
+  handleChange(){
+
+      console.log('this is from this component: ' + this.state.test);
+      console.log('this is from the previous component: ');
+      console.log(this.state.handleChange);
+  },
 
   // Here we render the component
   render: function() {
  
     return (
 
-  <div className="panel panel-default">
-              <div className="panel-heading btn text-center">
-                <h2 className="panel-title">{this.props.data.name}</h2>
-              </div>
-              <div className="panel-body">
+  <div>
+                 <input type="button" onClick={this.handleChange} value={this.props.data.name} />
+                <h2>Heading {this.props.data.name} </h2>
+            
                 {this.props.data.description}
                 
                
@@ -29,7 +46,7 @@ var Displaytour = React.createClass({
                    </ul>
    
 
-              </div>
+              
   </div>
   
     );
