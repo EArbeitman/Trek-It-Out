@@ -16,7 +16,7 @@ var Main = React.createClass({
         <Navigation/>
 
    </div>
-   <section id="intro" class="intro">
+   <section id="intro" className="intro">
     <div bsClass="row">
       <div bsClass="container">
 
