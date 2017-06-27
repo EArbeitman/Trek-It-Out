@@ -20,6 +20,7 @@ var Main = React.createClass({
       <div className="row">
         <div className="container">
 
+
           {/* Added this.props.children to dump all of the child components into place */}
           {this.props.children}
 
@@ -27,9 +28,8 @@ var Main = React.createClass({
       </div>
 
     </section>
-  </div> 
+   </div> 
 
-   
     );
   }
 });
