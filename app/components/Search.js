@@ -31,6 +31,7 @@ var Search = React.createClass({
               </select>
             </div>
             </div>
+
         <div className="page-scroll">
           <a href="#/tours" className="btn btn-circle">
             <i className="fa fa-angle-double-down animated"></i>
