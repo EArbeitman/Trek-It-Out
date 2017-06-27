@@ -26,6 +26,7 @@ var Treks = require("../components/Treks");
 var SavedTreks = require("../components/SavedTreks");
 var Profile = require("../components/Profile");
 var Tours = require("../components/Tours");
+var Register = require("../components/Register");
 
 
 // Export the Routes
@@ -42,6 +43,7 @@ module.exports = (
       <Route path="treks" component={Treks} />
       <Route path="savedtreks" component={SavedTreks} />
       <Route path="profile" component={Profile} />
+      <Route path="register" component={Register} />
 
 
       {/* If user selects any other path... we get the Info Route */}

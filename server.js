@@ -12,8 +12,7 @@ var passport 			= require('passport');
 var LocalStrategy 		= require('passport-local').Strategy;
 var mongo 				= require('mongodb');
 
-
-//-------------- Express Configuration ----------------//
+//-------------- Express Configuration ------------------------//
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -23,10 +22,36 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(cookieParser());
 
 app.use(express.static("./public"));
 
-//--------------------------- MONGOOSE ---------------------------
+// Express Session
+app.use(session({
+	secret: 'secret', //what is this?
+	saveUninitialized: true,
+	resave: true
+}));
+
+// Express validator
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
+
+//--------------------------- MONGOOSE -----------------------------//
 
  // if (process.env.MONGODB_URI) {
  //   mongoose.connect(process.env.MONGODB_URI)
@@ -54,15 +79,38 @@ db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
 
-//--------------------------- ROUTES ---------------------------
+//------------ Passport, Flash, and Global Vars -------------------//
+
+// Passport Init
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Connect Flash for messaging
+app.use(flash());
+
+// Declare global vars to be used by app 
+app.use(function (req, res, next){
+	res.locals.success_msg = req.flash('success_msg');
+	res.locals.error_msg = req.flash('error_msg');
+	res.locals.error = req.flash('error');
+	res.locals.user = req.user || null;
+	next();
+});
+
+//--------------------------- ROUTES ------------------------------//
 
 var routes = require('./routes/index');
 var users  = require('./routes/users');
 
 app.use('/', routes);
-//app.use('/users', users);
+app.use('/users', users);
 
 //app listening...
 app.listen(PORT,function() {
     console.log('App is listening at ' + PORT);
 })
+
+
+
+
+

@@ -12,23 +12,23 @@ var Main = React.createClass({
 
     return (
     <div>
-    <div>
-        <Navigation/>
+      <div>
+          <Navigation/>
 
-  </div>
-    <section id="intro" className="intro">
-      <div className="row">
-        <div className="container">
-
-          {/* Added this.props.children to dump all of the child components into place */}
-          {this.props.children}
-
-        </div>
       </div>
-    </section>
-  </div> 
 
-   
+      <section id="intro" className="intro">
+        <div className="row">
+          <div className="container">
+
+            {/* Added this.props.children to dump all of the child components into place */}
+            {this.props.children}
+
+          </div>
+        </div>
+      </section>
+    </div> 
+
     );
   }
 });
