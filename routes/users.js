@@ -5,51 +5,61 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 // Get homepage
-router.get('/register', function(req, res){
-	res.render('register');
-});
+// router.get('/register', function(req, res){
+// 	res.render('register');
+// });
 
 //Register user
 router.post('/register', function(req, res){
-	var name = req.body.name;
+
+	console.log('request ' + req);
+	var firstname = req.body.firstname;
 	var email = req.body.email;
-	var username = req.body.username;
+	var lastname = req.body.lastname;
 	var password = req.body.password;
-	var password2 = req.body.password2;
+	//var password2 = req.body.password2;
+
+	console.log('firstname ' + firstname);
+	console.log('lastname ' + lastname);
+	console.log('email ' + email);
+	console.log('password ' + password);
+
 
 	// Valdiation
-	req.checkBody('name', 'Name is required').notEmpty();
-	req.checkBody('email', 'Email is required').notEmpty();
-	req.checkBody('email', 'Email is not valid format').isEmail();
-	req.checkBody('username', 'Username is required').notEmpty();
-	req.checkBody('password', 'Password is required').notEmpty();
-	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+	// req.checkBody('name', 'Name is required').notEmpty();
+	// req.checkBody('email', 'Email is required').notEmpty();
+	// req.checkBody('email', 'Email is not valid format').isEmail();
+	// req.checkBody('username', 'Username is required').notEmpty();
+	// req.checkBody('password', 'Password is required').notEmpty();
+	// req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
-	var errors = req.validationErrors();
+	// var errors = req.validationErrors();
 
-	if(errors){
-		console.log('Failed to validate');
-		res.render('register', {
-			errors: errors
-		});
-	}
-	else{
-		var newUser = new User({
-			name: name,
-			email: email,
-			username: username,
-			password: password
-		});
+	// if(errors){
+	// 	console.log('Failed to validate');
+	// 	res.render('register', {
+	// 		errors: errors
+	// 	});
+	// }
+	// else{
+	// 	var newUser = new User({
+	// 		name: name,
+	// 		email: email,
+	// 		username: username,
+	// 		password: password
+	// 	});
 
-		User.createUser(newUser, function(err, user){
-			if(err) throw err;
-			console.log(user);
-		});
+	// 	User.createUser(newUser, function(err, user){
+	// 		if(err) throw err;
+	// 		console.log(user);
+	// 	});
 
-		//Set success message
-		req.flash('success_msg', 'You are registered and can now login');
-		res.redirect('/users/login');
-	}
+	// 	//Set success message
+	// 	req.flash('success_msg', 'You are registered and can now login');
+	// 	res.redirect('/users/login');
+	// }
+
+
 });
 
 // Get username if it matches and validate password

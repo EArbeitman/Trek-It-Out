@@ -40,6 +40,14 @@ var Register = React.createClass({
 
   handleSubmit(event) {
     //console.log('the total data is :' + this.state.firstname, this.state.lastname, this.state.email, this.state.password);
+    helpers.registerUser({ 
+      firstname: this.state.firstname, 
+      lastname: this.state.lastname,
+      email: this.state.email,
+      password: this.state.password 
+    }).then(function(response){
+        console.log("RESULTS", response);
+    })
     event.preventDefault();
   },
 
