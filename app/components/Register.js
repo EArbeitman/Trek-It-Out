@@ -13,7 +13,38 @@ var Register = React.createClass({
       lastname: "", 
       email: "" ,
       password: ""
+
     };
+  },
+
+  handleChange(event) {
+   
+    console.log('current value is: ' + event.target.value);
+
+    if(event.target.id === 'firstname'){
+       this.setState({firstname: event.target.value});
+    }
+
+    if(event.target.id === 'lastname'){
+       this.setState({lastname: event.target.value});
+    }
+
+    if(event.target.id === 'email'){
+       this.setState({email: event.target.value});
+    }
+
+    if(event.target.id === 'password'){
+       this.setState({password: event.target.value});
+    }
+  },
+
+  handleSubmit(event) {
+    //console.log('the total data is :' + this.state.firstname, this.state.lastname, this.state.email, this.state.password);
+    event.preventDefault();
+  },
+
+  testConsole(){
+    console.log('hello world');
   },
 
   // Here we render the component
@@ -32,7 +63,7 @@ var Register = React.createClass({
                 <h3 className="panel-title">Registration Page</h3>
               </div>
                <div className="panel-body text-center">
-                <form>
+                <form onSubmit={this.handleSubmit}>
                   <div className="form-group">
                     <h4 className="">
                       <strong>First Name</strong>
@@ -44,7 +75,8 @@ var Register = React.createClass({
                     */}
                     <input
                       type="text"
-                      //value={this.state.firstname}
+                      value={this.state.firstname}
+                      onChange={this.handleChange}
                       className="form-control"
                       id="firstname"
                       required
@@ -55,7 +87,8 @@ var Register = React.createClass({
                     </h4>
                     <input
                       type="text"
-                      //value={this.state.lastname}
+                      value={this.state.lastname}
+                      onChange={this.handleChange}
                       className="form-control"
                       id="lastname"
                       required
@@ -66,7 +99,8 @@ var Register = React.createClass({
                     </h4>
                     <input
                       type="text"
-                      //value={this.state.email}
+                      value={this.state.email}
+                      onChange={this.handleChange}
                       className="form-control"
                       id="email"
                       required
@@ -75,8 +109,9 @@ var Register = React.createClass({
                       <strong>Password</strong>
                     </h4>
                     <input
-                      type="text"
-                      //value={this.state.password}
+                      type="password"
+                      value={this.state.password}
+                      onChange={this.handleChange}
                       className="form-control"
                       id="password"
                       required
