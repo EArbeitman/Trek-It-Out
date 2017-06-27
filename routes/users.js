@@ -49,10 +49,17 @@ router.post('/register', function(req, res){
 	// 		password: password
 	// 	});
 
-	// 	User.createUser(newUser, function(err, user){
-	// 		if(err) throw err;
-	// 		console.log(user);
-	// 	});
+		var newUser = new User({
+			firstname: firstname,
+			lastname: lastname,
+			email: email,
+			password: password
+		});
+
+		User.createUser(newUser, function(err, user){
+			if(err) throw err;
+			console.log(user);
+		});
 
 	// 	//Set success message
 	// 	req.flash('success_msg', 'You are registered and can now login');
