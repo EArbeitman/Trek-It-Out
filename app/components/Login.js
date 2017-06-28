@@ -1,5 +1,6 @@
 // Include React
 var React = require("react");
+var Profile = require("./Profile");
 
 // Requiring our helper for making API calls
 var helpers = require("../utils/helpers");
@@ -9,7 +10,7 @@ var Login = React.createClass({
     //Init component
   getInitialState: function() {
     return { 
-      email: "" ,
+      username: "" ,
       password: ""
 
     };
@@ -19,8 +20,8 @@ var Login = React.createClass({
    
     console.log('current value is: ' + event.target.value);
 
-    if(event.target.id === 'email'){
-       this.setState({email: event.target.value});
+    if(event.target.id === 'username'){
+       this.setState({username: event.target.value});
     }
 
     if(event.target.id === 'password'){
@@ -31,10 +32,18 @@ var Login = React.createClass({
   handleLogin(event) {
     //console.log('the total data is :' + this.state.firstname, this.state.lastname, this.state.email, this.state.password);
     helpers.loginUser({ 
-      email: this.state.email,
+      username: this.state.username,
       password: this.state.password 
     }).then(function(response){
         console.log("RESULTS", response.data.authenticated);
+        var isAuthenticated = response.data.authenticated;
+
+        if(isAuthenticated){
+          return <Profile/>
+        } else {
+          // show error and stay on apge
+          alert("failed to authenticate");
+        }
     })
     event.preventDefault();
   },
@@ -57,14 +66,14 @@ var Login = React.createClass({
               <div className="panel-body text-center">
                 <form onSubmit = {this.handleLogin}>
                     <h4>
-                      <strong>Email address</strong>
+                      <strong>Username</strong>
                     </h4>
                     <input
                       type="text"
-                      value={this.state.email}
+                      value={this.state.username}
                       onChange={this.handleChange}
                       className="form-control"
-                      id="email"
+                      id="username"
                       required
                     />
                     <h4>
