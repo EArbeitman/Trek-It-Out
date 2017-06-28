@@ -13,15 +13,19 @@ var UserSchema = new Schema ({
     lastname: {
         type: String,
         required: true
-        //unique: true,
-    //     validate: [
-    //       // Function takes in the value as an argument
-    //     function(input) {
-    //     // If this returns true, proceed. If not, return an error message
-    //     return (input.length >= 6 && input.length <= 10);
-    //      },
-    //     "User id should contain at least 6 characters long and should not contain more than 10 characters."
-    // ]
+    },
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+        validate: [
+          // Function takes in the value as an argument
+        function(input) {
+        // If this returns true, proceed. If not, return an error message
+        return (input.length >= 6 && input.length <= 10);
+         },
+        "User id should contain at least 6 characters long and should not contain more than 10 characters."
+    ]
       },
     date: {
         type: Date,
@@ -62,7 +66,7 @@ module.exports = User;
 
 module.exports.createUser = function(newUser, callback){
     //Use bcrypt to hash password
-    console.log(newUser);
+    console.log("User js " +newUser);
     bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(newUser.password, salt, function(err, hash) {
             newUser.password = hash;
@@ -72,7 +76,7 @@ module.exports.createUser = function(newUser, callback){
 }
 
 module.exports.getUserByUsername = function(username, callback){
-    var query = {email: username};
+    var query = {username: username};
     User.findOne(query, callback);
 }
 
