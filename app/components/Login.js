@@ -1,4 +1,5 @@
 // Include React
+import {browserHistory} from 'react-router';
 var React = require("react");
 var Profile = require("./Profile");
 
@@ -39,7 +40,7 @@ var Login = React.createClass({
         var isAuthenticated = response.data.authenticated;
 
         if(isAuthenticated){
-          return <Profile/>
+          window.location.href = "/#/profile?_k=4dalvs";
         } else {
           // show error and stay on apge
           alert("failed to authenticate");
