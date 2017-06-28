@@ -9,6 +9,7 @@ var LocalStrategy = require('passport-local').Strategy;
 // 	res.render('register');
 // });
 
+
 //Register user
 router.post('/register', function(req, res){
 
@@ -71,8 +72,12 @@ router.post('/register', function(req, res){
 
 // Get username if it matches and validate password
 
-passport.use(new LocalStrategy(
+passport.use(new LocalStrategy({
+   	usernameField: 'email',
+    passwordField: 'password'
+	},
   function(username, password, done) {
+  	console.log("authentication gets called");
   	User.getUserByUsername(username, function(err, user){
   		if(err) throw err;
   		if(!user){
@@ -98,6 +103,23 @@ passport.deserializeUser(function(id, done) {
   User.getUserById(id, function(err, user) {
     done(err, user);
   });
+});
+
+// router.post('/login', 
+// 	passport.authenticate('local'), 
+// 	function(req, res){
+// 		//console.log("req" + req);
+// 		//console.log("res" + res);
+// 		console.log("post to login good");
+// });
+
+router.post('/login',
+  passport.authenticate('local'),
+  function(req, res) {
+  	res.json({authenticated: true});
+  	//return true;
+  	//res.redirect('/');
+  	//return "Hello world";
 });
 
 module.exports = router;

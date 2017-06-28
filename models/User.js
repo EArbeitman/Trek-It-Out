@@ -70,3 +70,19 @@ module.exports.createUser = function(newUser, callback){
         });
     });
 }
+
+module.exports.getUserByUsername = function(username, callback){
+    var query = {email: username};
+    User.findOne(query, callback);
+}
+
+module.exports.getUserById = function(id, callback){
+    User.findById(id, callback); //mongoose method
+}
+
+module.exports.comparePassword = function(candidatePassword, hash, callback){
+    bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
+        if(err) throw err;
+        callback(null, isMatch);
+    });
+}
