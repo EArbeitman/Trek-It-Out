@@ -4,9 +4,13 @@ var bcrypt = require('bcryptjs');
 //Create Schema class
 var Schema = mongoose.Schema;
 
-//Create article schema
+//Create User schema
 var UserSchema = new Schema ({
-    name: {
+    firstname: {
+        type: String,
+        required: true
+    },
+    lastname: {
         type: String,
         required: true
     },
@@ -29,13 +33,17 @@ var UserSchema = new Schema ({
     },
     picture : {
         type: String,
-        required: true
+        //required: true
     },
     email: {
-    type: String,
-    lowercase: true, // always convert email to lower case
-    match: [/.+\@.+\..+/, "Please enter a valid e-mail address"]
-  },
+        type: String,
+        lowercase: true, // always convert email to lower case
+        match: [/.+\@.+\..+/, "Please enter a valid e-mail address"]
+    },
+    password: {
+        type: String,
+        required: true
+    },
     tours_saved: [{
         type: Schema.Types.ObjectId,
         ref: "tour" 
@@ -58,10 +66,27 @@ module.exports = User;
 
 module.exports.createUser = function(newUser, callback){
     //Use bcrypt to hash password
+    console.log("User js " +newUser);
     bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(newUser.password, salt, function(err, hash) {
             newUser.password = hash;
             newUser.save(callback);
         });
+    });
+}
+
+module.exports.getUserByUsername = function(username, callback){
+    var query = {username: username};
+    User.findOne(query, callback);
+}
+
+module.exports.getUserById = function(id, callback){
+    User.findById(id, callback); //mongoose method
+}
+
+module.exports.comparePassword = function(candidatePassword, hash, callback){
+    bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
+        if(err) throw err;
+        callback(null, isMatch);
     });
 }
