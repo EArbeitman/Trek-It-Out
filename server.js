@@ -56,11 +56,14 @@ app.use(expressValidator({
  // if (process.env.MONGODB_URI) {
  //   mongoose.connect(process.env.MONGODB_URI)
  // } else {
- //  mongoose.connect('mongodb://heroku_kqxcxvjb:v013pehj9jabhajnh039cjelc4@ds011734.mlab.com:11734/heroku_kqxcxvjb');
+ //  mongoose.connect('mongodb:ds129422.mlab.com:29422/heroku_b2rft21n');
  // }
 
 //local db
 mongoose.connect('mongodb://localhost/trekItOutDev');
+
+//mlab uri - mongodb://trekitout:trekitout@ds129422.mlab.com:29422/heroku_b2rft21n
+//mongoose.connect('mongodb://trekitout:trekitout@ds129422.mlab.com:29422/heroku_b2rft21n');
 
 // Import User model
 //var User = require('./models/User.js')

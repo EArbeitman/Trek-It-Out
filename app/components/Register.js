@@ -12,6 +12,7 @@ var Register = React.createClass({
       firstname: "", 
       lastname: "", 
       email: "" ,
+      username: "",
       password: ""
 
     };
@@ -19,8 +20,6 @@ var Register = React.createClass({
 
   handleChange(event) {
    
-    console.log('current value is: ' + event.target.value);
-
     if(event.target.id === 'firstname'){
        this.setState({firstname: event.target.value});
     }
@@ -36,15 +35,24 @@ var Register = React.createClass({
     if(event.target.id === 'password'){
        this.setState({password: event.target.value});
     }
+
+    if(event.target.id === 'username'){
+       this.setState({username: event.target.value});
+    }
   },
 
   handleSubmit(event) {
     //console.log('the total data is :' + this.state.firstname, this.state.lastname, this.state.email, this.state.password);
+    helpers.registerUser({ 
+      firstname: this.state.firstname, 
+      lastname: this.state.lastname,
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password 
+    }).then(function(response){
+        console.log("RESULTS", response);
+    })
     event.preventDefault();
-  },
-
-  testConsole(){
-    console.log('hello world');
   },
 
   // Here we render the component
@@ -68,11 +76,6 @@ var Register = React.createClass({
                     <h4 className="">
                       <strong>First Name</strong>
                     </h4>
-                    {/*
-                      Note how each of the form elements has an id that matches the state.
-                      This is not necessary but it is convenient.
-                      Also note how each has an onChange event associated with our handleChange event.
-                    */}
                     <input
                       type="text"
                       value={this.state.firstname}
@@ -103,6 +106,17 @@ var Register = React.createClass({
                       onChange={this.handleChange}
                       className="form-control"
                       id="email"
+                      required
+                    />
+                    <h4>
+                      <strong>Username</strong>
+                    </h4>
+                    <input
+                      type="text"
+                      value={this.state.username}
+                      onChange={this.handleChange}
+                      className="form-control"
+                      id="username"
                       required
                     />
                     <h4>
