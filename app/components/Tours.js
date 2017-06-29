@@ -2,40 +2,120 @@
 var React = require("react");
 var Tourlist = require("./Tourlist");
 var Tourmap = require("./Tourmap");
+var Tempcomp = require("./Tempcomp");
 
 var Tours = React.createClass({
   getInitialState: function() {
     return {
-      action: 'alltours',
+      toursDisplayed: 'alltours',
+      displayIndex: -1,
+      prevDispInd: -1,
       trekList: [
-        {name: 'trek1', description: 'This is trek1', places: ['place1', 'place2', 'place3', 'place4']},
-        {name: 'trek2', description: 'This is trek2', places: ['place1', 'place2', 'place3']}
-        ],
-
-      mapProp: {
-        center:new google.maps.LatLng(52.395715,4.888916),
-        zoom:5,
-
+        {tour_title: 'trek1', tour_description: 'This is trek1', 
+          tour_category: ['biking', 'bar hopping'], 
+          tours_stops: [{location_name:'place1', longitude:5.734863, latitude:58.983991}, 
+                        {location_name:'place2', longitude:4.888916, latitude:52.395715},
+                        {location_name:'place3', longitude:-0.120850, latitude:51.508742},
+                        {location_name:'place4', longitude:-0.120850, latitude:49.508742}
+                        ]
         },
-      tourPath: [
-       new google.maps.LatLng(58.983991,5.734863),
-       new google.maps.LatLng(52.395715,4.888916),
-       new google.maps.LatLng(51.508742,-0.120850),
-       new google.maps.LatLng(49.508742,-0.120850)
+           
+        {tour_title: 'trek2', tour_description: 'This is trek2', 
+          tour_category: ['treking', 'amusement park'], 
+          tours_stops: [{location_name:'place1', longitude:5.734863, latitude:57.983991}, 
+                        {location_name:'place2', longitude:4.888916, latitude:51.395715},
+                        {location_name:'place3', longitude:-0.120850, latitude:50.508742}
+                        ]
+        }
+        ],
+        displayedTour: [
+        {tour_title: 'trek1', tour_description: 'This is trek1', 
+          tour_category: ['biking', 'bar hopping'], 
+          tours_stops: [{location_name:'place1', longitude:5.734863, latitude:58.983991}, 
+                        {location_name:'place2', longitude:4.888916, latitude:52.395715},
+                        {location_name:'place3', longitude:-0.120850, latitude:51.508742},
+                        {location_name:'place4', longitude:-0.120850, latitude:49.508742}
+                        ]
+        },
+           
+        {tour_title: 'trek2', tour_description: 'This is trek2', 
+          tour_category: ['treking', 'amusement park'], 
+          tours_stops: [{location_name:'place1', longitude:5.734863, latitude:57.983991}, 
+                        {location_name:'place2', longitude:4.888916, latitude:51.395715},
+                        {location_name:'place3', longitude:-0.120850, latitude:50.508742}
+                        ]
+        }
         ]
    
       };
   },
 
-     handleChange: function(tourname) {
-     console.log("button clicked ")
+componentDidMount: function() {
+  if (this.state.displayIndex === -1) {
+    this.setState ({
+          displayedTour: this.state.trekList
+      }) 
+  } 
+    console.log("component mounted")
+    console.log( "mount " + JSON.stringify(this.state.displayedTour))
+     
+    },
+   handleChange: function(tourName, tourIndex) {
+        console.log('handleChange line 45 tour.js')
      //console.log(JSON.stringify(tourname));
-     debugger
-     this.setState({ action: tourname });
+       
+        this.setState({displayIndex: parseInt(tourIndex)});
+  
+        
+    
+     },
+
+
+    // Whenever our component updates, the code inside componentDidUpdate is run
+    componentDidUpdate: function(prevState) {
+
+    console.log("COMPONENT UPDATED");
+    if (this.state.prevDispInd != this.state.displayIndex){
+      if (this.state.displayIndex >= 0){
+          this.setState ({
+                  displayedTour: this.state.trekList[this.state.displayIndex]
+              })
+         this.setState ({
+                prevDispInd: this.state.displayIndex
+            })
+    } else
+    {
+          this.setState ({
+                displayedTour: this.state.trekList[this.state.displayIndex]
+            })
+          this.setState ({
+                prevDispInd: this.state.displayIndex
+            })
+    }
+  }
+console.log(this.state.displayIndex + "index componentdidupdate line 66")
+    console.log(this.state.displayedTour)
+    // We will check if the click count has changed...
+    
   },
+
+  NavTour: function(){
+
+  const individTour = this.state.displayIndex;
+  if (!individTour) {
+    return <Tempcomp />
+  }
+    return <Tourlist name='treks' data={this.state.displayedTour}
+              action = {this.state.action}
+              handleChange = {this.handleChange}
+               />
+}, 
                
   // Here we render the component
   render: function() {
+
+    console.log(this.state.displayedTour + " render")
+    var NavTour = this.NavTour;
 
     return (
     <section id="intro">
@@ -55,20 +135,14 @@ var Tours = React.createClass({
         {/*Begin Tour list and map display for Tours Display Page*/}
         <div className="row">
           <div className="col-lg-5">
-            <Tourlist name='treks' data={[
-              {name: 'trek1', description: 'This is trek1', places: ['place1', 'place2', 'place3']},
-              {name: 'trek2', description: 'This is trek2', places: ['place1', 'place2', 'place3']}
-              ]}
-              action = {this.state.action}
-              handleChange = {this.handleChange}
-               />
-              }
+          
+             <NavTour />
            
           </div>
           <div className="col-lg-7">
             <Tourmap 
-                     mapProp = {this.state.mapProp}
-                     tourPath = {this.state.tourPath}/>
+              trekList = {this.state.displayedTour}
+            />
           </div>
         </div>
 

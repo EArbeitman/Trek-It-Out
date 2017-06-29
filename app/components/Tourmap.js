@@ -2,15 +2,32 @@
 var React = require("react");
 
 var Tourmaps = React.createClass({
- 
+ getInitialState: function() {
+    return {
+      mapProp: {
+        center:new google.maps.LatLng(52.395715,4.888916),
+        zoom:5,
 
+        },
+
+      tourPath: [
+       new google.maps.LatLng(58.983991,5.734863),
+       new google.maps.LatLng(52.395715,4.888916),
+       new google.maps.LatLng(51.508742,-0.120850),
+       new google.maps.LatLng(49.508742,-0.120850)
+        ],
+
+   
+      };
+  },
+     
  componentDidMount: function() {
-  var map = new google.maps.Map(document.getElementById("googleMap"), this.props.mapProp)
+  var map = new google.maps.Map(document.getElementById("googleMap"), this.state.mapProp)
   this.setState ({
         map: map
   })
   var newPath = new google.maps.Polyline({
-            path: this.props.tourPath,
+            path: this.state.tourPath,
             strokeColor: "#0000FF",
             strokeOpacity: 0.8,
             strokeWeight: 2
