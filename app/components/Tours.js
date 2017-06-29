@@ -3,19 +3,6 @@ var React = require("react");
 var Tourlist = require("./Tourlist");
 var Tourmap = require("./Tourmap");
 var Tempcomp = require("./Tempcomp");
-// function NavTour(data){
-// console.log(data.check + "*****************function line 7")
-//   //const individTour = this.state.displayIndex;
-//   if (data.check) {
-//     console.log('this is the Tours object: ');
-//     console.log(Tours.state);
-//     return <Tempcomp />
-//   }
-//     return <Tourlist name='treks' data={Tours.displayedTour}
-//               action = {Tours.action}
-//               handleChange = {Tours.handleChange}
-//                />
-// }
 
 var Tours = React.createClass({
   getInitialState: function() {

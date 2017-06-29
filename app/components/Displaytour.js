@@ -3,14 +3,12 @@ var React = require("react");
 
 var Displaytour = React.createClass({
 
- 
-
   getInitialState: function(){
 
       return{
 
-        handleChange: this.props.handleChange,
-        test: this.props.data.tour_title
+        handleChange: this.props.handleChange
+       
 
       }
   },
