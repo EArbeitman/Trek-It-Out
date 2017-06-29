@@ -5,57 +5,78 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 // Get homepage
-router.get('/register', function(req, res){
-	res.render('register');
-});
+// router.get('/register', function(req, res){
+// 	res.render('register');
+// });
+
 
 //Register user
 router.post('/register', function(req, res){
-	var name = req.body.name;
+
+	console.log('request ' + req);
+	var firstname = req.body.firstname;
 	var email = req.body.email;
-	var username = req.body.username;
+	var lastname = req.body.lastname;
 	var password = req.body.password;
-	var password2 = req.body.password2;
+	var username = req.body.username;
+	//var password2 = req.body.password2;
 
 	// Valdiation
-	req.checkBody('name', 'Name is required').notEmpty();
+	req.checkBody('firstname', 'Name is required').notEmpty();
+	req.checkBody('lastname', 'Name is required').notEmpty();
 	req.checkBody('email', 'Email is required').notEmpty();
 	req.checkBody('email', 'Email is not valid format').isEmail();
 	req.checkBody('username', 'Username is required').notEmpty();
 	req.checkBody('password', 'Password is required').notEmpty();
-	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+	//req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
 	var errors = req.validationErrors();
 
 	if(errors){
 		console.log('Failed to validate');
-		res.render('register', {
-			errors: errors
-		});
+		// res.render('register', {
+		// 	errors: errors
+		// });
 	}
 	else{
 		var newUser = new User({
-			name: name,
+			firstname: firstname,
+			lastname: lastname,
 			email: email,
 			username: username,
 			password: password
 		});
 
+		// var newUser = new User({
+		// 	firstname: firstname,
+		// 	lastname: lastname,
+		// 	email: email,
+		// 	password: password
+		// });
+
 		User.createUser(newUser, function(err, user){
 			if(err) throw err;
-			console.log(user);
+			console.log(" user route " + user);
 		});
 
 		//Set success message
-		req.flash('success_msg', 'You are registered and can now login');
-		res.redirect('/users/login');
+		//req.flash('success_msg', 'You are registered and can now login');
+		//res.redirect('/users/login');
 	}
+
+
 });
 
 // Get username if it matches and validate password
 
 passport.use(new LocalStrategy(
+	//add this object if not using username and password to authenticate
+	// {
+ //   	usernameField: 'email',
+ //    passwordField: 'password'
+	// },
   function(username, password, done) {
+  	console.log("authentication gets called");
   	User.getUserByUsername(username, function(err, user){
   		if(err) throw err;
   		if(!user){
@@ -81,6 +102,15 @@ passport.deserializeUser(function(id, done) {
   User.getUserById(id, function(err, user) {
     done(err, user);
   });
+});
+
+router.post('/login',
+  passport.authenticate('local'),
+  function(req, res) {
+  	res.json({authenticated: true});
+  	//return true;
+  	//res.redirect('/');
+  	//return "Hello world";
 });
 
 module.exports = router;
