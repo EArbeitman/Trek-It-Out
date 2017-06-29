@@ -40,7 +40,7 @@ var Login = React.createClass({
         var isAuthenticated = response.data.authenticated;
 
         if(isAuthenticated){
-          window.location.href = "/#/profile?_k=4dalvs";
+          window.location.href = "/#/profile";
         } else {
           // show error and stay on apge
           alert("failed to authenticate");

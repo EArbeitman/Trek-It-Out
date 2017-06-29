@@ -4,7 +4,7 @@ var bcrypt = require('bcryptjs');
 //Create Schema class
 var Schema = mongoose.Schema;
 
-//Create article schema
+//Create User schema
 var UserSchema = new Schema ({
     firstname: {
         type: String,
