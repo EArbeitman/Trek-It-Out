@@ -3,6 +3,8 @@ var React = require("react");
 
 var Displaytour = React.createClass({
 
+ 
+
   getInitialState: function(){
 
       return{
@@ -14,13 +16,9 @@ var Displaytour = React.createClass({
   },
 
   handleChange(){
-
-      console.log('this is from this component: ' + this.state.test);
-      
-      console.log(this.state.handleChange);
-      var ind = parseInt(this.props.item);
-      console.log(ind + 1);
-      this.state.handleChange(this.props.data.tour_title, ind)
+      console.log("handle change within displaytour");
+      let ind = parseInt(this.props.item);
+      this.props.handleChange(ind)
   },
 
   // Here we render the component

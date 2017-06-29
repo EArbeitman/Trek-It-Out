@@ -12,13 +12,12 @@ var Tourlist = React.createClass({
       <div className="container" style = {{ backgroundColor: '#a3ccff',
                                             height: "500px",
                                             width: "100%"}}>
-        <h2>Tour Lisings in tourlist </h2>
+        <h2>Tour Listings in tourlist </h2>
           <ul>{this.props.data.map(function(tour, i){
 
               return (
               
                 <Displaytour key={i} data={tour}
-                      action={this.props.action}
                       handleChange = {this.props.handleChange}
                       item = {i}
               />

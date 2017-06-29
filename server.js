@@ -60,10 +60,10 @@ app.use(expressValidator({
  // }
 
 //local db
-mongoose.connect('mongodb://localhost/trekItOutDev');
+// mongoose.connect('mongodb://localhost/trekItOutDev');
 
 //mlab uri - mongodb://trekitout:trekitout@ds129422.mlab.com:29422/heroku_b2rft21n
-//mongoose.connect('mongodb://trekitout:trekitout@ds129422.mlab.com:29422/heroku_b2rft21n');
+mongoose.connect('mongodb://trekitout:trekitout@ds129422.mlab.com:29422/heroku_b2rft21n');
 
 // Import User model
 //var User = require('./models/User.js')
