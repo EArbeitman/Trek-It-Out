@@ -1,7 +1,6 @@
 // Include React
 import {browserHistory} from 'react-router';
 var React = require("react");
-var Profile = require("./Profile");
 
 // Requiring our helper for making API calls
 var helpers = require("../utils/helpers");
@@ -19,8 +18,6 @@ var Login = React.createClass({
 
   handleChange(event) {
    
-    console.log('current value is: ' + event.target.value);
-
     if(event.target.id === 'username'){
        this.setState({username: event.target.value});
     }

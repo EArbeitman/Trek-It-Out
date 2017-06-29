@@ -20,8 +20,6 @@ var Register = React.createClass({
 
   handleChange(event) {
    
-    console.log('current value is: ' + event.target.value);
-
     if(event.target.id === 'firstname'){
        this.setState({firstname: event.target.value});
     }
