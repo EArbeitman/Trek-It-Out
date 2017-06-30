@@ -69,6 +69,10 @@ var Tours = React.createClass({
   },
   // The following occurs once the component mounts
   componentDidMount: function() {
+ 
+        console.log(this.props.route) 
+  
+         console.log(this.props.params.category)
        // helpers.getClicks()
        //  .then(function(response) {
        //    // Using a ternary operator we can set newClicks to the number of clicks in our response object
@@ -103,6 +107,7 @@ var Tours = React.createClass({
     // Whenever our component updates, the code inside componentDidUpdate is run
     // Our main component that effects change is displayIndex 
   componentDidUpdate: function() {
+   
     console.log("COMPONENTDID UPDATE prev:" + this.state.prevDispInd + "current " +  this.state.displayIndex);
     // check to see of displayIndex is different from its previous value
     // This prevents needless rendering and a continous loop
@@ -132,11 +137,9 @@ var Tours = React.createClass({
   // displayIndex tracks what is being displayed - 
   // all search results (value is -1) or just a single tour 
   // (value is index of tour in original results array)
-    let allTours = this.state.displayIndex;
-    console.log("in DisplayResetTour index = " + allTours)
    
-   // if all search results are not being displayed (value is not -1)
-    if (allTours >= 0) {
+   // if all search results are not being displayed (displayIndex is not -1)
+    if (this.state.displayIndex >= 0) {
          console.log("search results tour button is being called");
        // render Alltourbtn which is a button that will displays all results
       return <AllTourbtn  handleChange = {this.handleChange}/> 
