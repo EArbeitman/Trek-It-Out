@@ -30,15 +30,22 @@ setTourPath: function() {
 },
 
 
+   
+      };
+  },
+     
  componentDidMount: function() {
+<<<<<<< HEAD
  
+
   var map = new google.maps.Map(document.getElementById("googleMap"), this.state.mapProp)
   this.setState ({
         map: map
   })
+
   this.setTourPath();
-  var 
-  newPath = new google.maps.Polyline({
+ 
+  var newPath = new google.maps.Polyline({
             path: this.state.tourPath,
             strokeColor: "#0000FF",
             strokeOpacity: 0.8,

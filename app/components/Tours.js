@@ -11,7 +11,6 @@ var AllTourbtn = require("./AllTourbtn");
 // Link is required to route back to new search page
 var Link = require("react-router").Link;
 
-
 var Tours = React.createClass({
 // set initialState of variables being monitored for change
   getInitialState: function() {
@@ -25,6 +24,7 @@ var Tours = React.createClass({
       // without this comparison, a continuous loop would occur
       prevDispInd: -1,
       // trekList will hold the search results data
+
       trekList: [
         {tour_title: 'trek1', tour_description: 'This is trek1', 
           tour_category: ['biking', 'bar hopping'], 
@@ -44,8 +44,10 @@ var Tours = React.createClass({
         }
         ],
 
+
         // displayedTour will house the individ tour data to be displayed
         // when a tour is selected by the user
+
         displayedTour: [
         {tour_title: 'trek1', tour_description: 'This is trek1', 
           tour_category: ['biking', 'bar hopping'], 
@@ -89,6 +91,7 @@ var Tours = React.createClass({
       console.log( "mount " + JSON.stringify(this.state.displayedTour))
        
       },
+
 
 
    // This function is used by children/grandchild of Tours
@@ -167,14 +170,15 @@ var Tours = React.createClass({
                 handleChange = {this.handleChange}
                  />
   }, 
+
                
   // Render the component
   render: function() {
 
+
     // map functions to components for conditional rendering of components
     var NavTour = this.NavTour;
     var DispResultBtn = this.DispResultBtn;
-
 
     return (
     <section id="intro">
@@ -194,6 +198,7 @@ var Tours = React.createClass({
         {/*Begin Tour list and map display for Tours Display Page*/}
         <div className="row">
           <div className="col-lg-5">
+
           {/*Buttons: DispResultBtn maps to function above to 
                           allow user to display search results & only
                           renders when user is looking at individual tours

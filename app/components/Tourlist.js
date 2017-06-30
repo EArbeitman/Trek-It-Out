@@ -12,6 +12,7 @@ var Tourlist = React.createClass({
       <div className="container" style = {{ backgroundColor: '#a3ccff',
                                             height: "500px",
                                             width: "100%"}}>
+
         <h2>Tour Listings in tourlist </h2>
           <ul>{this.props.data.map(function(tour, i){
 

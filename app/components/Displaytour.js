@@ -3,8 +3,6 @@ var React = require("react");
 
 var Displaytour = React.createClass({
 
- 
-
   getInitialState: function(){
 
       return{
