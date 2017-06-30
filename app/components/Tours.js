@@ -1,15 +1,30 @@
 // Include React
 var React = require("react");
+// Tourlist is the component that renders listing of tours from search results
 var Tourlist = require("./Tourlist");
+// Tourmap is the component that renders google maps
 var Tourmap = require("./Tourmap");
+// placeholder for component to display individual tours
 var Tempcomp = require("./Tempcomp");
+// AllTourbtn is a button to toggle to displaying all search results
+var AllTourbtn = require("./AllTourbtn");
+// Link is required to route back to new search page
+var Link = require("react-router").Link;
 
 var Tours = React.createClass({
+// set initialState of variables being monitored for change
   getInitialState: function() {
     return {
-      toursDisplayed: 'alltours',
+      // displayIndex reflects what tours are being displayed on component
+      // if its -1 - search results are being displayed
+      // any other number represents the index of the tour in search results array
       displayIndex: -1,
+      // prevDispInd holds the previous iteration of diplayIndex
+      // it is used for comparison to determine if pages should be rendered.
+      // without this comparison, a continuous loop would occur
       prevDispInd: -1,
+      // trekList will hold the search results data
+
       trekList: [
         {tour_title: 'trek1', tour_description: 'This is trek1', 
           tour_category: ['biking', 'bar hopping'], 
@@ -28,6 +43,11 @@ var Tours = React.createClass({
                         ]
         }
         ],
+
+
+        // displayedTour will house the individ tour data to be displayed
+        // when a tour is selected by the user
+
         displayedTour: [
         {tour_title: 'trek1', tour_description: 'This is trek1', 
           tour_category: ['biking', 'bar hopping'], 
@@ -49,73 +69,116 @@ var Tours = React.createClass({
    
       };
   },
-
-componentDidMount: function() {
-  if (this.state.displayIndex === -1) {
-    this.setState ({
-          displayedTour: this.state.trekList
-      }) 
-  } 
-    console.log("component mounted")
-    console.log( "mount " + JSON.stringify(this.state.displayedTour))
-     
-    },
-   handleChange: function(tourName, tourIndex) {
-        console.log('handleChange line 45 tour.js')
-     //console.log(JSON.stringify(tourname));
-       
-        this.setState({displayIndex: parseInt(tourIndex)});
+  // The following occurs once the component mounts
+  componentDidMount: function() {
+ 
+        console.log(this.props.route) 
   
-        
-    
-     },
+         console.log(this.props.params.category)
+       // helpers.getClicks()
+       //  .then(function(response) {
+       //    // Using a ternary operator we can set newClicks to the number of clicks in our response object
+       //    // If we don't have any clicks in our database, set newClicks to 0
+       //    var newClicks = response.data.length ? response.data[0].clicks : 0;
+       //    this.setState({
+       //      clicks: newClicks
+       //    });
+       //    console.log("RESULTS", response);
+       //    console.log("Saved clicks", newClicks);
+       //  }.bind(this));
+   
+      console.log("component mounted")
+      console.log( "mount " + JSON.stringify(this.state.displayedTour))
+       
+      },
+
+
+
+   // This function is used by children/grandchild of Tours
+   // It handles the toggle of components between individual 
+   // tours and all search results
+  handleChange: function(tourIndex) {
+    console.log('handleChange tour.js ' + tourIndex)
+     //console.log(JSON.stringify(tourname));
+    // displayIndex is -1 to display all search results
+    // any other number represents the index in the search 
+    // results array trekList
+    this.setState({displayIndex: parseInt(tourIndex)});
+  },
 
 
     // Whenever our component updates, the code inside componentDidUpdate is run
-    componentDidUpdate: function(prevState) {
-
-    console.log("COMPONENT UPDATED");
-    if (this.state.prevDispInd != this.state.displayIndex){
+    // Our main component that effects change is displayIndex 
+  componentDidUpdate: function() {
+   
+    console.log("COMPONENTDID UPDATE prev:" + this.state.prevDispInd + "current " +  this.state.displayIndex);
+    // check to see of displayIndex is different from its previous value
+    // This prevents needless rendering and a continous loop
+    if (this.state.prevDispInd !== this.state.displayIndex){
+      // Pages need to be rendered\
+      // Check if search results should be displayed or an individual tour 
       if (this.state.displayIndex >= 0){
+        // if index is not -1, set var for individ tour display
           this.setState ({
-                  displayedTour: this.state.trekList[this.state.displayIndex]
+            // displayedTour will hold the tour selected by user
+            displayedTour: this.state.trekList[this.state.displayIndex]
               })
-         this.setState ({
-                prevDispInd: this.state.displayIndex
-            })
-    } else
-    {
-          this.setState ({
-                displayedTour: this.state.trekList[this.state.displayIndex]
-            })
-          this.setState ({
-                prevDispInd: this.state.displayIndex
-            })
+ 
+      } 
+      this.setState ({
+         // update prevDispInd to current displayIndex  
+            prevDispInd: this.state.displayIndex
+        })
     }
-  }
-console.log(this.state.displayIndex + "index componentdidupdate line 66")
-    console.log(this.state.displayedTour)
-    // We will check if the click count has changed...
+  
     
   },
 
-  NavTour: function(){
+  // DispResultBtn show a button which allows user to toggle back
+  // to showing all the tour search results
+  DispResultBtn: function(){
+  // displayIndex tracks what is being displayed - 
+  // all search results (value is -1) or just a single tour 
+  // (value is index of tour in original results array)
+   
+   // if all search results are not being displayed (displayIndex is not -1)
+    if (this.state.displayIndex >= 0) {
+         console.log("search results tour button is being called");
+       // render Alltourbtn which is a button that will displays all results
+      return <AllTourbtn  handleChange = {this.handleChange}/> 
+    }
+    // if the button will not be rendered, null is returned
+       return null
+  },
 
-  const individTour = this.state.displayIndex;
-  if (!individTour) {
-    return <Tempcomp />
-  }
-    return <Tourlist name='treks' data={this.state.displayedTour}
-              action = {this.state.action}
-              handleChange = {this.handleChange}
-               />
-}, 
+  // NavTour is called within render to conditionally render
+  // either a display of individual tours or search results
+  NavTour: function(){
+    console.log("in navtour index = " + this.state.displayIndex)
+    console.log(this.state.displayedTour)
+    // if individual tour is being displayed
+    if (this.state.displayIndex >= 0) {
+      console.log("indiv tour is being called");
+      // render component for individual tour display
+      return <Tempcomp />
+    } 
+      // if nothing was returned, render component to display search results
+    console.log("search result tour is being called");
+      // trekList is an array that holds search results
+      // handlechange is a function that controls toggling of display between tours
+      return <Tourlist name='treks' data={this.state.trekList}
+                handleChange = {this.handleChange}
+                 />
+  }, 
+
                
-  // Here we render the component
+  // Render the component
   render: function() {
 
-    console.log(this.state.displayedTour + " render")
+
+    // map functions to components for conditional rendering of components
     var NavTour = this.NavTour;
+    var DispResultBtn = this.DispResultBtn;
 
     return (
     <section id="intro">
@@ -135,11 +198,20 @@ console.log(this.state.displayIndex + "index componentdidupdate line 66")
         {/*Begin Tour list and map display for Tours Display Page*/}
         <div className="row">
           <div className="col-lg-5">
-          
-             <NavTour />
+
+          {/*Buttons: DispResultBtn maps to function above to 
+                          allow user to display search results & only
+                          renders when user is looking at individual tours
+                      A button is also rendered to return to a new search */}
+            <DispResultBtn />   <Link to="/search"><button className="btn btn-default">New Search</button></Link>
+
+          {/*NavTour maps to function above to conditionally render
+            either search results or individual tour components*/}
+            <NavTour />
            
           </div>
           <div className="col-lg-7">
+            {/*render the googles map here*/}
             <Tourmap 
               trekList = {this.state.displayedTour}
             />
