@@ -30,12 +30,9 @@ setTourPath: function() {
 },
 
 
-   
-      };
-  },
      
  componentDidMount: function() {
-<<<<<<< HEAD
+
  
 
   var map = new google.maps.Map(document.getElementById("googleMap"), this.state.mapProp)
