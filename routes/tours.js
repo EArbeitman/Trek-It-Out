@@ -4,7 +4,7 @@ var router = express.Router();
 var User = require('../models/user');
 var Tour = require('../models/Tour');
 
-router.post("/search", function(req, res) {
+router.post("/create", function(req, res) {
   // Use our Note model to make a new note from the req.body
   console.log('body ' + req.body);
 
@@ -52,13 +52,18 @@ router.post("/search", function(req, res) {
   });
 });
 
-router.get("/tours", function(req, res){
+router.get("/search", function(req, res){
 
-
-
-
-
-
+  Tour.find({}, function(error, doc) {
+    // Send any errors to the browser
+    if (error) {
+      res.send(error);
+    }
+    // Or send the doc to the browser
+    else {
+      res.send(doc);
+    }
+  });
 
 });
 
