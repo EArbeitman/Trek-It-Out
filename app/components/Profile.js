@@ -53,25 +53,7 @@ var Profile = React.createClass({
                   <div className="form-group">
                     <label className="col-lg-3 control-label">Bio:</label>
                     <div className="col-lg-8">
-                      <textarea className="form-control" rows="5" type="text" value=""></textarea>
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label className="col-md-3 control-label">Username:</label>
-                    <div className="col-md-8">
-                      <input className="form-control" type="text" value="janeuser"></input>
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label className="col-md-3 control-label">Password:</label>
-                    <div className="col-md-8">
-                      <input className="form-control" type="password" value="11111122333"></input>
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label className="col-md-3 control-label">Confirm password:</label>
-                    <div className="col-md-8">
-                      <input className="form-control" type="password" value="11111122333"></input>
+                      <textarea className="form-control" rows="10" type="text" value=""></textarea>
                     </div>
                   </div>
                   <div className="form-group">
