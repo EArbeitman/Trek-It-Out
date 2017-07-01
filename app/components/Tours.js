@@ -32,16 +32,24 @@ var Tours = React.createClass({
   componentDidMount: function() {
  
     // console.log(this.props.route);
+
+
+
     console.log(this.props.params.category);
     console.log(this.props.params.city);
 
-    // helpers.viewTours({
+    helpers.viewTours(
+    // {
     //   category: this.props.params.category,
     //   city: this.props.params.city
-    // }).then(function(response){
-    //     console.log("RESULTS", response);
-    //     this.setState({trekList: response});
-    // })
+    // }
+    ).then(function(response){
+        var tours = response.data.length ? response.data[0].tour_title : 0;
+        console.log("RESPONSE " + response);
+        console.log("RESPONSE LENGTH " + response.data.length);
+        console.log("RESULTS ", tours);
+        //this.setState({trekList: response});
+    })
 
   },
 

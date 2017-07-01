@@ -32,7 +32,7 @@ router.post("/create", function(req, res) {
   newTour.save(function(error, doc) {
     // Send any errors to the browser
     if (error) {
-      //res.send(error);
+      res.send(error);
     }
     // Otherwise
     else {
@@ -54,7 +54,7 @@ router.post("/create", function(req, res) {
 
 router.get("/search", function(req, res){
 
-  console.log('tour params ' + req.body.category);
+  //console.log('tour params ' + req.body.category);
 
   Tour.find({}, function(error, doc) {
     // Send any errors to the browser
@@ -64,6 +64,7 @@ router.get("/search", function(req, res){
     // Or send the doc to the browser
     else {
       res.send(doc);
+      //return doc;
     }
   });
 
