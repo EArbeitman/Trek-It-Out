@@ -4,7 +4,6 @@ var User = require('../models/user');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-
 //Register user
 router.post('/register', function(req, res){
 
@@ -13,7 +12,6 @@ router.post('/register', function(req, res){
 	var lastname = req.body.lastname;
 	var password = req.body.password;
 	var username = req.body.username;
-	//var password2 = req.body.password2;
 
 	// Valdiation
 	req.checkBody('firstname', 'Name is required').notEmpty();
@@ -22,7 +20,6 @@ router.post('/register', function(req, res){
 	req.checkBody('email', 'Email is not valid format').isEmail();
 	req.checkBody('username', 'Username is required').notEmpty();
 	req.checkBody('password', 'Password is required').notEmpty();
-	//req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
 	var errors = req.validationErrors();
 
@@ -91,7 +88,6 @@ router.post('/login',
 });
 
 router.get("/", function(req, res) {
-  // Prepare a query to find all users..
   User.find({})
     // ..and on top of that, populate the notes (replace the objectIds in the notes array with bona-fide notes)
     .populate("tours_created")
