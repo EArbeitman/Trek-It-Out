@@ -10,6 +10,10 @@ module.exports = {
 
   loginUser: function(userData){
   	return axios.post("/users/login", userData);
+  },
+
+  viewTours: function(tourParams){
+  	return axios.post("/tours", tourParams);
   }
 
 };

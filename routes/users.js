@@ -13,7 +13,6 @@ var LocalStrategy = require('passport-local').Strategy;
 //Register user
 router.post('/register', function(req, res){
 
-	console.log('request ' + req);
 	var firstname = req.body.firstname;
 	var email = req.body.email;
 	var lastname = req.body.lastname;

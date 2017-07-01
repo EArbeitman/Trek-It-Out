@@ -12,18 +12,13 @@ var AllTourbtn = require("./AllTourbtn");
 var Link = require("react-router").Link;
 
 var Tours = React.createClass({
+
 // set initialState of variables being monitored for change
   getInitialState: function() {
     return {
-      // displayIndex reflects what tours are being displayed on component
-      // if its -1 - search results are being displayed
-      // any other number represents the index of the tour in search results array
+
       displayIndex: -1,
-      // prevDispInd holds the previous iteration of diplayIndex
-      // it is used for comparison to determine if pages should be rendered.
-      // without this comparison, a continuous loop would occur
       prevDispInd: -1,
-      // trekList will hold the search results data
 
       trekList: [
         {tour_title: 'trek1', tour_description: 'This is trek1', 
@@ -71,26 +66,23 @@ var Tours = React.createClass({
   },
   // The following occurs once the component mounts
   componentDidMount: function() {
+
+    helpers.viewTours({ 
+      //firstname: this.state.firstname, 
+      //password: this.state.password 
+    }).then(function(response){
+        console.log("RESULTS", response);
+    })
+    event.preventDefault();
+
  
-        console.log(this.props.route) 
-  
-         console.log(this.props.params.category)
-       // helpers.getClicks()
-       //  .then(function(response) {
-       //    // Using a ternary operator we can set newClicks to the number of clicks in our response object
-       //    // If we don't have any clicks in our database, set newClicks to 0
-       //    var newClicks = response.data.length ? response.data[0].clicks : 0;
-       //    this.setState({
-       //      clicks: newClicks
-       //    });
-       //    console.log("RESULTS", response);
-       //    console.log("Saved clicks", newClicks);
-       //  }.bind(this));
-   
-      console.log("component mounted")
-      console.log( "mount " + JSON.stringify(this.state.displayedTour))
+    // console.log(this.props.route);
+    console.log(this.props.params.category);
+    console.log(this.props.params.city);
+    //console.log("component mounted")
+    //console.log( "mount " + JSON.stringify(this.state.displayedTour))
        
-      },
+  },
 
 
 
@@ -154,9 +146,7 @@ var Tours = React.createClass({
   // NavTour is called within render to conditionally render
   // either a display of individual tours or search results
   NavTour: function(){
-    console.log("in navtour index = " + this.state.displayIndex)
-    console.log(this.state.displayedTour)
-    // if individual tour is being displayed
+    //console.log(this.state.displayedTour)
     if (this.state.displayIndex >= 0) {
       console.log("indiv tour is being called");
       // render component for individual tour display
@@ -174,7 +164,6 @@ var Tours = React.createClass({
                
   // Render the component
   render: function() {
-
 
     // map functions to components for conditional rendering of components
     var NavTour = this.NavTour;
