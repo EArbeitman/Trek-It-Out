@@ -53,20 +53,17 @@ app.use(expressValidator({
 
 //--------------------------- MONGOOSE -----------------------------//
 
- // if (process.env.MONGODB_URI) {
- //   mongoose.connect(process.env.MONGODB_URI)
- // } else {
- //  mongoose.connect('mongodb:ds129422.mlab.com:29422/heroku_b2rft21n');
- // }
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI)
+} else {
+  mongoose.connect('mongodb://trekitout:trekitout@ds129422.mlab.com:29422/heroku_b2rft21n');
+}
 
 //local db
 // mongoose.connect('mongodb://localhost/trekItOutDev');
 
 //mlab uri - mongodb://trekitout:trekitout@ds129422.mlab.com:29422/heroku_b2rft21n
-mongoose.connect('mongodb://trekitout:trekitout@ds129422.mlab.com:29422/heroku_b2rft21n');
-
-// Import User model
-//var User = require('./models/User.js')
+//mongoose.connect('mongodb://trekitout:trekitout@ds129422.mlab.com:29422/heroku_b2rft21n');
 
 // Init mongodb
 mongoose.Promise = Promise;
