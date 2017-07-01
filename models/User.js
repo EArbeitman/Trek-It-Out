@@ -50,7 +50,7 @@ var UserSchema = new Schema ({
     }],
     tours_created: [{
         type: Schema.Types.ObjectId,
-        ref: "tour" 
+        ref: "Tour" 
     }],
     bio: {
         type: String
@@ -66,7 +66,6 @@ module.exports = User;
 
 module.exports.createUser = function(newUser, callback){
     //Use bcrypt to hash password
-    console.log("User js " +newUser);
     bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(newUser.password, salt, function(err, hash) {
             newUser.password = hash;

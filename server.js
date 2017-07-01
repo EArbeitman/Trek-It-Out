@@ -53,20 +53,17 @@ app.use(expressValidator({
 
 //--------------------------- MONGOOSE -----------------------------//
 
- // if (process.env.MONGODB_URI) {
- //   mongoose.connect(process.env.MONGODB_URI)
- // } else {
- //  mongoose.connect('mongodb:ds129422.mlab.com:29422/heroku_b2rft21n');
- // }
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI)
+} else {
+  mongoose.connect('mongodb://trekitout:trekitout@ds129422.mlab.com:29422/heroku_b2rft21n');
+}
 
 //local db
-mongoose.connect('mongodb://localhost/trekItOutDev');
+// mongoose.connect('mongodb://localhost/trekItOutDev');
 
 //mlab uri - mongodb://trekitout:trekitout@ds129422.mlab.com:29422/heroku_b2rft21n
 //mongoose.connect('mongodb://trekitout:trekitout@ds129422.mlab.com:29422/heroku_b2rft21n');
-
-// Import User model
-//var User = require('./models/User.js')
 
 // Init mongodb
 mongoose.Promise = Promise;
@@ -104,9 +101,11 @@ app.use(function (req, res, next){
 
 var routes = require('./routes/index');
 var users  = require('./routes/users');
+var tours = require('./routes/tours');
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/tours', tours);
 
 //app listening...
 app.listen(PORT,function() {
