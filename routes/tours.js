@@ -5,20 +5,12 @@ var User = require('../models/user');
 var Tour = require('../models/Tour');
 
 router.post("/create", function(req, res) {
-  // Use our Note model to make a new note from the req.body
-  console.log('body ' + req.body);
 
 	var title = req.body.tour_title;
 	var description = req.body.tour_description;
 	var category = req.body.tour_category;
 	var stops = req.body.tours_stops;
 
-	console.log("title " + title);
-	console.log("description " + description);
-	console.log("category " + category);
-	console.log("stops " + stops);
-
-  //res.sendStatus(200);
   var newTour = new Tour({
   	tour_title: title,
   	tour_description: description,
