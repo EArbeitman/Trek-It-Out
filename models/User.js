@@ -50,7 +50,7 @@ var UserSchema = new Schema ({
     }],
     tours_created: [{
         type: Schema.Types.ObjectId,
-        ref: "tour" 
+        ref: "Tour" 
     }],
     bio: {
         type: String
