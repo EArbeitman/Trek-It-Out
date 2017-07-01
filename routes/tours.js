@@ -54,6 +54,8 @@ router.post("/create", function(req, res) {
 
 router.get("/search", function(req, res){
 
+  console.log('tour params ' + req.body.category);
+
   Tour.find({}, function(error, doc) {
     // Send any errors to the browser
     if (error) {

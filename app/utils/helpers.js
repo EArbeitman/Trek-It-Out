@@ -13,7 +13,7 @@ module.exports = {
   },
 
   viewTours: function(tourParams){
-  	return axios.post("/tours/search", tourParams);
+  	return axios.get("/tours/search", tourParams);
   }
 
 };

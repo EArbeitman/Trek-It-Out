@@ -11,6 +11,9 @@ var AllTourbtn = require("./AllTourbtn");
 // Link is required to route back to new search page
 var Link = require("react-router").Link;
 
+var helpers = require("../utils/helpers");
+console.log("test");
+
 var Tours = React.createClass({
 
 // set initialState of variables being monitored for change
@@ -20,70 +23,27 @@ var Tours = React.createClass({
       displayIndex: -1,
       prevDispInd: -1,
 
-      trekList: [
-        {tour_title: 'trek1', tour_description: 'This is trek1', 
-          tour_category: ['biking', 'bar hopping'], 
-          tours_stops: [{location_name:'place1', longitude:5.734863, latitude:58.983991}, 
-                        {location_name:'place2', longitude:4.888916, latitude:52.395715},
-                        {location_name:'place3', longitude:-0.120850, latitude:51.508742},
-                        {location_name:'place4', longitude:-0.120850, latitude:49.508742}
-                        ]
-        },
-           
-        {tour_title: 'trek2', tour_description: 'This is trek2', 
-          tour_category: ['treking', 'amusement park'], 
-          tours_stops: [{location_name:'place1', longitude:5.734863, latitude:57.983991}, 
-                        {location_name:'place2', longitude:4.888916, latitude:51.395715},
-                        {location_name:'place3', longitude:-0.120850, latitude:50.508742}
-                        ]
-        }
-        ],
-
-
-        // displayedTour will house the individ tour data to be displayed
-        // when a tour is selected by the user
-
-        displayedTour: [
-        {tour_title: 'trek1', tour_description: 'This is trek1', 
-          tour_category: ['biking', 'bar hopping'], 
-          tours_stops: [{location_name:'place1', longitude:5.734863, latitude:58.983991}, 
-                        {location_name:'place2', longitude:4.888916, latitude:52.395715},
-                        {location_name:'place3', longitude:-0.120850, latitude:51.508742},
-                        {location_name:'place4', longitude:-0.120850, latitude:49.508742}
-                        ]
-        },
-           
-        {tour_title: 'trek2', tour_description: 'This is trek2', 
-          tour_category: ['treking', 'amusement park'], 
-          tours_stops: [{location_name:'place1', longitude:5.734863, latitude:57.983991}, 
-                        {location_name:'place2', longitude:4.888916, latitude:51.395715},
-                        {location_name:'place3', longitude:-0.120850, latitude:50.508742}
-                        ]
-        }
-        ]
+      trekList: [],
+      displayedTour: []
    
       };
   },
   // The following occurs once the component mounts
   componentDidMount: function() {
-
-    helpers.viewTours({ 
-      //firstname: this.state.firstname, 
-      //password: this.state.password 
-    }).then(function(response){
-        console.log("RESULTS", response);
-    })
-    event.preventDefault();
-
  
     // console.log(this.props.route);
     console.log(this.props.params.category);
     console.log(this.props.params.city);
-    //console.log("component mounted")
-    //console.log( "mount " + JSON.stringify(this.state.displayedTour))
-       
-  },
 
+    // helpers.viewTours({
+    //   category: this.props.params.category,
+    //   city: this.props.params.city
+    // }).then(function(response){
+    //     console.log("RESULTS", response);
+    //     this.setState({trekList: response});
+    // })
+
+  },
 
 
    // This function is used by children/grandchild of Tours
@@ -91,10 +51,7 @@ var Tours = React.createClass({
    // tours and all search results
   handleChange: function(tourIndex) {
     console.log('handleChange tour.js ' + tourIndex)
-     //console.log(JSON.stringify(tourname));
-    // displayIndex is -1 to display all search results
-    // any other number represents the index in the search 
-    // results array trekList
+
     this.setState({displayIndex: parseInt(tourIndex)});
   },
 
