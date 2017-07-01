@@ -59,7 +59,7 @@ setTourPath: function() {
     },
 
       componentDidUpdate: function() {
-    console.log("COMPONENTDID UPDATE prev:");
+    //console.log("COMPONENTDID UPDATE prev:");
  
       },
   // Here we render the component
