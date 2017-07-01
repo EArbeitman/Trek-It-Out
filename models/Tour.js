@@ -13,10 +13,9 @@ var TourSchema = new Schema ({
         type: String,
         required: true
       },
-    tour_category: [{
-        type: Schema.Types.ObjectId,
-        ref: "Category" 
-    }],
+    tour_category: {
+        type: Array
+    },
     active: Boolean,
     tours_stops: [{
         type: Schema.Types.ObjectId,
