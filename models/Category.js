@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 //Create article schema
 var CategorySchema = new Schema ({
-    cat_name: {
+    name: {
         type: String,
         required: true,
     }
