@@ -63,7 +63,7 @@ if (process.env.MONGODB_URI) {
 // mongoose.connect('mongodb://localhost/trekItOutDev');
 
 //mlab uri - mongodb://trekitout:trekitout@ds129422.mlab.com:29422/heroku_b2rft21n
-//mongoose.connect('mongodb://trekitout:trekitout@ds129422.mlab.com:29422/heroku_b2rft21n');
+mongoose.connect('mongodb://trekitout:trekitout@ds129422.mlab.com:29422/heroku_b2rft21n');
 
 // Init mongodb
 mongoose.Promise = Promise;
