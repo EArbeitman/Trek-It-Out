@@ -17,10 +17,10 @@ var TourSchema = new Schema ({
         type: Array
     },
     active: Boolean,
-    tours_stops: [{
-        type: Schema.Types.ObjectId,
-        ref: "Stops" 
-    }]
+    tours_stops: {
+        type: Array,
+        "default": []
+    }
 })
 
 var Tour = mongoose.model("Tour", TourSchema);

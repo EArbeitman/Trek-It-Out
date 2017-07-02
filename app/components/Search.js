@@ -60,6 +60,7 @@ var Search = React.createClass({
 
         <div className="page-scroll">
           <Link to={"tours/"+ this.state.category + "/" + this.state.city} ><button className="btn btn-circle">Create Idea</button></Link>
+
             <i className="fa fa-angle-double-down animated"></i>
           
         </div>
