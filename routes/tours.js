@@ -19,8 +19,6 @@ router.post("/create", function(req, res) {
   	active: true
   });
 
-  //console.log("new tour object " + newTour);
-  //Save the new note to mongoose
   newTour.save(function(error, doc) {
     // Send any errors to the browser
     if (error) {
@@ -44,9 +42,16 @@ router.post("/create", function(req, res) {
   });
 });
 
+/*
+@PARAM req.body.category - category filter for search
+@PARAM req.body.city - city filter for search
+@RETURN - tour document matching search criteria
+*/
+
 router.get("/search", function(req, res){
 
-  //console.log('tour params ' + req.body.category);
+  var category = req.body.category;
+  var city = req.body.city;
 
   Tour.find({}, function(error, doc) {
     // Send any errors to the browser
@@ -62,11 +67,17 @@ router.get("/search", function(req, res){
 
 });
 
+/* 
+@PARAM - req.body.tourid - id grabbed from the tour selected by the user
+@RETURN - tours array saved to a specfic tour
+*/
+
 router.get("/stops", function(req, res){
 
-  //console.log('tour params ' + req.body.category);
+  var tourId = req.body.tourId;
+  //var tourId = "595935e41b1fb90461f7e899";
 
-  Tour.find({_id : "5959368d2f37e0047d94ed83"}, function(error, doc) {
+  Tour.find({_id : tourId}, function(error, doc) {
     // Send any errors to the browser
     if (error) {
       res.send(error);

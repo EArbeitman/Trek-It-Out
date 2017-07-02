@@ -15,4 +15,8 @@ module.exports = {
   	return axios.get("/tours/search");
   }
 
+  getStops: function(){
+  	return axios.get("/tours/stops");
+  }
+
 };
