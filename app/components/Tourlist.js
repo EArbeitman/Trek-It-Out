@@ -20,6 +20,8 @@ var Tourlist = React.createClass({
               
                 <Displaytour key={i} data={tour}
                       handleChange = {this.props.handleChange}
+                      saveTrek = {this.props.saveTrek}
+                      trekSaved = {this.props.trekSaved}
                       item = {i}
               />
 );

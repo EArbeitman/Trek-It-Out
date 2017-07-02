@@ -32,7 +32,7 @@ componentDidMount: function() {
         map: map
   })
    
-   map.setCenter(this.findCenter(this.props.trekList));
+   map.setCenter(this.findCenter());
 
    this.showAllTreks(map)
  
