@@ -18,7 +18,7 @@ var TourSchema = new Schema ({
     },
     tour_city: {
         type: String
-    }
+    },
     active: Boolean,
     tours_stops: {
         type: Array,
