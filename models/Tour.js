@@ -14,13 +14,15 @@ var TourSchema = new Schema ({
         required: true
       },
     tour_category: {
-        type: Array
+        type: Array,
+        required: true
     },
     tour_city: {
-        type: String
+        type: String,
+        required: true
     },
     active: Boolean,
-    tours_stops: {
+    tour_stops: {
         type: Array,
         "default": []
     }

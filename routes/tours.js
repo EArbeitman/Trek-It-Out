@@ -9,13 +9,15 @@ router.post("/create", function(req, res) {
 	var title = req.body.tour_title;
 	var description = req.body.tour_description;
 	var category = req.body.tour_category;
-	var stops = req.body.tours_stops;
+	var stops = req.body.tour_stops;
+  var city = req.body.tour_city;
 
   var newTour = new Tour({
   	tour_title: title,
   	tour_description: description,
   	tour_category: category,
-  	tours_stops: stops,
+  	tour_stops: stops,
+    tour_city: city,
   	active: true
   });
 
@@ -53,7 +55,7 @@ router.get("/search/:city/:category", function(req, res){
   var category = req.params.category;
   var city = req.params.city;
 
-  Tour.find({}, function(error, doc) {
+  Tour.find( { $or: [ {tour_city: city}, {tour_category: category}] }, function(error, doc) {
     // Send any errors to the browser
     if (error) {
       res.send(error);
