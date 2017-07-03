@@ -51,52 +51,51 @@ var Login = React.createClass({
 
     return (
 
-      <div className="container">
-
-        <div className="row">
-
-          <div className="col-lg-12">
-
-            <div className="panel panel-default">
-              <div className="panel-heading">
-                <h3 className="panel-title">Login Page</h3>
-              </div>
-              <div className="panel-body text-center">
-                <form onSubmit = {this.handleLogin}>
-                    <h4>
-                      <strong>Username</strong>
-                    </h4>
-                    <input
+<section className="clearfix loginSection homeBanner">
+  <div className="container">
+    <div className="row">
+      <div className="center-block col-md-5 col-sm-6 col-xs-12">
+        <div className="panel panel-default loginPanel">
+          <div className="panel-heading text-center">Members log in</div>
+          <div className="panel-body">
+            <form onSubmit = {this.handleLogin} className="loginForm">
+              <div className="form-group">
+                <label for="userName">User Name *</label>
+                <input
                       type="text"
                       value={this.state.username}
                       onChange={this.handleChange}
                       className="form-control"
                       id="username"
                       required
-                    />
-                    <h4>
-                      <strong>Password</strong>
-                    </h4>
-                    <input
+                    ></input>
+              </div>
+              <div className="form-group">
+                <label for="userPassword">Password *</label>
+                <input
                       type="password"
                       value={this.state.password}
                       onChange={this.handleChange}
                       className="form-control"
                       id="password"
                       required
-                    />
-                  <div>
-                  <input type="submit" value="Login" />
-                  </div>
-
-                </form>
+                    ></input>
+                <p className="help-block">Enter the password that accompanies your username.</p>
               </div>
-            </div>
-
+              <div className="form-group">
+                <button type="submit" className="btn btn-primary pull-left">Log In</button>
+                <a href="#" className="pull-right link">Fogot Password?</a>
+              </div>
+            </form>
           </div>
-
+          <div className="panel-footer text-center">
+            <p>Not a member yet? <a href="sign-up.html" className="link">Sign up</a></p>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
     );
   }
 });

@@ -8,84 +8,61 @@ var Profile = React.createClass({
 
     return (
 
-        <div className="container">
-            <h1>Edit Profile</h1>
-
-          <div className="row">
-              {/*<!-- left column -->*/}
-              <div className="col-md-3">
-                <div className="text-center">
-                  <img src="//placehold.it/100" className="avatar img-circle" alt="avatar"></img>
-                  <h6>Upload a different photo...</h6>
-                  <input type="file" className="form-control"></input>
-                </div>
+<section className="clearfix bg-dark profileSection homeBanner">
+  <div className="container">
+    <div className="row">
+      <div className="col-md-4 col-sm-5 col-xs-12">
+        <div className="dashboardBoxBg mb30">
+          <div className="profileImage">
+            <img src="img/dashboard/user-2.jpg" alt="Image User" className="img-circle"></img>
+            <div className="file-upload profileImageUpload">
+              <div className="upload-area">
+                <input type="file" name="img[]" className="file"></input>
+                <button className="browse" type="button">Upload a Picture <i className="icon-listy icon-upload"></i></button>
               </div>
-              
-              {/*<!-- edit form column -->*/}
-              <div className="col-md-9 personal-info">
-                <div className="alert alert-info alert-dismissable">
-                  <a className="panel-close close" data-dismiss="alert">×</a> 
-                  <i className="fa fa-coffee"></i>
-                  This is an <strong>.alert</strong>. Use this to show important messages to the user.
-                </div>
-                <h3>Personal info</h3>
-                
-                <form className="form-horizontal" role="form">
-                  <div className="form-group">
-                    <label className="col-lg-3 control-label">First name:</label>
-                    <div className="col-lg-8">
-                      <input className="form-control" type="text" value="Jane"></input>
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label className="col-lg-3 control-label">Last name:</label>
-                    <div className="col-lg-8">
-                      <input className="form-control" type="text" value="Bishop"></input>
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <label className="col-lg-3 control-label">Email:</label>
-                    <div className="col-lg-8">
-                      <input className="form-control" type="text" value="janesemail@gmail.com"></input>
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label className="col-lg-3 control-label">Bio:</label>
-                    <div className="col-lg-8">
-                      <textarea className="form-control" rows="5" type="text" value=""></textarea>
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label className="col-md-3 control-label">Username:</label>
-                    <div className="col-md-8">
-                      <input className="form-control" type="text" value="janeuser"></input>
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label className="col-md-3 control-label">Password:</label>
-                    <div className="col-md-8">
-                      <input className="form-control" type="password" value="11111122333"></input>
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label className="col-md-3 control-label">Confirm password:</label>
-                    <div className="col-md-8">
-                      <input className="form-control" type="password" value="11111122333"></input>
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label className="col-md-3 control-label"></label>
-                    <div className="col-md-8">
-                      <input type="button" className="btn btn-primary" value="Save Changes"></input>
-                      <span></span>
-                      <input type="reset" className="btn btn-default" value="Cancel"></input>
-                    </div>
-                  </div>
-                </form>
-              </div>
+            </div>
           </div>
         </div>
+      </div>
+      <div className="col-md-8 col-sm-7 col-xs-12">
+        <form>
+          <div className="dashboardBoxBg">
+            <div className="profileIntro">
+              <h2>Your Profile</h2>
+{/*<!--               <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form Ipsum available.</p> -->*/}
+            </div>
+          </div>
+          <div className="dashboardBoxBg mt30">
+            <div className="profileIntro">
+              <h3>About You</h3>
+              <div className="row">
+                <div className="form-group col-sm-6 col-xs-12">
+                  <label for="firstNameProfile">First Name</label>
+                  <input type="text" className="form-control" id="firstNameProfile" placeholder="Jane"></input>
+                </div>
+                <div className="form-group col-sm-6 col-xs-12">
+                  <label for="lastNameProfile">Last Name</label>
+                  <input type="text" className="form-control" id="lastNameProfile" placeholder="Doe"></input>
+                </div>
+                <div className="form-group col-sm-6 col-xs-12">
+                  <label for="emailProfile">Email</label>
+                  <input type="text" className="form-control" id="emailProfile" placeholder="Jane@example.com"></input>
+                </div>
+                <div className="form-group col-xs-12">
+                  <label for="aboutYou">About You</label>
+                  <textarea className="form-control" rows="5" id="aboutYou" placeholder="About You"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="btn-area mt30">
+            <button className="btn btn-primary" type="button">Save Change</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
     );
   }

@@ -20,107 +20,21 @@ var Tours = React.createClass({
   getInitialState: function() {
     return {
 
-
-      // displayIndex reflects what tours are being displayed on component
-      // if its -1 - search results are being displayed
-      // any other number represents the index of the tour in search results array
       displayIndex: -1,
-      // prevDispInd holds the previous iteration of diplayIndex
-      // it is used for comparison to determine if pages should be rendered.
-      // without this comparison, a continuous loop would occur
       prevDispInd: -1,
-      // trekList will hold the search results data
-      trekList: [
-        {tour_title: 'trek1', tour_description: 'This is trek1', 
-          tour_category: ['biking', 'bar hopping'], 
-          tours_stops: [{location_name:'place1', longitude:5.734863, latitude:58.983991}, 
-                        {location_name:'place2', longitude:4.888916, latitude:52.395715},
-                        {location_name:'place3', longitude:-0.120850, latitude:51.508742},
-                        {location_name:'place4', longitude:-0.120850, latitude:49.508742}
-                        ]
-        },
-           
-        {tour_title: 'trek2', tour_description: 'This is trek2', 
-          tour_category: ['treking', 'amusement park'], 
-          tours_stops: [{location_name:'place1', longitude:5.734863, latitude:57.983991}, 
-                        {location_name:'place2', longitude:4.888916, latitude:51.395715},
-                        {location_name:'place3', longitude:-0.120850, latitude:50.508742}
-                        ]
-        }
-        ],
 
-        // displayedTour will house the individ tour data to be displayed
-        // when a tour is selected by the user
-
-        // displayedTour: [
-        // {tour_title: 'trek1', tour_description: 'This is trek1', 
-        //   tour_category: ['biking', 'bar hopping'], 
-        //   tours_stops: [{location_name:'place1', longitude:5.734863, latitude:58.983991}, 
-        //                 {location_name:'place2', longitude:4.888916, latitude:52.395715},
-        //                 {location_name:'place3', longitude:-0.120850, latitude:51.508742},
-        //                 {location_name:'place4', longitude:-0.120850, latitude:49.508742}
-        //                 ]
-        // },
-        // {tour_title: 'trek2', tour_description: 'This is trek2', 
-        //   tour_category: ['treking', 'amusement park'], 
-        //   tours_stops: [{location_name:'place1', longitude:5.734863, latitude:57.983991}, 
-        //                 {location_name:'place2', longitude:4.888916, latitude:51.395715},
-        //                 {location_name:'place3', longitude:-0.120850, latitude:50.508742}
-        //                 ]
-        // }
-        // ]
-
-      // trekList: [],
-      displayedTour: [],
-      trekSaved: false,
-        
-        centerLat: 52.395715,
-        centerLng: 4.888916,
-        zoom: 5,
-        pathArray: [
-              [ 
-                new google.maps.LatLng(58.983991,5.734863),
-                new google.maps.LatLng(52.395715,4.888916),
-                new google.maps.LatLng(51.508742,-0.120850),
-                new google.maps.LatLng(49.508742,-0.120850)
-              ],
-              [ 
-                new google.maps.LatLng(57.983991,2.734863),
-                new google.maps.LatLng(51.395715,1.888916),
-                new google.maps.LatLng(50.508742,-0.120850),
-                new google.maps.LatLng(44.508742,-0.120850)
-              ],
-
-              [ new google.maps.LatLng(57.983991,2.534863),
-                new google.maps.LatLng(51.395715,5.534863),
-                new google.maps.LatLng(50.508742,5.5348630),
-                new google.maps.LatLng(44.508742,5.534863)
-              ]
-          ],
-          tourPath: [
-              [ 
-                new google.maps.LatLng(58.983991,5.734863),
-                new google.maps.LatLng(52.395715,4.888916),
-                new google.maps.LatLng(51.508742,-0.120850),
-                new google.maps.LatLng(49.508742,-0.120850)
-              ],
-              [ 
-                new google.maps.LatLng(57.983991,2.734863),
-                new google.maps.LatLng(51.395715,1.888916),
-                new google.maps.LatLng(50.508742,-0.120850),
-                new google.maps.LatLng(44.508742,-0.120850)
-              ],
-              [ new google.maps.LatLng(57.983991,2.534863),
-                new google.maps.LatLng(51.395715,5.534863),
-                new google.maps.LatLng(50.508742,5.5348630),
-                new google.maps.LatLng(44.508742,5.534863)
-              ]
-          ]
+      trekList: [],
+      displayedTour: []
    
       };
   },
   // The following occurs once the component mounts
   componentDidMount: function() {
+ 
+    // console.log(this.props.route);
+
+
+
     console.log(this.props.params.category);
     console.log(this.props.params.city);
 
@@ -134,31 +48,26 @@ var Tours = React.createClass({
         console.log("RESPONSE " + response);
         console.log("RESPONSE LENGTH " + response.data.length);
         console.log("RESULTS ", tours);
-        //this.setState({trekList: response,
-                         // displayedTour: response});
+        //this.setState({trekList: response});
     })
 
-},
+  },
+
+
    // This function is used by children/grandchild of Tours
    // It handles the toggle of components between individual 
    // tours and all search results
   handleChange: function(tourIndex) {
     console.log('handleChange tour.js ' + tourIndex)
-    // displayIndex determines what tours are displayed
+
     this.setState({displayIndex: parseInt(tourIndex)});
   },
 
-  saveTrek: function() {
-    console.log('trekSaved displaytour.js ')
-    
-    this.setState({trekSaved: true});
-
-  },
 
     // Whenever our component updates, the code inside componentDidUpdate is run
     // Our main component that effects change is displayIndex 
   componentDidUpdate: function() {
-
+   
     console.log("COMPONENTDID UPDATE prev:" + this.state.prevDispInd + "current " +  this.state.displayIndex);
     // check to see of displayIndex is different from its previous value
     // This prevents needless rendering and a continous loop
@@ -169,24 +78,16 @@ var Tours = React.createClass({
         // if index is not -1, set var for individ tour display
           this.setState ({
             // displayedTour will hold the tour selected by user
-            displayedTour: this.state.trekList[this.state.displayIndex],
-            tourPath: [this.state.pathArray[this.state.displayIndex]],
-             prevDispInd: this.state.displayIndex,
-           
-              });
-
-      } else
-      {
-          this.setState ({
-            // displayedTour will hold the tour selected by user
-            displayedTour: this.state.trekList,
-            tourPath: this.state.pathArray,
-            prevDispInd: this.state.displayIndex,
-            
-              });
-      }
-      
+            displayedTour: this.state.trekList[this.state.displayIndex]
+              })
+ 
+      } 
+      this.setState ({
+         // update prevDispInd to current displayIndex  
+            prevDispInd: this.state.displayIndex
+        })
     }
+  
     
   },
 
@@ -199,6 +100,7 @@ var Tours = React.createClass({
    
    // if all search results are not being displayed (displayIndex is not -1)
     if (this.state.displayIndex >= 0) {
+         console.log("search results tour button is being called");
        // render Alltourbtn which is a button that will displays all results
       return <AllTourbtn  handleChange = {this.handleChange}/> 
     }
@@ -209,31 +111,29 @@ var Tours = React.createClass({
   // NavTour is called within render to conditionally render
   // either a display of individual tours or search results
   NavTour: function(){
-    // if individual tour is being displayed
     //console.log(this.state.displayedTour)
     if (this.state.displayIndex >= 0) {
+      console.log("indiv tour is being called");
       // render component for individual tour display
       return <Tempcomp />
     } 
       // if nothing was returned, render component to display search results
+    console.log("search result tour is being called");
       // trekList is an array that holds search results
       // handlechange is a function that controls toggling of display between tours
       return <Tourlist name='treks' data={this.state.trekList}
                 handleChange = {this.handleChange}
-                saveTrek = {this.saveTrek}
-                trekSaved = {this.state.trekSaved}
                  />
-                
-                
   }, 
 
                
   // Render the component
   render: function() {
+
     // map functions to components for conditional rendering of components
     var NavTour = this.NavTour;
     var DispResultBtn = this.DispResultBtn;
-    
+
     return (
     <section id="intro">
       <div className="container">
@@ -242,7 +142,7 @@ var Tours = React.createClass({
 
           <div className="col-lg-12">
               
-            <h1>Results Tours</h1>
+            <h1>Results Treks</h1>
 
           </div>
               
@@ -268,11 +168,6 @@ var Tours = React.createClass({
             {/*render the googles map here*/}
             <Tourmap 
               trekList = {this.state.displayedTour}
-              centerLat = {this.state.centerLat}
-              centerLng = {this.state.centerLng}
-              zoom = {this.state.zoom}
-              tourPath = {this.state.tourPath}
-              pathArray = {this.state.pathArray}
             />
           </div>
         </div>
