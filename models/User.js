@@ -22,7 +22,7 @@ var UserSchema = new Schema ({
           // Function takes in the value as an argument
         function(input) {
         // If this returns true, proceed. If not, return an error message
-        return (input.length >= 6 && input.length <= 10);
+        return (input.length >= 6 && input.length <= 20);
          },
         "User id should contain at least 6 characters long and should not contain more than 10 characters."
     ]
@@ -33,7 +33,6 @@ var UserSchema = new Schema ({
     },
     picture : {
         type: String,
-        //required: true
     },
     email: {
         type: String,
@@ -46,7 +45,7 @@ var UserSchema = new Schema ({
     },
     tours_saved: [{
         type: Schema.Types.ObjectId,
-        ref: "tour" 
+        ref: "Tour" 
     }],
     tours_created: [{
         type: Schema.Types.ObjectId,

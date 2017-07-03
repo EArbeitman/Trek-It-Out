@@ -31,18 +31,14 @@ var Tours = React.createClass({
   // The following occurs once the component mounts
   componentDidMount: function() {
  
-    // console.log(this.props.route);
-
-
-
-    console.log(this.props.params.category);
-    console.log(this.props.params.city);
+    var category = this.props.params.category;
+    var city = this.props.params.city;
 
     helpers.viewTours(
-    // {
-    //   category: this.props.params.category,
-    //   city: this.props.params.city
-    // }
+    {
+      category: category,
+      city: city
+    }
     ).then(function(response){
         var tours = response.data.length ? response.data[0].tour_title : 0;
         console.log("RESPONSE " + response);

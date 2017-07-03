@@ -11,8 +11,9 @@ module.exports = {
   	return axios.post("/users/login", userData);
   },
 
-  viewTours: function(){
-  	return axios.get("/tours/search");
+  viewTours: function(searchParams){
+
+  	return axios.get("/tours/search/"+ searchParams.category + "/" +searchParams.city);
   },
 
   getStops: function(){

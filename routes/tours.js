@@ -48,10 +48,10 @@ router.post("/create", function(req, res) {
 @RETURN - tour document matching search criteria
 */
 
-router.get("/search", function(req, res){
+router.get("/search/:city/:category", function(req, res){
 
-  var category = req.body.category;
-  var city = req.body.city;
+  var category = req.params.category;
+  var city = req.params.city;
 
   Tour.find({}, function(error, doc) {
     // Send any errors to the browser
@@ -74,8 +74,8 @@ router.get("/search", function(req, res){
 
 router.get("/stops", function(req, res){
 
-  var tourId = req.body.tourId;
-  //var tourId = "595935e41b1fb90461f7e899";
+  //var tourId = req.body.tourId;
+  var tourId = "595935e41b1fb90461f7e899";
 
   Tour.find({_id : tourId}, function(error, doc) {
     // Send any errors to the browser

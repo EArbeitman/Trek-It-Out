@@ -50,6 +50,7 @@
 	[mLab](http://docs.mlab.com/migrating/)
 	[Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#emphasis)
 	[Passport](http://passportjs.org/docs/username-password)
+	[Axios GET Request](https://stackoverflow.com/questions/44888996/request-parameters-showing-as-undefined/44889353#44889353)
 
 ## Authors
 
