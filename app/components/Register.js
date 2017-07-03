@@ -79,13 +79,13 @@ var Register = React.createClass({
 <section className="clearfix signUpSection">
   <div className="container">
     <div className="row">
-      <div className="col-sm-12 col-xs-12">
+      <div className="col-sm-8 col-xs-12">
         <div className="signUpFormArea">
           <div className="priceTableTitle">
             <h2>Account Registration</h2>
           </div>
           <div className="signUpForm">
-            <form onSubmit={this.handleSubmit} action="#">
+            <form onSubmit={this.handleSubmit}>
               <div className="formSection">
                 <h3>Contact Information</h3>
                 <div className="row">
@@ -151,13 +151,11 @@ var Register = React.createClass({
                   </div>
                 </div>
               </div>
-              <div className="formSection">
                 <div className="row">
                   <div className="form-group col-xs-12 mb0">
                     <button type="submit" className="btn btn-primary">Create Account</button>
                   </div>
                 </div>
-              </div>
             </form>
           </div>
         </div>
