@@ -16,6 +16,9 @@ var TourSchema = new Schema ({
     tour_category: {
         type: Array
     },
+    tour_city: {
+        type: String
+    }
     active: Boolean,
     tours_stops: {
         type: Array,
