@@ -93,7 +93,7 @@ var Register = React.createClass({
                       type="text"
                       value={this.state.firstname}
                       onChange={this.handleChange}
-                      classNameName="form-control"
+                      className="form-control"
                       id="firstname"
                       required
                     />
@@ -104,7 +104,7 @@ var Register = React.createClass({
                       type="text"
                       value={this.state.lastname}
                       onChange={this.handleChange}
-                      classNameName="form-control"
+                      className="form-control"
                       id="lastname"
                       required
                     />
@@ -115,7 +115,7 @@ var Register = React.createClass({
                       type="text"
                       value={this.state.email}
                       onChange={this.handleChange}
-                      classNameName="form-control"
+                      className="form-control"
                       id="email"
                       required
                     />
@@ -131,7 +131,7 @@ var Register = React.createClass({
                       type="text"
                       value={this.state.username}
                       onChange={this.handleChange}
-                      classNameName="form-control"
+                      className="form-control"
                       id="username"
                       required
                     />
@@ -142,7 +142,7 @@ var Register = React.createClass({
                       type="password"
                       value={this.state.password}
                       onChange={this.handleChange}
-                      classNameName="form-control"
+                      className="form-control"
                       id="password"
                       required
                     />
