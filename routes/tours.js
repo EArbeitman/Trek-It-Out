@@ -50,10 +50,13 @@ router.post("/create", function(req, res) {
 @RETURN - tour document matching search criteria
 */
 
-router.get("/search/:city/:category", function(req, res){
+router.get("/search/:category/:city", function(req, res){
 
   var category = req.params.category;
   var city = req.params.city;
+
+  console.log('category ' + category);
+  console.log('city ' + city);
 
   Tour.find( { $or: [ {tour_city: city}, {tour_category: category}] }, function(error, doc) {
     // Send any errors to the browser
@@ -62,6 +65,7 @@ router.get("/search/:city/:category", function(req, res){
     }
     // Or send the doc to the browser
     else {
+      console.log(doc);
       res.send(doc);
       //return doc;
     }
