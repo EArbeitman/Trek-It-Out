@@ -60,88 +60,108 @@ var Register = React.createClass({
 
     return (
 
-      <div className="container">
+<div>
+<section className="clearfix pageTitleSection">
+  <div className="container">
+    <div className="row">
+      <div className="col-xs-12">
+        <div className="pageTitle">
+          <h2>Sign Up Page</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div className="row">
 
-          <div className="col-lg-12">
-
-            <div className="panel panel-default">
-              <div className="panel-heading">
-                <h3 className="panel-title">Registration Page</h3>
-              </div>
-               <div className="panel-body text-center">
-                <form onSubmit={this.handleSubmit}>
-                  <div className="form-group">
-                    <h4 className="">
-                      <strong>First Name</strong>
-                    </h4>
+<section className="clearfix signUpSection">
+  <div className="container">
+    <div className="row">
+      <div className="col-sm-8 col-xs-12">
+        <div className="signUpFormArea">
+          <div className="priceTableTitle">
+            <h2>Account Registration</h2>
+          </div>
+          <div className="signUpForm">
+            <form onSubmit={this.handleSubmit}>
+              <div className="formSection">
+                <h3>Contact Information</h3>
+                <div className="row">
+                  <div className="form-group col-sm-6 col-xs-12">
+                    <label for="firstName" className="control-label">First Name*</label>
                     <input
                       type="text"
                       value={this.state.firstname}
                       onChange={this.handleChange}
-                      className="form-control"
+                      classNameName="form-control"
                       id="firstname"
                       required
                     />
-
-                    <h4>
-                      <strong>Last Name</strong>
-                    </h4>
+                  </div>
+                  <div className="form-group col-sm-6 col-xs-12">
+                    <label for="lastName" className="control-label">Last Name*</label>
                     <input
                       type="text"
                       value={this.state.lastname}
                       onChange={this.handleChange}
-                      className="form-control"
+                      classNameName="form-control"
                       id="lastname"
                       required
                     />
-
-                    <h4>
-                      <strong>Email address</strong>
-                    </h4>
+                  </div>
+                  <div className="form-group col-xs-12">
+                    <label for="emailAdress" className="control-label">Email Address*</label>
                     <input
                       type="text"
                       value={this.state.email}
                       onChange={this.handleChange}
-                      className="form-control"
+                      classNameName="form-control"
                       id="email"
                       required
                     />
-                    <h4>
-                      <strong>Username</strong>
-                    </h4>
+                  </div>
+                </div>
+              </div>
+              <div className="formSection">
+                <h3>Account Information</h3>
+                <div className="row">
+                  <div className="form-group col-xs-12">
+                    <label for="usernames" className="control-label">Username*</label>
                     <input
                       type="text"
                       value={this.state.username}
                       onChange={this.handleChange}
-                      className="form-control"
+                      classNameName="form-control"
                       id="username"
                       required
                     />
-                    <h4>
-                      <strong>Password</strong>
-                    </h4>
+                  </div>
+                  <div className="form-group col-sm-6 col-xs-12">
+                    <label for="passwordFirst" className="control-label">Password*</label>
                     <input
                       type="password"
                       value={this.state.password}
                       onChange={this.handleChange}
-                      className="form-control"
+                      classNameName="form-control"
                       id="password"
                       required
                     />
                   </div>
-                  <div>
-                  <input type="submit" value="Create Profile" />
+                </div>
+              </div>
+                <div className="row">
+                  <div className="form-group col-xs-12 mb0">
+                    <button type="submit" className="btn btn-primary">Create Account</button>
                   </div>
-                </form>
-            </div>
-
+                </div>
+            </form>
           </div>
-
         </div>
       </div>
     </div>
+  </div>
+</section>
+</div>
     );
   }
 });

@@ -131,19 +131,48 @@ var Tours = React.createClass({
     var DispResultBtn = this.DispResultBtn;
 
     return (
-    <section id="intro">
-      <div className="container">
-
-        <div className="row">
-
-          <div className="col-lg-12">
-              
-            <h1>Results Treks</h1>
-
+    <div>
+        <div className="container searchAreaGray">
+          <div className="row">
+            <div className="col-xs-12">
+              <div className=""> <h1>Results Treks</h1>
+                <form className="form-inline">
+                  <div className="form-group col-xs-6">
+                    <div className="input-group">
+                      <div className="input-group-addon">City</div>
+                      <select onChange={this.handleChange} className="form-control" id="city">
+                        <option>Select City</option>
+                        <option>NYC</option>
+                        <option>San-Francisco</option>
+                        <option>Boston</option>
+                        <option>Orlando</option>
+                      </select>
+                      <div className="input-group-addon addon-right"><i className="icon-listy icon-target" aria-hidden="true"></i></div>
+                    </div>
+                  </div>
+                  <div className="form-group col-xs-6">
+                    <div className="input-group">
+                      <div className="input-group-addon">Category</div>
+                      <select onChange={this.handleChange} className="form-control" id="category">
+                        <option>Select Category</option>
+                        <option>Bars</option>
+                        <option>Cathedrals</option>
+                        <option>Dinner&Movie</option>
+                        <option>Museums</option>
+                        <option>Music</option>
+                        <option>Parks</option>
+                      </select>
+                      <div className="input-group-addon addon-right"></div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
-              
         </div>
-        {/*End Heading for Tours Display Page*/}
+
+    <div class="clerfix">
+      <div className="container">
 
         {/*Begin Tour list and map display for Tours Display Page*/}
         <div className="row">
@@ -169,8 +198,8 @@ var Tours = React.createClass({
         </div>
 
       </div>
-      </section>
-
+      </div>
+      </div>
     );
   }
 });
