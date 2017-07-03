@@ -4,6 +4,7 @@ var React = require("react");
 // Including the Link component from React Router to navigate within our application without full page reloads
 var Link = require("react-router").Link;
 var Navigation = require("./Navigation");
+var Search = require("./Search");
 // Create the Main component
 var Main = React.createClass({
 
@@ -12,21 +13,9 @@ var Main = React.createClass({
 
     return (
     <div>
-    <div>
         <Navigation/>
 
-    </div>
-    <section id="intro" className="intro">
-      <div className="row">
-        <div className="container">
-
-          {/* Added this.props.children to dump all of the child components into place */}
-          {this.props.children}
-
-        </div>
-      </div>
-
-    </section>
+        {this.props.children}
    </div> 
 
     );

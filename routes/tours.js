@@ -9,13 +9,15 @@ router.post("/create", function(req, res) {
 	var title = req.body.tour_title;
 	var description = req.body.tour_description;
 	var category = req.body.tour_category;
-	var stops = req.body.tours_stops;
+	var stops = req.body.tour_stops;
+  var city = req.body.tour_city;
 
   var newTour = new Tour({
   	tour_title: title,
   	tour_description: description,
   	tour_category: category,
-  	tours_stops: stops,
+  	tour_stops: stops,
+    tour_city: city,
   	active: true
   });
 
@@ -48,18 +50,22 @@ router.post("/create", function(req, res) {
 @RETURN - tour document matching search criteria
 */
 
-router.get("/search", function(req, res){
+router.get("/search/:category/:city", function(req, res){
 
-  var category = req.body.category;
-  var city = req.body.city;
+  var category = req.params.category;
+  var city = req.params.city;
 
-  Tour.find({}, function(error, doc) {
+  console.log('category ' + category);
+  console.log('city ' + city);
+
+  Tour.find( { $or: [ {tour_city: city}, {tour_category: category}] }, function(error, doc) {
     // Send any errors to the browser
     if (error) {
       res.send(error);
     }
     // Or send the doc to the browser
     else {
+      console.log(doc);
       res.send(doc);
       //return doc;
     }
@@ -74,8 +80,8 @@ router.get("/search", function(req, res){
 
 router.get("/stops", function(req, res){
 
-  var tourId = req.body.tourId;
-  //var tourId = "595935e41b1fb90461f7e899";
+  //var tourId = req.body.tourId;
+  var tourId = "595935e41b1fb90461f7e899";
 
   Tour.find({_id : tourId}, function(error, doc) {
     // Send any errors to the browser

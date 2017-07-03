@@ -24,12 +24,12 @@
 
 ## Built with
 
-	[Mongo](https://docs.mongodb.com/manual/)
-	[Express](https://expressjs.com/en/4x/api.html)
-	[React](https://facebook.github.io/react/)
-	[Node](https://nodejs.org/en/docs/)
+* [Mongo](https://docs.mongodb.com/manual/)
+* [Express](https://expressjs.com/en/4x/api.html)
+* [React](https://facebook.github.io/react/)
+* [Node](https://nodejs.org/en/docs/)
 
-	[Webpack](https://webpack.github.io/)
+* [Webpack](https://webpack.github.io/)
 
 ## Continuous Integration & Continuous Deployment
 
@@ -46,10 +46,11 @@
 
 ## Useful resources: 
 
-	[Mongodb error index](https://stackoverflow.com/questions/24430220/e11000-duplicate-key-error-index-in-mongodb-mongoose)
-	[mLab](http://docs.mlab.com/migrating/)
-	[Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#emphasis)
-	[Passport](http://passportjs.org/docs/username-password)
+* [Mongodb error index](https://stackoverflow.com/questions/24430220/*e11000-duplicate-key-error-index-in-mongodb-mongoose)
+* [mLab](http://docs.mlab.com/migrating/)
+* [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#emphasis)
+* [Passport](http://passportjs.org/docs/username-password)
+* [Axios GET Request](https://stackoverflow.com/questions/44888996/request-parameters-showing-as-undefined/44889353#44889353)
 
 ## Authors
 

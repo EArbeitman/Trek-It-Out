@@ -1,0 +1,74 @@
+
+[
+{
+"id": 1,
+"is_logged_in":1,
+"title": "Cozzy Coffee Shop",
+"address": "4700 Hart Country Lane Blue Ridge",
+"price": "false",
+"thumbnail": "img/cars/car-1.jpg",
+"verified": false,
+"latitude": -33.91721,
+"longitude": 151.22630
+}
+,
+{
+"id": 2,
+"is_logged_in":1,
+"title": "Piano Lessons For Beginners",
+"address": "3071 Ash Avenue Saint Louis",
+"price": "$44.90",
+"thumbnail": "img/cars/car-2.jpg",
+"verified": true,
+"latitude": -33.91356,
+"longitude":  151.22912
+}
+,
+{
+"id": 3,
+"is_logged_in":0,
+"title": "Delicious Ocean Restaurant",
+"address": "3827 Sycamore Lake Road Fremont",
+"price": "$99.90",
+"thumbnail": "img/cars/car-3.jpg",
+"verified": false,
+"latitude": -33.91539,
+"longitude": 151.22820
+}
+,
+{
+"id": 4,
+"is_logged_in":0,
+"title": "Healthy Breakfast",
+"address": "1148 Elk Rd Little Tucson",
+"price": "$129.90",
+"thumbnail": "img/cars/car-4.jpg",
+"verified": true,
+"latitude": -33.91747,
+"longitude": 151.22912
+}
+,
+{
+"id": 5,
+"is_logged_in":0,
+"title": "London Trip",
+"address": "1464 Briercliff Road Bronx",
+"price": "$54.00",
+"thumbnail": "img/cars/car-5.jpg",
+"verified": false,
+"latitude": -33.91848,
+"longitude": 151.2291
+}
+,
+{
+"id": 6,
+"is_logged_in":0,
+"title": "Bio Vegatables",
+"address": "4419 Railroad Street Marquette",
+"price": "$77.40",
+"thumbnail": "img/cars/car-6.jpg",
+"verified": false,
+"latitude": -33.91947,
+"longitude": 151.23312
+}
+]
