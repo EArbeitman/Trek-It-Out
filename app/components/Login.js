@@ -89,7 +89,7 @@ var Login = React.createClass({
             </form>
           </div>
           <div className="panel-footer text-center">
-            <p>Not a member yet? <a href="sign-up.html" className="link">Sign up</a></p>
+            <p>Not a member yet? <a href="/#/Register" className="link">Sign up</a></p>
           </div>
         </div>
       </div>
