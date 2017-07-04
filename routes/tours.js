@@ -50,7 +50,7 @@ router.post("/create", function(req, res) {
 @RETURN - tour document matching search criteria
 */
 
-router.get("/search/:category/:city", function(req, res){
+router.get("/tours/:category/:city", function(req, res){
 
   var category = req.params.category;
   var city = req.params.city;

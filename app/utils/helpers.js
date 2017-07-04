@@ -10,10 +10,14 @@ module.exports = {
   loginUser: function(userData){
   	return axios.post("/users/login", userData);
   },
+
+  getUser: function(searchParams){
+  	return axios.get("/users/profile/"+ searchParams.username);
+  },
   
   viewTours: function(searchParams){
 
-  	return axios.get("/tours/search/"+ searchParams.category + "/" +searchParams.city);
+  	return axios.get("/tours/tours/"+ searchParams.category + "/" +searchParams.city);
   },
 
   getStops: function(){

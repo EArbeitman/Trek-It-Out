@@ -1,6 +1,7 @@
 // Include React
 import {browserHistory} from 'react-router';
 var React = require("react");
+var Login = require("./Login")
 
 // Requiring our helper for making API calls
 var helpers = require("../utils/helpers");
@@ -11,7 +12,8 @@ var Login = React.createClass({
   getInitialState: function() {
     return { 
       username: "" ,
-      password: ""
+      password: "",
+       redirect: false
 
     };
   },
@@ -28,16 +30,22 @@ var Login = React.createClass({
   },
 
   handleLogin(event) {
+    console.log("logging in")
+    var username = this.state.username
+    console.log(username + ' is the username inside login')
     //console.log('the total data is :' + this.state.firstname, this.state.lastname, this.state.email, this.state.password);
     helpers.loginUser({ 
-      username: this.state.username,
+      username: username,
       password: this.state.password 
-    }).then(function(response){
+    }).then(function(response, username){
+
+      var user = JSON.parse(response.config.data).username
         console.log("RESULTS", response.data.authenticated);
         var isAuthenticated = response.data.authenticated;
-
+console.log('*'+user+'*')
         if(isAuthenticated){
-          window.location.href = "/#/profile";
+          browserHistory.push('/profile/'+ user)
+          // window.location.href = "/#/profile";
         } else {
           // show error and stay on apge
           alert("failed to authenticate");
@@ -48,7 +56,11 @@ var Login = React.createClass({
 
   // Here we render the component
   render: function() {
+    const { redirect } = this.state;
 
+     if (redirect) {
+       return <Redirect to='/profile'/>;
+     }
     return (
 
 <section className="clearfix loginSection homeBanner">
