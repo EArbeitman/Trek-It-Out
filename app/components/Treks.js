@@ -2,7 +2,116 @@
 var React = require("react");
 
 var Treks = React.createClass({
+ 
+  getInitialState: function(){
+   return {
+      tour_title: "",
+      tour_description: "",
+      tour_category: "",
+      tour_stops: [],
+      address: "",
+      tour_city: "",
+      url: "",
+      stopDesc: ""
+    
+    }
+  },
 
+
+  stopComplete: function(){
+      return (this.state.address !== "" &&
+      this.state.tour_city  !== "")
+  },
+
+  handleClick: function(){
+    console.dir("clicked")
+    // if (this.stopComplete()){
+    //   this.state.tour_stops.push({
+    //         address: this.state.address,
+    //         tour_city:  this.state.tour_city,
+    //         url:  this.state.url,
+    //         stopDesc:  this.state.stopDesc
+    //   })
+    //   console.log()
+    //   this.setState ({
+    //       tour_city: "",
+    //       address: "",
+    //       stopDesc: "",
+    //       url: ""
+    //   })
+    // }
+  },
+
+  handleChange(event) {
+   
+    // if(event.target.id === 'city'){
+    //    this.setState({tour_city: event.target.value});
+    // }
+    //  if(event.target.id === 'listingTitle'){
+    //    this.setState({tour_title: event.target.value});
+    // }
+    //  if(event.target.id === 'address'){
+    //    this.setState({address: event.target.value});
+    // }
+    //  if(event.target.id === 'describeList'){
+    //    this.setState({description: event.target.value});
+    // }
+    // if(event.target.id === 'category'){
+    //    this.setState({tour_category: event.target.value});
+    // }
+    // if(event.target.id === 'describeList'){
+    //    this.setState({stopDesc: event.target.value});
+    // }
+    // if(event.target.id === 'TrekStopURL'){
+    //    this.setState({url: event.target.value});
+    // }
+
+  },
+  completeData: function(){
+     return ( this.state.tour_title !== "" &&
+          this.state.description !== "" &&
+          this.state.tour_category.length >= 0 &&
+          this.state.tour_city !== "" &&
+          this.state.tour_stops.length >=0)
+  },
+  // When a user submits...
+  submitTrek: function(event) {
+    // prevent the HTML from trying to submit a form if the user hits "Enter" instead of
+    // clicking the button
+    console.log("submit tour")
+    event.preventDefault();
+    //  if (this.completeData()){
+    //   console.log('submit')
+    //   var catArr =[]
+    //   catArr.push(this.state.tour_category)
+    //   var trek = {
+    //       tour_title: this.state.tour_title,
+    //       tour_description: this.state.description,
+    //       tour_category: catArr,
+    //       tour_city: this.state.tour_city,
+    //       tour_stops: this.state.tour_stops
+    //       }
+
+    //       console.log("trek to be added ")
+    //       console.dir(trek)
+    //   helpers.newTour(trek).then(function(err, newdoc) {
+    //       console.log("Updated!" + newdoc);
+    //       console.log("error adding " + err )
+    //     });
+    //   this.setState ({
+    //       tour_title: "",
+    //       tour_description: "",
+    //       tour_category: [],
+    //       tour_city: "",
+    //       tour_stops: [],
+    //       address: "",
+    //       stopDesc: "",
+    //       url: ""
+    // })
+
+    // // Set the parent to have the search term
+    //  }
+  },
   // Here we render the component
   render: function() {
 
@@ -12,7 +121,7 @@ var Treks = React.createClass({
   <div className="container">
     <div className="row">
       <div className="col-xs-12">
-        <form action="" method="" className="listing__form">
+        <form  className="listing__form">
           <div className="dashboardPageTitle text-center">
             <h2><strong>Create new Trek</strong></h2>
           </div>
@@ -28,7 +137,7 @@ var Treks = React.createClass({
                 <div className="form-group col-sm-6 col-xs-12">
                   <label for="listingCategory">Category</label>
                   <div className="contactSelect">
-                    <select name="guiest_id9" id="guiest_id9" className="select-drop">
+                    <select  className="select-drop">
                       <option value="0">All Category</option>
                       <option value="1">Restaurant</option>
                       <option value="2">Park</option>
@@ -40,7 +149,7 @@ var Treks = React.createClass({
                   <label for="discribeTheListing">Describe the listing</label>
                   <textarea className="form-control" rows="3" placeholder="Describe the listing"></textarea>
                 </div>
-                <button>Add a Trek Stop</button>
+                <button  type="button" onclick = {this.handleClick} >Add a Trek Stop</button>
               </div>
             </div>
           </div>
@@ -52,7 +161,7 @@ var Treks = React.createClass({
                 <div className="form-group col-sm-6 col-xs-12">
                   <label for="listingRegion">Trek City</label>
                   <div className="contactSelect">
-                    <select name="guiest_id19" id="guiest_id19" className="select-drop">
+                    <select className="select-drop">
                       <option value="0">All Region</option>
                       <option value="1">Boston</option>
                       <option value="2">San Francisco</option>
@@ -88,7 +197,7 @@ var Treks = React.createClass({
 
 
           <div className="form-footer text-center">
-            <button type="submit" className="btn-submit">Submit</button>
+            <button type="button" onclick={submitTrek} className="btn btn-lg">Submit</button>
           </div>
         </form>
       </div>

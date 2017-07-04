@@ -1,5 +1,5 @@
 // Include React
-import {browserHistory} from 'react-router';
+import {hashHistory} from 'react-router';
 var React = require("react");
 var Login = require("./Login")
 
@@ -44,7 +44,10 @@ var Login = React.createClass({
         var isAuthenticated = response.data.authenticated;
 console.log('*'+user+'*')
         if(isAuthenticated){
-          browserHistory.push('/profile/'+ user)
+          document.cookie = "user="+user;
+          var x = document.cookie
+          console.log("cookie " + x)
+          hashHistory.push('/profile/'+ user)
           // window.location.href = "/#/profile";
         } else {
           // show error and stay on apge

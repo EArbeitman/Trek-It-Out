@@ -9,9 +9,10 @@ var Profile = React.createClass({
   // Here we render the component
   componentDidMount: function() {
  
-    var username = this.props.params.user;
-    console.log('+'+username+'+')
-
+    // var username = this.props.params.user;
+    // console.log('+'+username+'+')
+    var username = document.cookie.split('=')[1]
+          console.log("cookie " + username)
     helpers.getUser(
     {
       username: username,

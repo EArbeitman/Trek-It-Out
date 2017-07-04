@@ -22,6 +22,10 @@ module.exports = {
 
   getStops: function(){
   	return axios.get("/tours/stops");
+  },
+
+  newTour: function(trekData){
+  	return axios.post("/tours/treks", trekData);
   }
 
 };
