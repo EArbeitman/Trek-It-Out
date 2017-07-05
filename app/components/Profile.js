@@ -1,10 +1,39 @@
 // Include React
 var React = require("react");
+var helpers = require("../utils/helpers");
 
 var Profile = React.createClass({
-
+   getInitialState: function() {
+    return { userData: {} };
+  },
   // Here we render the component
+  componentDidMount: function() {
+ 
+    // var username = this.props.params.user;
+    // console.log('+'+username+'+')
+    var username = document.cookie.split('=')[1]
+          console.log("cookie " + username)
+    if (username !== undefined && username !== ""){
+      console.log("line 17")
+      helpers.getUser(
+      {
+        username: username,
+   
+      }
+      ).then(function(response){
+          console.log("RESPONSE " + JSON.stringify(response.data));
+
+          console.log("name " + response.data[0].firstname)
+          console.log("RESPONSE LENGTH " + response.data.length);
+          this.setState({userData: response.data[0]}) 
+
+      }.bind(this));
+    }
+
+  },
+
   render: function() {
+
 
     return (
 
@@ -28,25 +57,26 @@ var Profile = React.createClass({
         <form>
           <div className="dashboardBoxBg">
             <div className="profileIntro">
-              <h2>Your Profile</h2>
+              <h2>Your Profile: {this.props.params.user}</h2>
 {/*<!--               <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form Ipsum available.</p> -->*/}
             </div>
           </div>
           <div className="dashboardBoxBg mt30">
             <div className="profileIntro">
               <h3>About You</h3>
-              <div className="row">
+              <div className="row"> 
+              <p> name </p>
                 <div className="form-group col-sm-6 col-xs-12">
                   <label for="firstNameProfile">First Name</label>
-                  <input type="text" className="form-control" id="firstNameProfile" placeholder="Jane"></input>
+                  <p className="form-control" id="firstNameProfile"> {this.state.userData.firstname} </p>
                 </div>
                 <div className="form-group col-sm-6 col-xs-12">
                   <label for="lastNameProfile">Last Name</label>
-                  <input type="text" className="form-control" id="lastNameProfile" placeholder="Doe"></input>
+                  <p className="form-control" id="lastNameProfile">{this.state.userData.lastname}</p> >
                 </div>
                 <div className="form-group col-sm-6 col-xs-12">
                   <label for="emailProfile">Email</label>
-                  <input type="text" className="form-control" id="emailProfile" placeholder="Jane@example.com"></input>
+                  <p  className="form-control" id="emailProfile">{this.state.userData.email}</p>
                 </div>
                 <div className="form-group col-xs-12">
                   <label for="aboutYou">About You</label>

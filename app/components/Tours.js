@@ -41,7 +41,7 @@ var Tours = React.createClass({
     }
     ).then(function(response){
         var tours = response.data.length ? response.data[0].tour_title : 0;
-        console.log("RESPONSE " + response);
+        console.log("RESPONSE " + JSON.stringify(response));
         console.log("RESPONSE LENGTH " + response.data.length);
         console.log("RESULTS ", tours);
         //this.setState({trekList: response});

@@ -38,6 +38,8 @@ module.exports = (
 
       {/* If user selects Info or Chat show the appropriate component */}
       <Route path="login" component={Login} />
+            <Route path="profile/:user" component={Profile} />
+
       <Route path="search" component={Search} />
             <Route path="tours/:category/:city" component ={Tours} />
 
@@ -45,7 +47,7 @@ module.exports = (
       <Route path="treks" component={Treks} />
       <Route path="savedtreks" component={SavedTreks} />
       <Route path="profile" component={Profile} />
-      <Route path="register" component={Register} />
+       <Route path="register" component={Register} />
 
       {/* If user selects any other path... we get the Info Route */}
       <IndexRoute component={Search} />
