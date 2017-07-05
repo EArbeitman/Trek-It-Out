@@ -87,6 +87,25 @@ router.post('/login',
   	res.json({authenticated: true});
 });
 
+router.get("/profile/:user", function(req, res){
+
+  var user = req.params.user;
+
+  User.find({username: user}, function(error, doc) {
+    // Send any errors to the browser
+    if (error) {
+      res.send(error);
+    }
+    // Or send the doc to the browser
+    else {
+      console.log(doc);
+      res.send(doc);
+      //return doc;
+    }
+  });
+
+});
+
 router.get("/", function(req, res) {
   User.find({})
     // ..and on top of that, populate the notes (replace the objectIds in the notes array with bona-fide notes)
