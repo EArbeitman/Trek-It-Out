@@ -2,46 +2,49 @@ var express = require('express');
 var router = express.Router();
 
 var User = require('../models/user');
-var Tour = require('../models/Tour');
+var Tour = require('../models/tour');
 
-router.post("/create", function(req, res) {
 
-	var title = req.body.tour_title;
-	var description = req.body.tour_description;
-	var category = req.body.tour_category;
-	var stops = req.body.tour_stops;
-  var city = req.body.tour_city;
+router.post('/treks', function(req, res) {
+  console.log("***************inside the router in treks")
+  console.log(req.body.tour_title+req.body.tour_category)
+	// var title = req.body.tour_title;
+	// var description = req.body.tour_description;
+	// var category = req.body.tour_category;
+	// var stops = req.body.tour_stops;
+ //  var city = req.body.tour_city;
 
-  var newTour = new Tour({
-  	tour_title: title,
-  	tour_description: description,
-  	tour_category: category,
-  	tour_stops: stops,
-    tour_city: city,
-  	active: true
-  });
+  // var newTour = new Tour({
+  // 	tour_title: title,
+  // 	tour_description: description,
+  // 	tour_category: category,
+  // 	tour_stops: stops,
+  //   tour_city: city,
+  // 	active: true
+  // });
 
-  newTour.save(function(error, doc) {
-    // Send any errors to the browser
-    if (error) {
-      res.send(error);
-    }
-    // Otherwise
-    else {
-    	//res.sendStatus(200);
-      //Find our user and push the new note id into the User's notes array
-      User.findOneAndUpdate({}, { $push: { "tours_created": doc._id }, tours_stops : doc.tours_stops }, { new: true }, function(err, newdoc) {
-        // Send any errors to the browser
-        if (err) {
-          res.send(err);
-        }
-        // Or send the newdoc to the browser
-        else {
-          res.send(newdoc);
-        }
-      });
-    }
-  });
+  // newTour.save(function(error, doc) {
+  //   // Send any errors to the browser
+  //   if (error) {
+  //     res.send(error);
+  //   }
+  //   // Otherwise
+  //   else {
+  //      var username = document.cookie.split('=')[1]
+  //   	//res.sendStatus(200);
+  //     //Find our user and push the new note id into the User's notes array
+  //     User.findOneAndUpdate({username}, { $push: { "tours_created": doc._id }, tours_stops : doc.tours_stops }, { new: true }, function(err, newdoc) {
+  //       // Send any errors to the browser
+  //       if (err) {
+  //         res.send(err);
+  //       }
+  //       // Or send the newdoc to the browser
+  //       else {
+  //         res.send(newdoc);
+  //       }
+  //     });
+  //   }
+  // });
 });
 
 /*

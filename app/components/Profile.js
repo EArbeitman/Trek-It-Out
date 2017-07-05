@@ -13,20 +13,22 @@ var Profile = React.createClass({
     // console.log('+'+username+'+')
     var username = document.cookie.split('=')[1]
           console.log("cookie " + username)
-    helpers.getUser(
-    {
-      username: username,
- 
+    if (username !== undefined && username !== ""){
+      console.log("line 17")
+      helpers.getUser(
+      {
+        username: username,
+   
+      }
+      ).then(function(response){
+          console.log("RESPONSE " + JSON.stringify(response.data));
+
+          console.log("name " + response.data[0].firstname)
+          console.log("RESPONSE LENGTH " + response.data.length);
+          this.setState({userData: response.data[0]}) 
+
+      }.bind(this));
     }
-    ).then(function(response){
-        console.log("RESPONSE " + JSON.stringify(response.data));
-
-        console.log("name " + response.data[0].firstname)
-        console.log("RESPONSE LENGTH " + response.data.length);
-        this.setState({userData: response.data[0]}) 
-
-    }.bind(this));
-  
 
   },
 

@@ -102,10 +102,12 @@ app.use(function (req, res, next){
 var routes = require('./routes/index');
 var users  = require('./routes/users');
 var tours = require('./routes/tours');
+var yelp = require('./routes/yelp')
 
 app.use('/', routes);
 app.use('/users', users);
 app.use('/tours', tours);
+app.use('/yelp', yelp);
 
 //app listening...
 app.listen(PORT,function() {
