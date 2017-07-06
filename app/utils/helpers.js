@@ -24,9 +24,9 @@ module.exports = {
   	return axios.get("/tours/stops");
   },
 
-  newTour: function(){
+  newTour: function(trekParams){
   	console.log("inside new Tour")
-  	return axios.post("/tours/treks");
+  	return axios.post("/tours/treks", trekParams);
   },
 
   getGeo: function(){

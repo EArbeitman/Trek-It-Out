@@ -33,8 +33,8 @@ var Treks = React.createClass({
      event.preventDefault();
  
      var completeStopData = this.stopComplete()
-  if (completeStopData && this.isLoggedIn()){
-      this.state.tour_stops.push({
+      if (completeStopData && this.isLoggedIn()){
+        this.state.tour_stops.push({
             address: this.state.address,
             tour_city:  this.state.tour_city,
             url:  this.state.url,
@@ -67,7 +67,8 @@ var Treks = React.createClass({
        this.setState({address: event.target.value});
     }
      if(event.target.id === 'describeList'){
-       this.setState({description: event.target.value});
+        console.log("describelist is edited " + event);
+       this.setState({tour_description: event.target.value});
     }
     if(event.target.id === 'category'){
        this.setState({tour_category: event.target.value});
@@ -96,27 +97,19 @@ var Treks = React.createClass({
     // clicking the button
 
     event.preventDefault();
-     if (this.isLoggedIn() && this.completeData()){
-          console.log("submit tour")
+    if(this.isLoggedIn() && this.completeData()){
+      console.log("submit tour")
       var catArr =[]
       catArr.push(this.state.tour_category)
-      var trek = {
-          tour_title: this.state.tour_title,
-          tour_description: this.state.description,
-          tour_category: catArr,
-          tour_city: this.state.tour_city,
-          tour_stops: this.state.tour_stops
-          }
 
-          console.log("trek to be added ")
-          console.dir(trek)
       helpers.newTour(
         {
           tour_title: this.state.tour_title,
-          tour_description: this.state.description,
+          tour_description: this.state.tour_description,
           tour_category: catArr,
           tour_city: this.state.tour_city,
-          tour_stops: this.state.tour_stops
+          tour_stops: this.state.tour_stops,
+          username: document.cookie.split('=')[1]
         }
         ).then(function(err, newdoc) {
           console.log("Updated!" + newdoc);
@@ -139,7 +132,7 @@ var Treks = React.createClass({
   },
 
 isLoggedIn: function(){
-  var username = document.cookie.split('=')[1]
+  var username = document.cookie.split('=')[1];
   if (username === undefined || username === ""){
     return false
   }
@@ -217,7 +210,7 @@ isLoggedIn: function(){
                 </div>
                 <div className="form-group col-xs-12">
                   <label for="describeList">Describe the listing</label>
-                  <textarea value={this.state.description}  onChange={this.handleChange} className="form-control" rows="3" placeholder="Describe the listing"></textarea>
+                  <textarea id = "describeList" value={this.state.tour_description}  onChange={this.handleChange} className="form-control" rows="3" placeholder="Describe the listing"></textarea>
                 </div>
               </div>
             </div>
