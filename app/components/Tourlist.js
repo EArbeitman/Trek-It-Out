@@ -9,7 +9,7 @@ var Tourlist = React.createClass({
 
     return (
 
-      <div className="container" style = {{ backgroundColor: '#a3ccff',
+      <div className="container" style = {{ backgroundColor: 'white',
                                             height: "500px",
                                             width: "100%"}}>
 

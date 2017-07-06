@@ -161,7 +161,7 @@ componentDidUpdate: function() {
             <h2>Map for tours</h2>
             <div id="googleMap" 
                  style={{height: "500px",
-                          width: "100%"}} 
+                          width: "50%"}} 
                 >
             </div>
            </div>
