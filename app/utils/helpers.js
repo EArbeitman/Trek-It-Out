@@ -24,13 +24,17 @@ module.exports = {
   	return axios.get("/tours/stops");
   },
 
-  newTour: function(){
-  	console.log("inside new Tour")
-  	return axios.post("/tours/treks");
+  getGeo: function(searchParams){
+  
+  	return axios.get("/yelp/geo/"+searchParams.term+"/"+searchParams.location);
   },
 
-  getGeo: function(){
-  	console.log
-  	return axios.get("/yelp/geo");
+
+  newTour: function(trekParams){
+  	console.log("inside new Tour")
+  	return axios.post("/tours/treks", trekParams);
   },
+
+
+
 };
