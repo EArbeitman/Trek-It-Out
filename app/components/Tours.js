@@ -237,15 +237,12 @@ var Tours = React.createClass({
     return (
     <section className="clearfix homeBanner">
       <div className="container">
-
         <div className="row">
 
           <div className="col-lg-12">
-              
            <DispResultBtn />
-
           </div>
-              
+
         </div>
         {/*End Heading for Tours Display Page*/}
 
