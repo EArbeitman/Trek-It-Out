@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-var User = require('../models/user');
-var Tour = require('../models/tour');
+var User = require('../models/User');
+var Tour = require('../models/Tour');
 
 
 router.post('/treks', function(req, res) {
