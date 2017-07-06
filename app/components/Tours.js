@@ -12,7 +12,6 @@ var AllTourbtn = require("./AllTourbtn");
 var Link = require("react-router").Link;
 
 var helpers = require("../utils/helpers");
-console.log("test");
 
 var Tours = React.createClass({
 
@@ -64,7 +63,6 @@ var Tours = React.createClass({
     // Our main component that effects change is displayIndex 
   componentDidUpdate: function() {
    
-    console.log("COMPONENTDID UPDATE prev:" + this.state.prevDispInd + "current " +  this.state.displayIndex);
     // check to see of displayIndex is different from its previous value
     // This prevents needless rendering and a continous loop
     if (this.state.prevDispInd !== this.state.displayIndex){
@@ -107,14 +105,12 @@ var Tours = React.createClass({
   // NavTour is called within render to conditionally render
   // either a display of individual tours or search results
   NavTour: function(){
-    //console.log(this.state.displayedTour)
     if (this.state.displayIndex >= 0) {
       console.log("indiv tour is being called");
       // render component for individual tour display
       return <Tempcomp />
     } 
       // if nothing was returned, render component to display search results
-    console.log("search result tour is being called");
       // trekList is an array that holds search results
       // handlechange is a function that controls toggling of display between tours
       return <Tourlist name='treks' data={this.state.trekList}
