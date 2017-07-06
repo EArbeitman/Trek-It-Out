@@ -38,7 +38,7 @@ var Search = React.createClass({
           <div className="row">
             <div className="col-xs-12">
               <div className="banerInfo">
-                <h1>Explore. Discover. Share</h1>
+                <h1>Explore. Discover. Share.</h1>
                 <p>Trek it Out helps to find local tours designed by locals</p>
                 <form className="form-inline" action="listing-sidebar-map-left.html" method="">
                   <div className="form-group">
@@ -87,7 +87,9 @@ var Search = React.createClass({
               <a href="#" className="interestContent">
                 <span>
                   <i className="icon-listy icon-tea-cup-1"></i>
+                  <br>
                   Restaurant
+                  </br>
                 </span>
               </a>
             </div>
@@ -95,7 +97,9 @@ var Search = React.createClass({
               <a href="category-list-full.html" className="interestContent">
                 <span>
                   <i className="icon-listy icon-building"></i>
+                  <br>
                   Hotels
+                  </br>
                 </span>
               </a>
             </div>
@@ -103,7 +107,9 @@ var Search = React.createClass({
               <a href="category-grid.html" className="interestContent">
                 <span>
                   <i className="icon-listy icon-martini"></i>
+                  <br>
                   Nightclubs
+                  </br>
                 </span>
               </a>
             </div>
@@ -111,7 +117,9 @@ var Search = React.createClass({
               <a href="category-list-left.html" className="interestContent">
                 <span>
                   <i className="icon-listy icon-car-1"></i>
+                  <br>
                   City sights
+                  </br>
                 </span>
               </a>
             </div>
@@ -119,7 +127,9 @@ var Search = React.createClass({
               <a href="category-grid-right.html" className="interestContent">
                 <span>
                   <i className="icon-listy icon-castle"></i>
+                  <br>
                   Museums
+                  </br>
                 </span>
               </a>
             </div>
@@ -127,7 +137,9 @@ var Search = React.createClass({
               <a href="category-list-right.html" className="interestContent">
                 <span>
                   <i className="icon-listy icon-television"></i>
+                  <br>
                   Movie Theaters
+                  </br>
                 </span>
               </a>
             </div>
@@ -135,7 +147,9 @@ var Search = React.createClass({
               <a href="category-grid-full.html" className="interestContent">
                 <span>
                   <i className="icon-listy icon-mall-1"></i>
+                  <br>
                   Shopping
+                  </br>
                 </span>
               </a>
             </div>
@@ -143,258 +157,11 @@ var Search = React.createClass({
               <a href="all-business.html" className="interestContent">
                 <span>
                   <i className="icon-listy icon-more"></i>
+                  <br>
                   View All
+                  </br>
                 </span>
               </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="clearfix thingsArea">
-        <div className="container">
-          <div className="page-header text-center">
-            <h2>Popular Things Near You <small>This are some of most popular listing</small></h2>
-          </div>
-          <div className="row">
-            <div className="col-xs-12">
-              <div id="thubmnailSlider" className="carousel slide thumbnailCarousel">
-
-                <ol className="carousel-indicators">
-                  <li data-target="#thubmnailSlider" data-slide-to="0" className="active"></li>
-                  <li data-target="#thubmnailSlider" data-slide-to="1"></li>
-                  <li data-target="#thubmnailSlider" data-slide-to="2"></li>
-                  <li data-target="#thubmnailSlider" data-slide-to="3"></li>
-                  <li data-target="#thubmnailSlider" data-slide-to="4"></li>
-                  <li data-target="#thubmnailSlider" data-slide-to="5"></li>
-                  <li data-target="#thubmnailSlider" data-slide-to="6"></li>
-                  <li data-target="#thubmnailSlider" data-slide-to="7"></li>
-                </ol>
-
-                {/*<!-- Carousel items -->*/}
-                <div className="carousel-inner">
-
-                  <div className="item row active">
-                    <div className="col-md-4 col-sm-6 col-xs-12">
-                      <div className="thingsBox">
-                        <div className="thingsImage">
-                          <img src="img/things/things-1.jpg" alt="Image things"></img>
-                          <div className="thingsMask">
-                            <ul className="list-inline rating">
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                            </ul>
-                            <a href="blog-details.html"><h2>The City Theater <i className="fa fa-check-circle" aria-hidden="true"></i></h2></a>
-                            <p>10 Bay Street Toronto Ontario Canada</p>
-                          </div>
-                        </div>
-                        <div className="thingsCaption ">
-                          <ul className="list-inline captionItem">
-                            <li><i className="fa fa-heart-o" aria-hidden="true"></i> 10 k</li>
-                            <li><a href="category-list-left.html">Hotel, Restaurant</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="item row">
-                    <div className="col-md-4 col-sm-6 col-xs-12">
-                      <div className="thingsBox">
-                        <div className="thingsImage">
-                          <img src="img/things/things-2.jpg" alt="Image things"></img>
-                          <div className="thingsMask">
-                            <ul className="list-inline rating">
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                            </ul>
-                            <a href="blog-details.html"><h2>The City Theater</h2></a>
-                            <p>10 Bay Street Toronto Ontario Canada</p>
-                          </div>
-                        </div>
-                        <div className="thingsCaption ">
-                          <ul className="list-inline captionItem">
-                            <li><i className="fa fa-heart-o" aria-hidden="true"></i> 10 k</li>
-                            <li><a href="category-grid-full.html">Hotel, Restaurant</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="item row">
-                    <div className="col-md-4 col-sm-6 col-xs-12">
-                      <div className="thingsBox">
-                        <div className="thingsImage">
-                          <img src="img/things/things-3.jpg" alt="Image things"></img>
-                          <div className="thingsMask">
-                            <ul className="list-inline rating">
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                            </ul>
-                            <a href="blog-details.html"><h2>The City Theater <i className="fa fa-check-circle" aria-hidden="true"></i></h2></a>
-                            <p>10 Bay Street Toronto Ontario Canada</p>
-                          </div>
-                        </div>
-                        <div className="thingsCaption ">
-                          <ul className="list-inline captionItem">
-                            <li><i className="fa fa-heart-o" aria-hidden="true"></i> 10 k</li>
-                            <li><a href="category-grid.html">Hotel, Restaurant</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="item row">
-                    <div className="col-md-4 col-sm-6 col-xs-12">
-                      <div className="thingsBox">
-                        <div className="thingsImage">
-                          <img src="img/things/things-1.jpg" alt="Image things"></img>
-                          <div className="thingsMask">
-                            <ul className="list-inline rating">
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                            </ul>
-                            <a href="blog-details.html"><h2>The City Theater</h2></a>
-                            <p>10 Bay Street Toronto Ontario Canada</p>
-                          </div>
-                        </div>
-                        <div className="thingsCaption ">
-                          <ul className="list-inline captionItem">
-                            <li><i className="fa fa-heart-o" aria-hidden="true"></i> 10 k</li>
-                            <li><a href="category-grid-full.html">Hotel, Restaurant</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="item row">
-                    <div className="col-md-4 col-sm-6 col-xs-12">
-                      <div className="thingsBox">
-                        <div className="thingsImage">
-                          <img src="img/things/things-2.jpg" alt="Image things"></img>
-                          <div className="thingsMask">
-                            <ul className="list-inline rating">
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                            </ul>
-                            <a href="blog-details.html"><h2>The City Theater <i className="fa fa-check-circle" aria-hidden="true"></i></h2></a>
-                            <p>10 Bay Street Toronto Ontario Canada</p>
-                          </div>
-                        </div>
-                        <div className="thingsCaption ">
-                          <ul className="list-inline captionItem">
-                            <li><i className="fa fa-heart-o" aria-hidden="true"></i> 10 k</li>
-                            <li><a href="category-list-right.html">Hotel, Restaurant</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="item row">
-                    <div className="col-md-4 col-sm-6 col-xs-12">
-                      <div className="thingsBox">
-                        <div className="thingsImage">
-                          <img src="img/things/things-3.jpg" alt="Image things"></img>
-                          <div className="thingsMask">
-                            <ul className="list-inline rating">
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                            </ul>
-                            <a href="blog-details.html"><h2>The City Theater</h2></a>
-                            <p>10 Bay Street Toronto Ontario Canada</p>
-                          </div>
-                        </div>
-                        <div className="thingsCaption ">
-                          <ul className="list-inline captionItem">
-                            <li><i className="fa fa-heart-o" aria-hidden="true"></i> 10 k</li>
-                            <li><a href="category-grid-full.html">Hotel, Restaurant</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="item row">
-                    <div className="col-md-4 col-sm-6 col-xs-12">
-                      <div className="thingsBox">
-                        <div className="thingsImage">
-                          <img src="img/things/things-1.jpg" alt="Image things"></img>
-                          <div className="thingsMask">
-                            <ul className="list-inline rating">
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                            </ul>
-                            <a href="blog-details.html"><h2>The City Theater <i className="fa fa-check-circle" aria-hidden="true"></i></h2></a>
-                            <p>10 Bay Street Toronto Ontario Canada</p>
-                          </div>
-                        </div>
-                        <div className="thingsCaption ">
-                          <ul className="list-inline captionItem">
-                            <li><i className="fa fa-heart-o" aria-hidden="true"></i> 10 k</li>
-                            <li><a href="category-grid.html">Hotel, Restaurant</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="item row">
-                    <div className="col-md-4 col-sm-6 col-xs-12">
-                      <div className="thingsBox">
-                        <div className="thingsImage">
-                          <img src="img/things/things-2.jpg" alt="Image things"></img>
-                          <div className="thingsMask">
-                            <ul className="list-inline rating">
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                              <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                            </ul>
-                            <a href="blog-details.html"><h2>The City Theater</h2></a>
-                            <p>10 Bay Street Toronto Ontario Canada</p>
-                          </div>
-                        </div>
-                        <div className="thingsCaption ">
-                          <ul className="list-inline captionItem">
-                            <li><i className="fa fa-heart-o" aria-hidden="true"></i> 10 k</li>
-                            <li><a href="category-list-full.html">Hotel, Restaurant</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-                <a className="left carousel-control" href="#thubmnailSlider" data-slide="prev"><i className="fa fa-angle-left" aria-hidden="true"></i></a>
-                <a className="right carousel-control" href="#thubmnailSlider" data-slide="next"><i className="fa fa-angle-right" aria-hidden="true"></i></a>
-              </div>
             </div>
           </div>
         </div>

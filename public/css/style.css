@@ -2428,6 +2428,7 @@ footer {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover; 
+  background-attachment: fixed;
   background-image: url(../img/banner/banner1.jpg);}
 
 
