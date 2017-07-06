@@ -3,12 +3,15 @@
 var React = require("react");
 
 
-var Tempcomp = React.createClass({
+var DispSelTour = React.createClass({
+    componentDidMount: function() {
+    console.log("*****************DISPLAYEDTOUR  " + JSON.stringify(this.props.data.tour_title))
+  },
    render: function() {
 
     return (
 <div>
-    	<div className="row">
+{/*    	<div className="row">
             <div className="col-sm-5 col-xs-12">
               <div className="categoryImage">
                 <img src="img/things/things-1.jpg" alt="Image category" className="img-responsive img-rounded"></img>
@@ -36,7 +39,7 @@ var Tempcomp = React.createClass({
 
      {/*Display all of the stops in the array tours_stops
       for the trek using map function*/}         
-      {this.props.data.tours_stops.map((places, index) => {
+{/*      {this.props.data.tours_stops.map((places, index) => {
          return (
       	<div className="row">
             <div className="col-sm-5 col-xs-12">
@@ -59,13 +62,13 @@ var Tempcomp = React.createClass({
      {/*This button allows the user to save a tour to the profile
      but will only be displayed if the tour hasn't been saved and 
      if user is signed in (functionality needs to be added*/}
-    <DispSaveBtn/>
+{/*    <DispSaveBtn/>
               
-  </div>
+*/}  </div>
 
     );
   }
 });
 
 // Export the component back for use in other files
-module.exports = Tempcomp;
+module.exports = DispSelTour;

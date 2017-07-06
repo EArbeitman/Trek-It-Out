@@ -3,10 +3,14 @@ var React = require("react");
 var Displaytour = require("./Displaytour");
 
 var Tourlist = React.createClass({
+  
+  componentDidMount: function() {
+      console.log("*****************Tourlist  ")
+      // console.log(JSON.stringify(this.props.data))
+  },
 
   // Here we render the component
   render: function() {
-
     return (
 
       <div className="container" style = {{ backgroundColor: 'white',
@@ -14,7 +18,7 @@ var Tourlist = React.createClass({
                                             width: "100%"}}>
 
         <h2>Tour Listings in tourlist </h2>
-          <ul>{this.props.data.map(function(tour, i){
+       <ul>{this.props.data.map(function(tour, i){
 
               return (
               
@@ -27,7 +31,7 @@ var Tourlist = React.createClass({
 );
               }, this)}
           </ul>
-      </div>
+ */}     </div>
     );
   }
 });
