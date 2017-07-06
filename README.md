@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/EArbeitman/Trek-It-Out.svg?branch=master)](https://travis-ci.org/EArbeitman/Trek-It-Out)
 
-[![Heroku](https://heroku-badge.herokuapp.com/?app=heroku-badge)]
+[![Heroku](https://heroku-badge.herokuapp.com/?app=heroku-badge)](https://trek-it-out.herokuapp.com/)
+
 # Trek->It->Out
 
 	Trek->It->Out is a platform where people can check out personalized tours (Treks)
