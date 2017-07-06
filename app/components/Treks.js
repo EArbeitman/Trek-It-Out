@@ -15,7 +15,9 @@ var Treks = React.createClass({
       tour_city: "",
       url: "",
       stopDesc: "",
-      stopName: ""    
+      stopName: "",
+      lng: 0,
+      lat: 0    
     }
   },
 
@@ -34,20 +36,37 @@ var Treks = React.createClass({
  
      var completeStopData = this.stopComplete()
   if (completeStopData && this.isLoggedIn()){
-      this.state.tour_stops.push({
-            address: this.state.address,
-            tour_city:  this.state.tour_city,
-            url:  this.state.url,
+        // var self = this;
+        helpers.getGeo( { term:this.state.stopName,
+                          location:  this.state.tour_city}).then(function(response){
+        this.state.tour_stops.push({
+            stopName: response.data.name,
+            lng: response.data.coordinates.longitude,
+            lat: response.data.coordinates.latitude,
+            address: response.data.location.address1,
+            stop_city:  response.data.location.city,
+            url:  response.data.image_url,
             stopDesc:  this.state.stopDesc
       })
 
-      this.setState ({
-          address: "",
-          stopDesc: "",
-          url: "",
-          stopName: ""
+      if (this.state.tour_stops.length === 1) {
+         this.setState ({
+              tour_city:this.state.tour_city
+        })
+      }
+      console.log("this stop is ");
+      console.log(this.state.tour_stops[this.state.tour_stops.length-1])
+        this.setState ({
+            stopName:"",
+            address: "",
+            stopDesc: "",
+            url: "",
+            stopDesc: ""
 
       })
+
+
+      }.bind(this));//promise ends here
     }
   
  
@@ -105,7 +124,9 @@ var Treks = React.createClass({
           tour_description: this.state.description,
           tour_category: catArr,
           tour_city: this.state.tour_city,
-          tour_stops: this.state.tour_stops
+          tour_stops: this.state.tour_stops,
+          tour_lng: this.state.lng,
+          tour_lat: this.state.lat
           }
 
           console.log("trek to be added ")
@@ -131,7 +152,9 @@ var Treks = React.createClass({
           address: "",
           stopDesc: "",
           url: "",
-          stopName: ""
+          stopName: "",
+          lng: "",
+          lat: ""
     })
 
     // Set the parent to have the search term
@@ -145,32 +168,14 @@ isLoggedIn: function(){
   }
   return true
 },
-  componentDidMount: function() {
- 
-    helpers.getGeo(
-    // {
-    //   category: category,
-    //   city: city
-    // }
-    ).then(function(response){
-        var temp = response.data.length ? response.data[0].tour_title : 0;
-        console.log("RESPONSE " + JSON.stringify(response));
-        console.log("RESPONSE LENGTH " + response.data.length);
-        console.log("RESULTS ", temp);
-        //this.setState({trekList: response});
-    })
 
-  },
   checkloggin: function(){
-    
     if (!this.isLoggedIn()){
 
       return <LoginRequired />
     } 
     
     return null
-
-
   },
 
 
@@ -186,7 +191,7 @@ isLoggedIn: function(){
         <form  className="listing__form">
           <div className="dashboardPageTitle text-center">
                 <Checkloggin/>
-            <h2><strong>Create new Trek </strong></h2>
+            <h2><strong>Create new Trek</strong></h2>
           </div>
           <div className="dashboardBoxBg mb30">
             <div className="profileIntro paraMargin">

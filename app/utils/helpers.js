@@ -29,8 +29,9 @@ module.exports = {
   	return axios.post("/tours/treks");
   },
 
-  getGeo: function(){
-  	console.log
-  	return axios.get("/yelp/geo");
+  getGeo: function(searchParams){
+  
+  	return axios.get("/yelp/geo/"+searchParams.term+"/"+searchParams.location);
+
   },
 };
