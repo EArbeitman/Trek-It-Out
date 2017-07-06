@@ -11,7 +11,7 @@ var Profile = React.createClass({
  
     // var username = this.props.params.user;
     // console.log('+'+username+'+')
-    console.log(document.cookie)
+   
     var username = document.cookie.split('=')[1]
           console.log("cookie " + username)
     if (username !== undefined && username !== ""){

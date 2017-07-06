@@ -15,9 +15,7 @@ var Treks = React.createClass({
       tour_city: "",
       url: "",
       stopDesc: "",
-      stopName: "",
-      lng: 0,
-      lat: 0    
+      stopName: ""    
     }
   },
 
@@ -35,6 +33,7 @@ var Treks = React.createClass({
      event.preventDefault();
  
      var completeStopData = this.stopComplete()
+
   if (completeStopData && this.isLoggedIn()){
         // var self = this;
         helpers.getGeo( { term:this.state.stopName,
@@ -86,7 +85,7 @@ var Treks = React.createClass({
        this.setState({address: event.target.value});
     }
      if(event.target.id === 'describeList'){
-       this.setState({description: event.target.value});
+       this.setState({tour_description: event.target.value});
     }
     if(event.target.id === 'category'){
        this.setState({tour_category: event.target.value});
@@ -115,29 +114,19 @@ var Treks = React.createClass({
     // clicking the button
 
     event.preventDefault();
-     if (this.isLoggedIn() && this.completeData()){
-          console.log("submit tour")
+    if(this.isLoggedIn() && this.completeData()){
+      console.log("submit tour")
       var catArr =[]
       catArr.push(this.state.tour_category)
-      var trek = {
-          tour_title: this.state.tour_title,
-          tour_description: this.state.description,
-          tour_category: catArr,
-          tour_city: this.state.tour_city,
-          tour_stops: this.state.tour_stops,
-          tour_lng: this.state.lng,
-          tour_lat: this.state.lat
-          }
 
-          console.log("trek to be added ")
-          console.dir(trek)
       helpers.newTour(
         {
           tour_title: this.state.tour_title,
-          tour_description: this.state.description,
+          tour_description: this.state.tour_description,
           tour_category: catArr,
           tour_city: this.state.tour_city,
-          tour_stops: this.state.tour_stops
+          tour_stops: this.state.tour_stops,
+          username: document.cookie.split('=')[1]
         }
         ).then(function(err, newdoc) {
           console.log("Updated!" + newdoc);
@@ -152,9 +141,7 @@ var Treks = React.createClass({
           address: "",
           stopDesc: "",
           url: "",
-          stopName: "",
-          lng: "",
-          lat: ""
+          stopName: ""
     })
 
     // Set the parent to have the search term
@@ -162,14 +149,32 @@ var Treks = React.createClass({
   },
 
 isLoggedIn: function(){
-  var username = document.cookie.split('=')[1]
+  var username = document.cookie.split('=')[1];
+
   if (username === undefined || username === ""){
     return false
   }
   return true
 },
 
+  componentDidMount: function() {
+ 
+    helpers.getGeo(
+    // {
+    //   category: category,
+    //   city: city
+    // }
+    ).then(function(response){
+        var temp = response.data.length ? response.data[0].tour_title : 0;
+        console.log("RESPONSE " + JSON.stringify(response));
+        console.log("RESPONSE LENGTH " + response.data.length);
+        console.log("RESULTS ", temp);
+        //this.setState({trekList: response});
+    })
+
+  },
   checkloggin: function(){
+    
     if (!this.isLoggedIn()){
 
       return <LoginRequired />
@@ -192,6 +197,7 @@ isLoggedIn: function(){
           <div className="dashboardPageTitle text-center">
                 <Checkloggin/>
             <h2><strong>Create new Trek</strong></h2>
+
           </div>
           <div className="dashboardBoxBg mb30">
             <div className="profileIntro paraMargin">
@@ -222,7 +228,8 @@ isLoggedIn: function(){
                 </div>
                 <div className="form-group col-xs-12">
                   <label for="describeList">Describe the listing</label>
-                  <textarea value={this.state.description}  onChange={this.handleChange} className="form-control" rows="3" placeholder="Describe the listing"></textarea>
+                  <textarea id = "describeList" value={this.state.tour_description}  onChange={this.handleChange} className="form-control" rows="3" placeholder="Describe the listing"></textarea>
+
                 </div>
               </div>
             </div>
