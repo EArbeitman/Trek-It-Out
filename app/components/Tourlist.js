@@ -9,36 +9,25 @@ var Tourlist = React.createClass({
 
     return (
 
-        <div className="listContent">
-          <div className="row">
-            <div className="col-sm-5 col-xs-12">
-              <div className="categoryImage">
-                <img src="img/things/things-1.jpg" alt="Image category" className="img-responsive img-rounded"></img>
-                <span className="label label-primary">Verified</span>
-              </div>
-            </div>
-            <div className="col-sm-7 col-xs-12">
-              <div className="categoryDetails">
-                <ul className="list-inline rating">
-                  <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                  <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                  <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                  <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                  <li><i className="fa fa-star" aria-hidden="true"></i></li>
-                </ul>
-                <h2><a href="blog-details.html">Sunny Side Heights Cathedral, Mexican and Jazz</a> <span className="likeCount"><i className="fa fa-heart-o" aria-hidden="true"></i> 5 k</span></h2>
-                <p>Sunny Side Heights <span className="placeName">New York, NY</span></p>
-                <p>This Trek will take you through three of my favorite spots in Sunny Side Heights (Upper West Side) Start with a visit to the North West part of Central Park. Followed by a Stop at The Cathedral Church of St. John the Divine. Mexican Lunch at Taqueria Y Fonda for some amazing Burritos. Finally finish of at Smoke and Jazz Supper Club.</p>
-                <ul className="list-inline list-tag">
-                  <li><a href="category-list-full.html">Parks,</a></li>
-                  <li><a href="category-list-full.html">Restaurant,</a></li>
-                  <li><a href="category-list-full.html">Cathedrals,</a></li>
-                  <li><a href="category-list-full.html">Music Venue</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="container" style = {{ backgroundColor: '#a3ccff',
+                                            height: "500px",
+                                            width: "100%"}}>
+
+        <h2>Tour Listings in tourlist </h2>
+          <ul>{this.props.data.map(function(tour, i){
+
+              return (
+              
+                <Displaytour key={i} data={tour}
+                      handleChange = {this.props.handleChange}
+                      saveTrek = {this.props.saveTrek}
+                      trekSaved = {this.props.trekSaved}
+                      item = {i}
+              />
+);
+              }, this)}
+          </ul>
+      </div>
     );
   }
 });
