@@ -59,30 +59,32 @@ var Displaytour = React.createClass({
   <div>
     {/*Display name of tour as a button which allows user
     to display details about the stop*/}
-    <div className = "row">
-     {/*When the button is clicked, access handleChange function
-        above which then calls handlechange in tours.js*/}
-      <button className="btn"  
-        onClick={this.handleChange}><h3>{this.props.data.tour_title}  </h3>
-      </button>
-    </div>
+    <div className="row">
+            <div className="col-sm-5 col-xs-12">
+              <div className="categoryImage">
+                <img src="img/things/things-1.jpg" alt="Image category" className="img-responsive img-rounded" onClick={this.handleChange}></img>
+                <span className="label label-primary">Verified</span>
+              </div>
+            </div>
+            <div className="col-sm-7 col-xs-12">
+              <div className="categoryDetails">
+                <ul className="list-inline rating">
+                  <li><i className="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i className="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i className="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i className="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i className="fa fa-star" aria-hidden="true"></i></li>
+                </ul>
+                <h2 onClick={this.handleChange}>{this.props.data.tour_title}<span className="likeCount"><i className="fa fa-heart-o" aria-hidden="true"></i> 5 k</span></h2>
+                <p><span className="placeName">{this.props.data.city}</span></p>
+                <p>{this.props.data.tour_description}</p>
+                <ul className="list-inline list-tag">
+                  <li><a href="category-list-full.html">{this.props.data.category}</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-    {/*display a description of the trek*/}
-    <div className = "row">     
-      {this.props.data.tour_description} 
-    </div>            
-     {/*Display all of the stops in the array tours_stops
-      for the trek using map function*/}         
-      <ul>
-         {this.props.data.tours_stops.map((places, index) => {
-         return (
-                  <li key={index}>
-                      <span>{places.location_name}</span>
-                   </li>
-                );
-            })
-         }
-      </ul>
      {/*This button allows the user to save a tour to the profile
      but will only be displayed if the tour hasn't been saved and 
      if user is signed in (functionality needs to be added*/}
