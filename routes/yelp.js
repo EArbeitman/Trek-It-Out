@@ -9,16 +9,20 @@ const token = 'a5ejY6P8K9Tr7ddpbuCXeJIsTn4S_NUKA7OPg1L3sm7Tjlx_CIM9gXf2muy93Gd0v
 
 const client = yelp.client(token);
 
-
-router.get('/geo', function(req, res) { 
+ // /yelp/geo?term=Four+Barrel+Coffee&location=san+francisco,+ca
+router.get('/geo/:term/:location', function(req, res) { 
+  console.log(  "******term " + req.params.term +
+  "location" + req.body.location)
 client.search({
-  term:'Four Barrel Coffee',
-  location: 'san francisco, ca'
+  term:req.params.term,
+  location: req.params.location
 }).then(response => {
-  console.log(response.jsonBody.businesses[0]
-    );
-   res.send(response.jsonBody.businesses[0]
-    );
+  var resp = response.jsonBody.businesses[0];
+  // console.log(JSON.parse(resp));
+  // console.log("**RESPONSE**" + resp);
+  // console.log("**RESPONSESTRINGIFY**" + JSON.stringify(resp));
+
+   res.send(resp);
 }).catch(e => {
   console.log(e);
 });

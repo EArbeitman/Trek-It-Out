@@ -33,21 +33,39 @@ var Treks = React.createClass({
      event.preventDefault();
  
      var completeStopData = this.stopComplete()
-      if (completeStopData && this.isLoggedIn()){
+
+  if (completeStopData && this.isLoggedIn()){
+        // var self = this;
+        helpers.getGeo( { term:this.state.stopName,
+                          location:  this.state.tour_city}).then(function(response){
         this.state.tour_stops.push({
-            address: this.state.address,
-            tour_city:  this.state.tour_city,
-            url:  this.state.url,
+            stopName: response.data.name,
+            lng: response.data.coordinates.longitude,
+            lat: response.data.coordinates.latitude,
+            address: response.data.location.address1,
+            stop_city:  response.data.location.city,
+            url:  response.data.image_url,
             stopDesc:  this.state.stopDesc
       })
 
-      this.setState ({
-          address: "",
-          stopDesc: "",
-          url: "",
-          stopName: ""
+      if (this.state.tour_stops.length === 1) {
+         this.setState ({
+              tour_city:this.state.tour_city
+        })
+      }
+      console.log("this stop is ");
+      console.log(this.state.tour_stops[this.state.tour_stops.length-1])
+        this.setState ({
+            stopName:"",
+            address: "",
+            stopDesc: "",
+            url: "",
+            stopDesc: ""
 
       })
+
+
+      }.bind(this));//promise ends here
     }
   
  
@@ -67,7 +85,6 @@ var Treks = React.createClass({
        this.setState({address: event.target.value});
     }
      if(event.target.id === 'describeList'){
-        console.log("describelist is edited " + event);
        this.setState({tour_description: event.target.value});
     }
     if(event.target.id === 'category'){
@@ -133,11 +150,13 @@ var Treks = React.createClass({
 
 isLoggedIn: function(){
   var username = document.cookie.split('=')[1];
+
   if (username === undefined || username === ""){
     return false
   }
   return true
 },
+
   componentDidMount: function() {
  
     helpers.getGeo(
@@ -162,8 +181,6 @@ isLoggedIn: function(){
     } 
     
     return null
-
-
   },
 
 
@@ -179,7 +196,8 @@ isLoggedIn: function(){
         <form  className="listing__form">
           <div className="dashboardPageTitle text-center">
                 <Checkloggin/>
-            <h2><strong>Create new Trek </strong></h2>
+            <h2><strong>Create new Trek</strong></h2>
+
           </div>
           <div className="dashboardBoxBg mb30">
             <div className="profileIntro paraMargin">
@@ -211,6 +229,7 @@ isLoggedIn: function(){
                 <div className="form-group col-xs-12">
                   <label for="describeList">Describe the listing</label>
                   <textarea id = "describeList" value={this.state.tour_description}  onChange={this.handleChange} className="form-control" rows="3" placeholder="Describe the listing"></textarea>
+
                 </div>
               </div>
             </div>
