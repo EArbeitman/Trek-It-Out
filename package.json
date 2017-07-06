@@ -29,15 +29,13 @@
     "passport": "^0.3.2",
     "passport-http": "^0.3.0",
     "passport-local": "^1.0.0",
-    "react": "^0.14.3",
-    "react-bootstrap": "^0.31.0",
-    "react-dom": "^0.14.3",
     "react": "^0.14.9",
     "react-bootstrap": "^0.31.0",
     "react-dom": "^0.14.9",
     "react-router": "^2.4.1",
     "react-transition-group": "^1.2.0",
-    "reactstrap": "^4.6.2"
+    "reactstrap": "^4.6.2",
+    "yelp-fusion": "^1.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
