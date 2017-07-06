@@ -15,7 +15,7 @@ var AllTourbtn = React.createClass({
     return (
       <div>
             <button className="btn btn-default"  
-                  onClick={this.handleChange}>Show Search Results
+                  onClick={this.handleChange}>Return to Search Results
              </button>
       </div>
            

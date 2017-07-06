@@ -36,16 +36,26 @@ var Tempcomp = React.createClass({
 
      {/*Display all of the stops in the array tours_stops
       for the trek using map function*/}         
-      <ul>
-         {this.props.data.tours_stops.map((places, index) => {
+      {this.props.data.tours_stops.map((places, index) => {
          return (
-                  <li key={index}>
-                      <span>{places.location_name}</span>
-                   </li>
+      	<div className="row">
+            <div className="col-sm-5 col-xs-12">
+              <div className="categoryImage">
+                <img src="img/things/things-1.jpg" alt="Image category" className="img-responsive img-rounded"></img>
+                <span className="label label-primary">Verified</span>
+              </div>
+            </div>
+            <div className="col-sm-7 col-xs-12">
+              <div className="categoryDetails" key={index}>
+                <h2 onClick={this.handleChange}>{places.location_name}</h2>
+                <p><span className="placeName">{places.city}</span></p>
+                <p>{places.tour_description}</p>
+              </div>
+            </div>
+        </div>
                 );
             })
          }
-      </ul>
      {/*This button allows the user to save a tour to the profile
      but will only be displayed if the tour hasn't been saved and 
      if user is signed in (functionality needs to be added*/}

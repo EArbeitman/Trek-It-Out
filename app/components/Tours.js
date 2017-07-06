@@ -242,7 +242,7 @@ var Tours = React.createClass({
 
           <div className="col-lg-12">
               
-            <h1>Results Tours</h1>
+           <DispResultBtn />
 
           </div>
               
@@ -257,7 +257,7 @@ var Tours = React.createClass({
                           allow user to display search results & only
                           renders when user is looking at individual tours
                       A button is also rendered to return to a new search */}
-            <DispResultBtn />   <Link to="/search"><button className="btn btn-default">New Search</button></Link>
+          
 
           {/*NavTour maps to function above to conditionally render
             either search results or individual tour components*/}
