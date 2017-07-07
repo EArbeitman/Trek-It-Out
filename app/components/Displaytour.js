@@ -4,6 +4,13 @@ var SaveTrekBtn = require("./SaveTrekBtn")
 
 var Displaytour = React.createClass({
 
+  componentDidMount: function() {
+      console.log("*****************DISPLAYtour  " + this.props.data.tour_title)
+      console.log("%%%%%%%%%%%%%%%%%%%%%" + this.props.data)
+      // console.log(JSON.stringify(this.props.data))
+  },
+
+
   getInitialState: function(){
 
       return{
@@ -82,8 +89,8 @@ var Displaytour = React.createClass({
                   <li><a href="category-list-full.html">{this.props.data.category}</a></li>
                 </ul>
               </div>
-            </div>
-          </div>
+             </div>
+         </div>
 
      {/*This button allows the user to save a tour to the profile
      but will only be displayed if the tour hasn't been saved and 
