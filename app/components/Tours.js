@@ -5,7 +5,7 @@ var Tourlist = require("./Tourlist");
 // Tourmap is the component that renders google maps
 var Tourmap = require("./Tourmap");
 // placeholder for component to display individual tours
-var Tempcomp = require("./Tempcomp");
+var DispSelTour = require("./DispSelTour");
 // AllTourbtn is a button to toggle to displaying all search results
 var AllTourbtn = require("./AllTourbtn");
 // Link is required to route back to new search page
@@ -29,47 +29,7 @@ var Tours = React.createClass({
       // without this comparison, a continuous loop would occur
       prevDispInd: -1,
       // trekList will hold the search results data
-      trekList: [
-        {tour_title: 'trek1', tour_description: 'This is trek1', 
-          tour_category: ['biking', 'bar hopping'], 
-          tours_stops: [{location_name:'place1', longitude:5.734863, latitude:58.983991}, 
-                        {location_name:'place2', longitude:4.888916, latitude:52.395715},
-                        {location_name:'place3', longitude:-0.120850, latitude:51.508742},
-                        {location_name:'place4', longitude:-0.120850, latitude:49.508742}
-                        ]
-        },
-           
-        {tour_title: 'trek2', tour_description: 'This is trek2', 
-          tour_category: ['treking', 'amusement park'], 
-          tours_stops: [{location_name:'place1', longitude:5.734863, latitude:57.983991}, 
-                        {location_name:'place2', longitude:4.888916, latitude:51.395715},
-                        {location_name:'place3', longitude:-0.120850, latitude:50.508742}
-                        ]
-        }
-        ],
-
-        // displayedTour will house the individ tour data to be displayed
-        // when a tour is selected by the user
-
-        // displayedTour: [
-        // {tour_title: 'trek1', tour_description: 'This is trek1', 
-        //   tour_category: ['biking', 'bar hopping'], 
-        //   tours_stops: [{location_name:'place1', longitude:5.734863, latitude:58.983991}, 
-        //                 {location_name:'place2', longitude:4.888916, latitude:52.395715},
-        //                 {location_name:'place3', longitude:-0.120850, latitude:51.508742},
-        //                 {location_name:'place4', longitude:-0.120850, latitude:49.508742}
-        //                 ]
-        // },
-        // {tour_title: 'trek2', tour_description: 'This is trek2', 
-        //   tour_category: ['treking', 'amusement park'], 
-        //   tours_stops: [{location_name:'place1', longitude:5.734863, latitude:57.983991}, 
-        //                 {location_name:'place2', longitude:4.888916, latitude:51.395715},
-        //                 {location_name:'place3', longitude:-0.120850, latitude:50.508742}
-        //                 ]
-        // }
-        // ]
-
-      // trekList: [],
+      trekList: [],
       displayedTour: [],
       trekSaved: false,
         
@@ -124,20 +84,23 @@ var Tours = React.createClass({
     console.log(this.props.params.city);
 
     helpers.viewTours(
-    // {
-    //   category: this.props.params.category,
-    //   city: this.props.params.city
-    // }
-    ).then(function(response){
-        var tours = response.data.length ? response.data[0].tour_title : 0;
-        console.log("RESPONSE " + response);
-        console.log("RESPONSE LENGTH " + response.data.length);
-        console.log("RESULTS ", tours);
-        //this.setState({trekList: response,
-                         // displayedTour: response});
-    })
+    {
+      category: this.props.params.category,
+      city: this.props.params.city
+    }
+        ).then(function(response){
+            var tours = response.data.length ? response.data[0].tour_title : 0;
+            console.log("RESPONSE " + JSON.stringify(response.data));
+            console.log("RESPONSE LENGTH " + response.data.length);
+          
+            this.setState({
+              trekList: response.data,
+              displayIndex: -1
+            })
 
-},
+        }.bind(this));
+  },
+
    // This function is used by children/grandchild of Tours
    // It handles the toggle of components between individual 
    // tours and all search results
@@ -167,17 +130,18 @@ var Tours = React.createClass({
         // if index is not -1, set var for individ tour display
           this.setState ({
             // displayedTour will hold the tour selected by user
-            displayedTour: this.state.trekList[this.state.displayIndex],
+            // displayedTour: this.state.trekList[this.state.displayIndex],
             tourPath: [this.state.pathArray[this.state.displayIndex]],
-             prevDispInd: this.state.displayIndex,
+            prevDispInd: this.state.displayIndex,
            
               });
 
       } else
       {
+        console.log("*****************TREKLIST  " + JSON.stringify(this.state.trekList))
           this.setState ({
             // displayedTour will hold the tour selected by user
-            displayedTour: this.state.trekList,
+            // displayedTour: this.state.trekList,
             tourPath: this.state.pathArray,
             prevDispInd: this.state.displayIndex,
             
@@ -197,7 +161,7 @@ var Tours = React.createClass({
    
    // if all search results are not being displayed (displayIndex is not -1)
     if (this.state.displayIndex >= 0) {
-       // render Alltourbtn which is a button that will displays all results
+       // render Alltourbtn which is a button that will displays all results when clicked
       return <AllTourbtn  handleChange = {this.handleChange}/> 
     }
     // if the button will not be rendered, null is returned
@@ -209,7 +173,10 @@ var Tours = React.createClass({
   NavTour: function(){
     if (this.state.displayIndex >= 0) {
       // render component for individual tour display
-      return <Tempcomp />
+      return <DispSelTour displayedTour = { this.state.trekList[this.state.displayIndex]}
+                handleChange = {this.handleChange}
+                saveTrek = {this.saveTrek}
+                trekSaved = {this.state.trekSaved}/>
     } 
       // if nothing was returned, render component to display search results
       // trekList is an array that holds search results
@@ -230,36 +197,35 @@ var Tours = React.createClass({
     var NavTour = this.NavTour;
     var DispResultBtn = this.DispResultBtn;
     
-    return (
-    <section className="clearfix homeBanner">
+  return (
+ 
+     <section className="clearfix homeBanner">
       <div className="container">
         <div className="row">
 
           <div className="col-lg-12">
-           <DispResultBtn />
+          {/*Buttons: DispResultBtn maps to function above to allow user to display search results & only
+              renders when user is looking at individual tours.  A button is also rendered to return to a new search */}
+             <DispResultBtn />
           </div>
 
         </div>
         {/*End Heading for Tours Display Page*/}
 
         {/*Begin Tour list and map display for Tours Display Page*/}
-        <div className="row">
+       <div className="row">
           <div className="col-lg-5">
 
-          {/*Buttons: DispResultBtn maps to function above to 
-                          allow user to display search results & only
-                          renders when user is looking at individual tours
-                      A button is also rendered to return to a new search */}
           
 
           {/*NavTour maps to function above to conditionally render
             either search results or individual tour components*/}
-            <NavTour />
+          <NavTour />
            
           </div>
-          <div className="col-lg-7">
+         <div className="col-lg-7">
             {/*render the googles map here*/}
-            <Tourmap 
+{/*            <Tourmap 
               trekList = {this.state.displayedTour}
               centerLat = {this.state.centerLat}
               centerLng = {this.state.centerLng}
@@ -267,11 +233,12 @@ var Tours = React.createClass({
               tourPath = {this.state.tourPath}
               pathArray = {this.state.pathArray}
             />
-          </div>
+ */}         </div>
         </div>
 
       </div>
       </section>
+
 
     );
   }
