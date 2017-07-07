@@ -4,7 +4,6 @@ var router = express.Router();
 var User = require('../models/User');
 var Tour = require('../models/Tour');
 
-
 router.post('/treks', function(req, res) {
   console.log("***************inside the router in treks")
   //console.log(req.body.tour_titlereq.body.tour_category)
@@ -14,14 +13,6 @@ router.post('/treks', function(req, res) {
 	var stops = req.body.tour_stops;
   var city = req.body.tour_city;
   var username = req.body.username;
-
-  // console.log(title);
-  // console.log(description);
-  // console.log(category);
-  // console.log(stops);
-  // console.log(city);
-  console.log(username);
-
 
   var newTour = new Tour({
   	tour_title: title,
@@ -44,6 +35,7 @@ router.post('/treks', function(req, res) {
        //var username = document.cookie.split('=')[1];
        console.log("username " + username);
     	//res.sendStatus(200);
+      
       //Find our user and push the new note id into the User's notes array
       User.findOneAndUpdate({username: username}, { $push: { "tours_created": doc._id }, tours_stops : doc.tours_stops }, { new: true }, function(err, newdoc) {
         // Send any errors to the browser

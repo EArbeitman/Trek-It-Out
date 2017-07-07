@@ -36,9 +36,12 @@ var Treks = React.createClass({
 
   if (completeStopData && this.isLoggedIn()){
         // var self = this;
-        helpers.getGeo( { term:this.state.stopName,
-                          location:  this.state.tour_city}).then(function(response){
-        this.state.tour_stops.push({
+        helpers.getGeo( 
+          { 
+            term:      this.state.stopName,
+            location:  this.state.tour_city
+          }).then(function(response){
+            this.state.tour_stops.push({
             stopName: response.data.name,
             lng: response.data.coordinates.longitude,
             lat: response.data.coordinates.latitude,
