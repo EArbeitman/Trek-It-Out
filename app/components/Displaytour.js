@@ -6,6 +6,7 @@ var Displaytour = React.createClass({
 
   componentDidMount: function() {
       console.log("*****************DISPLAYtour  " + this.props.data.tour_title)
+      console.log("%%%%%%%%%%%%%%%%%%%%%" + this.props.data)
       // console.log(JSON.stringify(this.props.data))
   },
 

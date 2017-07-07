@@ -24,37 +24,13 @@ var Tours = React.createClass({
       // displayIndex reflects what tours are being displayed on component
       // if its -1 - search results are being displayed
       // any other number represents the index of the tour in search results array
-      displayIndex: 1,
+      displayIndex: -1,
       // prevDispInd holds the previous iteration of diplayIndex
       // it is used for comparison to determine if pages should be rendered.
       // without this comparison, a continuous loop would occur
-      prevDispInd: 1,
+      prevDispInd: -1,
       // trekList will hold the search results data
-      // trekList: [],
-
-
-        // displayedTour will house the individ tour data to be displayed
-        // when a tour is selected by the user
-
-        // displayedTour: [
-        // {tour_title: 'trek1', tour_description: 'This is trek1', 
-        //   tour_category: ['biking', 'bar hopping'], 
-        //   tours_stops: [{location_name:'place1', longitude:5.734863, latitude:58.983991}, 
-        //                 {location_name:'place2', longitude:4.888916, latitude:52.395715},
-        //                 {location_name:'place3', longitude:-0.120850, latitude:51.508742},
-        //                 {location_name:'place4', longitude:-0.120850, latitude:49.508742}
-        //                 ]
-        // },
-        // {tour_title: 'trek2', tour_description: 'This is trek2', 
-        //   tour_category: ['treking', 'amusement park'], 
-        //   tours_stops: [{location_name:'place1', longitude:5.734863, latitude:57.983991}, 
-        //                 {location_name:'place2', longitude:4.888916, latitude:51.395715},
-        //                 {location_name:'place3', longitude:-0.120850, latitude:50.508742}
-        //                 ]
-        // }
-        // ]
-
-      // trekList: [],
+      trekList: [],
       displayedTour: [],
       trekSaved: false,
         
@@ -117,10 +93,7 @@ var Tours = React.createClass({
             var tours = response.data.length ? response.data[0].tour_title : 0;
             console.log("RESPONSE " + JSON.stringify(response.data));
             console.log("RESPONSE LENGTH " + response.data.length);
-                   console.log("RESPONSE " + response);
-      
-        console.log("RESULTS ", tours);
-     
+          
             this.setState({
               trekList: response.data,
               displayIndex: -1
@@ -159,7 +132,7 @@ var Tours = React.createClass({
         // if index is not -1, set var for individ tour display
           this.setState ({
             // displayedTour will hold the tour selected by user
-            displayedTour: this.state.trekList[this.state.displayIndex],
+            // displayedTour: this.state.trekList[this.state.displayIndex],
             tourPath: [this.state.pathArray[this.state.displayIndex]],
             prevDispInd: this.state.displayIndex,
            
@@ -170,7 +143,7 @@ var Tours = React.createClass({
         console.log("*****************TREKLIST  " + JSON.stringify(this.state.trekList))
           this.setState ({
             // displayedTour will hold the tour selected by user
-            displayedTour: this.state.trekList,
+            // displayedTour: this.state.trekList,
             tourPath: this.state.pathArray,
             prevDispInd: this.state.displayIndex,
             
@@ -204,7 +177,7 @@ var Tours = React.createClass({
     //console.log(this.state.displayedTour)
     if (this.state.displayIndex >= 0) {
       // render component for individual tour display
-      return <DispSelTour name='treks' data={this.state.displayedTour}
+      return <DispSelTour displayedTour = { this.state.trekList[this.state.displayIndex]}
                 handleChange = {this.handleChange}
                 saveTrek = {this.saveTrek}
                 trekSaved = {this.state.trekSaved}/>
@@ -254,7 +227,7 @@ var Tours = React.createClass({
           <NavTour />
            
           </div>
-  {/*          <div className="col-lg-7">
+         <div className="col-lg-7">
             {/*render the googles map here*/}
 {/*            <Tourmap 
               trekList = {this.state.displayedTour}
@@ -264,8 +237,8 @@ var Tours = React.createClass({
               tourPath = {this.state.tourPath}
               pathArray = {this.state.pathArray}
             />
-          </div>
-*/}        </div>
+ */}         </div>
+        </div>
 
       </div>
       </section>
