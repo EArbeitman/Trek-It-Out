@@ -9,8 +9,8 @@ var StopDetail = React.createClass({
       console.log("STOPDETAIL")
     return (
 
-      <div className="container" style = {{ backgroundColor: '#a3ccff',
-                                            height: "500px",
+      <div className="container" style = {{ backgroundColor: 'white',
+                                            height: "auto",
                                             width: "100%"}}>
 
   
