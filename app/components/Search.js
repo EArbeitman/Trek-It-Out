@@ -38,7 +38,7 @@ var Search = React.createClass({
           <div className="row">
             <div className="col-xs-12">
               <div className="banerInfo">
-                <h1>Explore. Discover. Share.</h1>
+                <h1 className="animated slideInRight">Explore. Discover. Share.</h1>
                 <p>Trek it Out helps to find local tours designed by locals</p>
                 <form className="form-inline" action="listing-sidebar-map-left.html" method="">
                   <div className="form-group">
@@ -69,7 +69,7 @@ var Search = React.createClass({
                       <div className="input-group-addon addon-right"></div>
                     </div>
                   </div>
-                  <Link to={"tours"+"/" + this.state.category + "/" + this.state.city} ><button type="submit" className="btn btn-primary">Search <i className="fa fa-search" aria-hidden="true"></i></button></Link>
+                  <Link to={"tours"+"/" + this.state.category + "/" + this.state.city} ><button type="submit" className="btn btn-primary hvr-grow-shadow">Search <i className="fa fa-search" aria-hidden="true"></i></button></Link>
                 </form>
               </div>
             </div>
@@ -104,7 +104,7 @@ var Search = React.createClass({
               </a>
             </div>
             <div className="col-sm-3 col-xs-12">
-              <a href="category-grid.html" className="interestContent">
+              <a href="#" className="interestContent">
                 <span>
                   <i className="icon-listy icon-martini"></i>
                   <br>
@@ -114,7 +114,7 @@ var Search = React.createClass({
               </a>
             </div>
             <div className="col-sm-3 col-xs-12">
-              <a href="category-list-left.html" className="interestContent">
+              <a href="#" className="interestContent">
                 <span>
                   <i className="icon-listy icon-car-1"></i>
                   <br>
@@ -124,7 +124,7 @@ var Search = React.createClass({
               </a>
             </div>
             <div className="col-sm-3 col-xs-12">
-              <a href="category-grid-right.html" className="interestContent">
+              <a href="#" className="interestContent">
                 <span>
                   <i className="icon-listy icon-castle"></i>
                   <br>
@@ -134,7 +134,7 @@ var Search = React.createClass({
               </a>
             </div>
             <div className="col-sm-3 col-xs-12">
-              <a href="category-list-right.html" className="interestContent">
+              <a href="#" className="interestContent">
                 <span>
                   <i className="icon-listy icon-television"></i>
                   <br>
@@ -144,7 +144,7 @@ var Search = React.createClass({
               </a>
             </div>
             <div className="col-sm-3 col-xs-12">
-              <a href="category-grid-full.html" className="interestContent">
+              <a href="#" className="interestContent">
                 <span>
                   <i className="icon-listy icon-mall-1"></i>
                   <br>
@@ -154,7 +154,7 @@ var Search = React.createClass({
               </a>
             </div>
             <div className="col-sm-3 col-xs-12">
-              <a href="all-business.html" className="interestContent">
+              <a href="#" className="interestContent">
                 <span>
                   <i className="icon-listy icon-more"></i>
                   <br>

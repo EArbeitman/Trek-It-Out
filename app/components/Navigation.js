@@ -30,7 +30,7 @@ var Navigation = React.createClass({
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-              <a className="navbar-brand" href="index.html"><img src="img/logo-blue.png" alt="logo"></img></a>
+              <a className="navbar-brand hvr-grow-shadow" href="index.html"><img src="img/logo-blue.png" alt="logo"></img></a>
             </div>
 
             {/*<!-- Collect the nav links, forms, and other content for toggling -->*/}
@@ -47,7 +47,7 @@ var Navigation = React.createClass({
                 </li>
               </ul>
             </div>
-            <button type="button" className="btn btn-default navbar-btn"><Link to="Login"> + <span>Loginpp</span> </Link></button>
+            <button type="button" className="btn btn-default navbar-btn"><Link to="Login"> + <span>Login</span> </Link></button>
           </div>
         </nav>
       </div>
