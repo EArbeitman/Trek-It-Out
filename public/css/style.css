@@ -2421,6 +2421,7 @@ footer {
   .footerWhite .copyRightWrapper {
     border-top-color: #e5e5e5; }
 
+
 /*================= 5.1 BANNER SECTION ==================*/
 .homeBanner {
   min-height: 624px;
@@ -2429,8 +2430,8 @@ footer {
   background-position: center center;
   background-size: cover; 
   background-attachment: fixed;
-  background-image: url(../img/banner/banner1.jpg);}
-
+  background-image: url(../img/banner/banner1.jpg);
+}
 
 .banerInfo {
   width: 100%;

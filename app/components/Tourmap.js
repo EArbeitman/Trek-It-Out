@@ -158,10 +158,9 @@ componentDidUpdate: function() {
         <div className="row">
  
           <div className="col-lg-12 headerText">
-            <h2>Map for tours</h2>
             <div id="googleMap" 
                  style={{height: "500px",
-                          width: "100%"}} 
+                          width: "50%"}} 
                 >
             </div>
            </div>
