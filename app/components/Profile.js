@@ -66,14 +66,13 @@ var Profile = React.createClass({
             <div className="profileIntro">
               <h3>About You</h3>
               <div className="row"> 
-              <p> name </p>
                 <div className="form-group col-sm-6 col-xs-12">
                   <label for="firstNameProfile">First Name</label>
                   <p className="form-control" id="firstNameProfile"> {this.state.userData.firstname} </p>
                 </div>
                 <div className="form-group col-sm-6 col-xs-12">
                   <label for="lastNameProfile">Last Name</label>
-                  <p className="form-control" id="lastNameProfile">{this.state.userData.lastname}</p> >
+                  <p className="form-control" id="lastNameProfile">{this.state.userData.lastname}</p> 
                 </div>
                 <div className="form-group col-sm-6 col-xs-12">
                   <label for="emailProfile">Email</label>

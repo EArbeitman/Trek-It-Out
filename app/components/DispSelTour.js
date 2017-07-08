@@ -14,17 +14,16 @@ var DispSelTour = React.createClass({
    render: function() {
 
     return (
+      
 <div>
     	<div className="row">
-            <div className="col-sm-5 col-xs-12">
-              <h2>Trek Details </h2>
-              <div className="categoryImage">
-              <img src={this.props.displayedTour.tour_stops[0].url} alt="Image category" className="img-responsive img-rounded"></img>
-                <span className="label label-primary">Verified</span>
-              </div>
+            <div className="col-sm-12 col-xs-12">
+              <h2 className="trek-details">Trek Details </h2>
             </div>
-            <div className="col-sm-7 col-xs-12">
-              <div className="categoryDetails">
+            </div>
+            <div class="row">
+            <div className="col-sm-12 col-xs-12">
+              <div className="categoryDetails trek-details">
                 <ul className="list-inline rating">
                   <li><i className="fa fa-star" aria-hidden="true"></i></li>
                   <li><i className="fa fa-star" aria-hidden="true"></i></li>
@@ -38,28 +37,22 @@ var DispSelTour = React.createClass({
                 <ul className="list-inline list-tag">
                   <li><a href="category-list-full.html">{this.props.displayedTour.category}</a></li>
                 </ul>
-              </div>
-            </div>
-          </div>
-
-     {/*Display all of the stops in the array tours_stops
+                {/*Display all of the stops in the array tours_stops
       for the trek using map function*/}         
       {this.props.displayedTour.tour_stops.map((places, index) => {
         
-      	   return (
+           return (
               
                 <StopDetail key={index} data={places}
             
                   />
                  );
         }, this)}
-      
-     {/*This button allows the user to save a tour to the profile
-     but will only be displayed if the tour hasn't been saved and 
-     if user is signed in (functionality needs to be added*/}
-{/*    <DispSaveBtn/>
-              
-*/}  </div>
+              </div>
+            </div>
+          </div>
+          </div>
+       
 
     );
   }

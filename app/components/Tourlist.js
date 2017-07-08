@@ -17,11 +17,11 @@ var Tourlist = React.createClass({
   render: function() {
     return (
 
-      <div className="container" style = {{ backgroundColor: 'white',
-                                            height: "500px",
+      <div className="container-fluid" style = {{ backgroundColor: 'white',
+                                            height: "auto",
                                             width: "100%"}}>
 
-        <h2>Tour Listings in tourlist </h2>
+        <h2 className="tour-list">Treks Results </h2>
            <ul>{this.props.data.map(function(tour, i){
 
               return (

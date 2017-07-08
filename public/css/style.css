@@ -808,7 +808,7 @@ textarea.form-control {
   text-align: center; }
 
 .loginForm .form-control {
-  padding: 6px 12px 6px 44px; }
+  padding: 6px 12px 6px 5px; }
 
 .loginForm .btn-block {
   width: 100%; }
@@ -2429,8 +2429,9 @@ footer {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover; 
+  background-attachment: fixed;
   background-image: url(../img/banner/banner1.jpg);
-  background-attachment: fixed;}
+}
 
 .banerInfo {
   width: 100%;
@@ -5771,5 +5772,80 @@ body.rtl .main-slider {
 
 .brandSection {
   direction: ltr; }
+
+  /* tours component */
+  .tour-list h2 {
+  letter-spacing: 1px;
+  font-size: 20px;
+  color: #ffffff;
+  text-transform: uppercase; 
+  text-align-last: center;
+}
+
+/* Grow Shadow */
+.hvr-grow-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+/* Icon Drop */
+@-webkit-keyframes hvr-icon-drop {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  51%,
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes hvr-icon-drop {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  51%,
+  100% {
+    opacity: 1;
+  }
+}
+/* Icon Drop */
+.hvr-icon-drop {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  padding-right: 2.2em;
+}
+
+.trek-details {
+  background-color: white;
+  margin-top: 50px;
+  text-align: center;
+}
+
+
+  }
 
 /*# sourceMappingURL=maps/style.css.map */

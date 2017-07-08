@@ -82,7 +82,8 @@ var Displaytour = React.createClass({
                   <li><i className="fa fa-star" aria-hidden="true"></i></li>
                   <li><i className="fa fa-star" aria-hidden="true"></i></li>
                 </ul>
-                <h2 onClick={this.handleChange}>{this.props.data.tour_title}<span className="likeCount"><i className="fa fa-heart-o" aria-hidden="true"></i> 5 k</span></h2>
+                <h2 className="hvr-grow-shadow hvr-icon-drop btn btn-primary" onClick={this.handleChange}>&nbsp;&nbsp;{this.props.data.tour_title}
+                 <span>   </span></h2>
                 <p><span className="placeName">{this.props.data.city}</span></p>
                 <p>{this.props.data.tour_description}</p>
                 <ul className="list-inline list-tag">

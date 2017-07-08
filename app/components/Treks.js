@@ -271,12 +271,7 @@ isLoggedIn: function(){
 
                 <div className="form-group col-sm-6 col-sm-pull-6 col-xs-12">
                   <label for="stopName">Trek Stop Name: </label>
-                  <input type="text"  value = {this.state.stopName} onChange={this.handleChange} className="form-control" id="stopName" placeholder="Statue of Liberty"></input>
-                </div>
-
-               <div className="form-group col-sm-6 col-sm-pull-6 col-xs-12">
-                  <label for="stopURL">Trek Stop image URL</label>
-                  <input type="text"  value = {this.state.url} onChange={this.handleChange} className="form-control" id="stopURL" placeholder="http://"></input>
+                  <input type="text"  value = {this.state.stopName} onChange={this.handleChange} className="form-control" id="stopName" placeholder="Name of attraction"></input>
                 </div>
                 <div className="form-group col-sm-6 col-sm-pull-6 col-xs-12">
                   <label for="describeStop">Describe why you chose this spot</label>
@@ -284,14 +279,14 @@ isLoggedIn: function(){
                             id ="describeStop" placeholder="Tell us why you are passionate about this place"></textarea>
                 </div>
               </div>
-                <button  type="button" onClick = {this.handleClick} >Add stop to your trek</button>
+                <button type="button" className="btn btn-secondary hvr-grow" onClick = {this.handleClick}>   Add stop to your trek</button>
 
             </div>
           </div>
 
 
           <div className="form-footer text-center">
-            <button type="button" onClick={this.submitTrek} className="btn btn-submit">Submit Tour</button>
+            <button type="button" onClick={this.submitTrek} className="btn btn-submit hvr-grow">Submit Tour</button>
           </div>
         </form>
       </div>

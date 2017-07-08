@@ -186,8 +186,7 @@ var Tours = React.createClass({
                 saveTrek = {this.saveTrek}
                 trekSaved = {this.state.trekSaved}
                  />
-                
-                
+                          
   }, 
 
                
@@ -200,10 +199,9 @@ var Tours = React.createClass({
   return (
  
      <section className="clearfix homeBanner">
-      <div className="container">
-        <div className="row">
-
-          <div className="col-lg-12">
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12">
           {/*Buttons: DispResultBtn maps to function above to allow user to display search results & only
               renders when user is looking at individual tours.  A button is also rendered to return to a new search */}
              <DispResultBtn />
@@ -214,7 +212,7 @@ var Tours = React.createClass({
 
         {/*Begin Tour list and map display for Tours Display Page*/}
        <div className="row">
-          <div className="col-lg-5">
+          <div className="col-lg-12">
 
           
 
@@ -235,7 +233,6 @@ var Tours = React.createClass({
             />
  */}         </div>
         </div>
-
       </div>
       </section>
 
