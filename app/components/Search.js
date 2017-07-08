@@ -75,138 +75,10 @@ var Search = React.createClass({
             </div>
           </div>
         </div>
+
       </section>
 
-      <section className="clearfix interestArea">
-        <div className="container">
-          <div className="page-header text-center">
-            <h2>What are You Interested in? <small>Explore and connect with great local businesses</small></h2>
-          </div>
-          <div className="row">
-            <div className="col-sm-3 col-xs-12">
-              <a href="#" className="interestContent">
-                <span>
-                  <i className="icon-listy icon-tea-cup-1"></i>
-                  <br>
-                  Restaurant
-                  </br>
-                </span>
-              </a>
-            </div>
-            <div className="col-sm-3 col-xs-12">
-              <a href="category-list-full.html" className="interestContent">
-                <span>
-                  <i className="icon-listy icon-building"></i>
-                  <br>
-                  Hotels
-                  </br>
-                </span>
-              </a>
-            </div>
-            <div className="col-sm-3 col-xs-12">
-              <a href="#" className="interestContent">
-                <span>
-                  <i className="icon-listy icon-martini"></i>
-                  <br>
-                  Nightclubs
-                  </br>
-                </span>
-              </a>
-            </div>
-            <div className="col-sm-3 col-xs-12">
-              <a href="#" className="interestContent">
-                <span>
-                  <i className="icon-listy icon-car-1"></i>
-                  <br>
-                  City sights
-                  </br>
-                </span>
-              </a>
-            </div>
-            <div className="col-sm-3 col-xs-12">
-              <a href="#" className="interestContent">
-                <span>
-                  <i className="icon-listy icon-castle"></i>
-                  <br>
-                  Museums
-                  </br>
-                </span>
-              </a>
-            </div>
-            <div className="col-sm-3 col-xs-12">
-              <a href="#" className="interestContent">
-                <span>
-                  <i className="icon-listy icon-television"></i>
-                  <br>
-                  Movie Theaters
-                  </br>
-                </span>
-              </a>
-            </div>
-            <div className="col-sm-3 col-xs-12">
-              <a href="#" className="interestContent">
-                <span>
-                  <i className="icon-listy icon-mall-1"></i>
-                  <br>
-                  Shopping
-                  </br>
-                </span>
-              </a>
-            </div>
-            <div className="col-sm-3 col-xs-12">
-              <a href="#" className="interestContent">
-                <span>
-                  <i className="icon-listy icon-more"></i>
-                  <br>
-                  View All
-                  </br>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="clearfix countUpSection">
-        <div className="container">
-          <div className="page-header text-center">
-            <h2>Why Trek it Out?</h2>
-          </div>
-          <div className="row">
-            <div className="col-sm-3 col-xs-12">
-              <div className="text-center countItem">
-                <div className="counter">140</div>
-                <div className="counterInfo bg-color-1">Treks</div>
-              </div>
-            </div>
-            <div className="col-sm-3 col-xs-12">
-              <div className="text-center countItem">
-                <div className="counter">120</div>
-                <div className="counterInfo bg-color-2">Tour Guides</div>
-              </div>
-            </div>
-            <div className="col-sm-3 col-xs-12">
-              <div className="text-center countItem">
-                <div className="counter">180</div>
-                <div className="counterInfo bg-color-3">Cities</div>
-              </div>
-            </div>
-            <div className="col-sm-3 col-xs-12">
-              <div className="text-center countItem">
-                <div className="counter">220</div>
-                <div className="counterInfo bg-color-4">Reviews</div>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-xs-12">
-              <div className="btnArea text-center">
-                <a href="#" className="btn btn-primary">Search for Treks</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       <section className="clearfix callAction">
         <div className="container">
@@ -218,7 +90,7 @@ var Search = React.createClass({
             </div>
             <div className="col-md-2 col-sm-3 col-xs-12">
               <div className="btnArea">
-                <a href="sign-up.html" className="btn btn-primary btn-block">Get Started</a>
+                <Link to="/register" className="btn btn-primary btn-block">Get Started</Link>
               </div>
             </div>
           </div>

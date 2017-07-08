@@ -11,8 +11,8 @@ var Navigation = React.createClass({
   render: function() {
 
     return (
-    
-<header className="header">
+     
+      <header className="header">
 
       {/*<!-- TOP INFO BAR -->*/}
 
@@ -21,7 +21,6 @@ var Navigation = React.createClass({
         {/*<!-- NAVBAR -->*/}
         <nav id="menuBar" className="navbar navbar-default lightHeader" role="navigation">
           <div className="container">
-
             {/*<!-- Brand and toggle get grouped for better mobile display -->*/}
             <div className="navbar-header">
               <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -32,7 +31,6 @@ var Navigation = React.createClass({
               </button>
               <a className="navbar-brand hvr-grow-shadow" href="index.html"><img src="img/logo-blue.png" alt="logo"></img></a>
             </div>
-
             {/*<!-- Collect the nav links, forms, and other content for toggling -->*/}
             <div className="collapse navbar-collapse navbar-ex1-collapse">
               <ul className="nav navbar-nav navbar-right">
@@ -51,7 +49,8 @@ var Navigation = React.createClass({
           </div>
         </nav>
       </div>
-    </header>
+  </header>
+   
 
    
     );
