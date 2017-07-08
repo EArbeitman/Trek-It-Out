@@ -13,10 +13,12 @@ var AllTourbtn = React.createClass({
   render: function() {
 
     return (
+      <div className="categoryDetails">
       <div>
-            <button className="btn btn-default"  
-                  onClick={this.handleChange}>Return to Search Results
+            <button className="btn btn-primary hvr-grow"  
+                  onClick={this.handleChange}> &nbsp; &nbsp;Return to Search Results&nbsp;&nbsp;
              </button>
+      </div>
       </div>
            
     );

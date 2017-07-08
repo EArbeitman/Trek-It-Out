@@ -102,7 +102,7 @@ console.log("+++++++++ MAP " + this.props.index)
 
         <div className="row">
 
-          <div className="col-lg-12">
+          <div className="col-lg-5">
             <h2>Map for tours</h2>
             <div id="googleMap" 
                  style={{height: "500px",

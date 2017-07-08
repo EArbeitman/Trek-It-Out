@@ -5839,6 +5839,13 @@ body.rtl .main-slider {
   padding-right: 2.2em;
 }
 
+.trek-details {
+  background-color: white;
+  margin-top: 50px;
+  text-align: center;
+}
+
+
   }
 
 /*# sourceMappingURL=maps/style.css.map */
